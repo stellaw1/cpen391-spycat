@@ -7,7 +7,7 @@
 ###### Hardware:
 
 - [ ] WIFI driver
-
+- [ ] Linux setup on DE1-SoC
 - [ ] GPIO camera driver
 - [ ] Touch Screen AR1100 driver
 - [ ] 3.5mm Speaker
