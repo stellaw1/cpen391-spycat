@@ -17,6 +17,7 @@
 
 - [ ] Authentication system by login and register using user id from database
 - [ ] Show feedback and pet on screen
+- [ ] Motion Detection
 - [ ] Send score to back-end
 - [ ] Friends list management panel: Add/delete by searching user ID
 - [ ] Real time chat function between friends
