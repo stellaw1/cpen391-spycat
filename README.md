@@ -30,6 +30,7 @@
   - [ ] MongoDB Setup
   - [ ] Django Setup
 - [ ] Front-end
+  - [x] Weather fetch using openweathermap api
   - [ ] Front-end website run on Django framework that shows a real time leaderboard of SPYCAT users with the most friendship points
 - [ ] Back-end
   - [ ] Chat content saving
