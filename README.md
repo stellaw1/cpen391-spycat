@@ -31,6 +31,7 @@
   - [ ] Django Setup
 - [ ] Front-end
   - [x] Weather fetch using openweathermap api
+  - [x] Determine pet mood and background using fetched weather data
   - [ ] Front-end website run on Django framework that shows a real time leaderboard of SPYCAT users with the most friendship points
 - [ ] Back-end
   - [ ] Chat content saving

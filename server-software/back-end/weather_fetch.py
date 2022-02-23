@@ -7,14 +7,13 @@
 import pyowm
 from pyowm import OWM
 
-owm = OWM('9e12875a014e100a631a56a3b16f74c9') #openweathermap api key
-mgr = owm.weather_manager()
-bool = 1
-# Change unit celsius/kelvin
-unit = "celsius"
-# Search for current weather in given region
-while True:
-    city_name = input("Enter city name : ")
+# Search weather accoring to the given city name
+def weather_fetch(city_name):
+    # openweathermap api key
+    owm = OWM('9e12875a014e100a631a56a3b16f74c9')
+    mgr = owm.weather_manager()
+    # Change unit celsius/kelvin
+    unit = "celsius"
     while True:
         try:
             observation = mgr.weather_at_place(city_name)
@@ -27,15 +26,42 @@ while True:
             w.rain                    # {}
             w.heat_index              # None
             w.clouds                  # #
-
-            print("description = " +
-                                str(w.detailed_status) +
-                "\nTemperature (in " + unit + " unit) = " +
-                                str(w.temperature(unit)['temp']) +
-                "\nHumidity = " +
-                                str(w.humidity)
-                )
+            w.weather_icon_name       # 10d
+            return 1, w.detailed_status, w.temperature(unit)['temp'], w.weather_icon_name
             break
         except pyowm.commons.exceptions.NotFoundError:
-            print("Oops! Invalid City Name. Try again...")
-            break    
+            return 0, 0, 0, 0
+            break
+
+# Determine mood of pet and background
+def weather_background_mood (city_name):
+    bool, weather, temp, icon = weather_fetch(city_name)
+    if bool == 0:
+        return -1, -1
+    else:
+        background = icon
+        mood_opt = {
+            # Day time
+            "01d" : "happy",
+            "02d" : "happy",
+            "03d" : "happy",
+            "04d" : "mid",
+            "09d" : "mid",
+            "10d" : "mid",
+            "11d" : "sad",
+            "13d" : "happy",
+            "50d" : "mid",
+
+            # Night time
+            "01n": "happy",
+            "02n": "happy",
+            "03n": "happy",
+            "04n": "mid",
+            "09n": "mid",
+            "10n": "mid",
+            "11n": "sad",
+            "13n": "happy",
+            "50n": "mid"
+        }
+        mood = mood_opt[icon]
+        return background, mood
