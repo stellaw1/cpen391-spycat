@@ -28,17 +28,15 @@
 
 - [x] Linux server environment setup
   - [ ] MongoDB Setup
-  - [ ] Django Setup
+  - [x] Django Setup
 - [ ] Front-end
-  - [x] Weather fetch using openweathermap api
-  - [x] Determine pet mood and background using fetched weather data
-  - [ ] Front-end website run on Django framework that shows a real time leaderboard of SPYCAT users with the most friendship points
+  - [x] Front-end website run on Django framework that shows a real time leaderboard of SPYCAT users with the most friendship points
 - [ ] Back-end
   - [ ] Chat content saving
   - [ ] Friends lists network saving
   - [ ] user data (user id, pet colour, and accumulated friendship points) saving
-  - [ ] Fetch real time weather using API
-    - [ ] Using weather data to decide appropriate ambient background colour and pet mood
+  - [x] Fetch real time weather using API
+  - [x] Using weather data to decide appropriate ambient background colour and pet mood
 
 ###### Network:
 
