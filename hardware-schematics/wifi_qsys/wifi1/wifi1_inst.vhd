@@ -25,7 +25,11 @@
 			hps_io_hps_io_uart0_inst_RX           : in    std_logic                     := 'X';             -- hps_io_uart0_inst_RX
 			hps_io_hps_io_uart0_inst_TX           : out   std_logic;                                        -- hps_io_uart0_inst_TX
 			hps_io_hps_io_uart0_inst_CTS          : in    std_logic                     := 'X';             -- hps_io_uart0_inst_CTS
-			hps_io_hps_io_uart0_inst_RTS          : out   std_logic                                         -- hps_io_uart0_inst_RTS
+			hps_io_hps_io_uart0_inst_RTS          : out   std_logic;                                        -- hps_io_uart0_inst_RTS
+			hps_0_h2f_mpu_events_eventi           : in    std_logic                     := 'X';             -- eventi
+			hps_0_h2f_mpu_events_evento           : out   std_logic;                                        -- evento
+			hps_0_h2f_mpu_events_standbywfe       : out   std_logic_vector(1 downto 0);                     -- standbywfe
+			hps_0_h2f_mpu_events_standbywfi       : out   std_logic_vector(1 downto 0)                      -- standbywfi
 		);
 	end component wifi1;
 
@@ -56,6 +60,10 @@
 			hps_io_hps_io_uart0_inst_RX           => CONNECTED_TO_hps_io_hps_io_uart0_inst_RX,           --                          hps_io.hps_io_uart0_inst_RX
 			hps_io_hps_io_uart0_inst_TX           => CONNECTED_TO_hps_io_hps_io_uart0_inst_TX,           --                                .hps_io_uart0_inst_TX
 			hps_io_hps_io_uart0_inst_CTS          => CONNECTED_TO_hps_io_hps_io_uart0_inst_CTS,          --                                .hps_io_uart0_inst_CTS
-			hps_io_hps_io_uart0_inst_RTS          => CONNECTED_TO_hps_io_hps_io_uart0_inst_RTS           --                                .hps_io_uart0_inst_RTS
+			hps_io_hps_io_uart0_inst_RTS          => CONNECTED_TO_hps_io_hps_io_uart0_inst_RTS,          --                                .hps_io_uart0_inst_RTS
+			hps_0_h2f_mpu_events_eventi           => CONNECTED_TO_hps_0_h2f_mpu_events_eventi,           --            hps_0_h2f_mpu_events.eventi
+			hps_0_h2f_mpu_events_evento           => CONNECTED_TO_hps_0_h2f_mpu_events_evento,           --                                .evento
+			hps_0_h2f_mpu_events_standbywfe       => CONNECTED_TO_hps_0_h2f_mpu_events_standbywfe,       --                                .standbywfe
+			hps_0_h2f_mpu_events_standbywfi       => CONNECTED_TO_hps_0_h2f_mpu_events_standbywfi        --                                .standbywfi
 		);
 
