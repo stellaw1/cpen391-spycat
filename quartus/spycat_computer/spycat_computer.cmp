@@ -1,0 +1,34 @@
+	component spycat_computer is
+		port (
+			hps_io_hps_io_uart0_inst_RX : in    std_logic                     := 'X';             -- hps_io_uart0_inst_RX
+			hps_io_hps_io_uart0_inst_TX : out   std_logic;                                        -- hps_io_uart0_inst_TX
+			io_acknowledge              : in    std_logic                     := 'X';             -- acknowledge
+			io_irq                      : in    std_logic                     := 'X';             -- irq
+			io_address                  : out   std_logic_vector(15 downto 0);                    -- address
+			io_bus_enable               : out   std_logic;                                        -- bus_enable
+			io_byte_enable              : out   std_logic_vector(1 downto 0);                     -- byte_enable
+			io_rw                       : out   std_logic;                                        -- rw
+			io_write_data               : out   std_logic_vector(15 downto 0);                    -- write_data
+			io_read_data                : in    std_logic_vector(15 downto 0) := (others => 'X'); -- read_data
+			memory_mem_a                : out   std_logic_vector(12 downto 0);                    -- mem_a
+			memory_mem_ba               : out   std_logic_vector(2 downto 0);                     -- mem_ba
+			memory_mem_ck               : out   std_logic;                                        -- mem_ck
+			memory_mem_ck_n             : out   std_logic;                                        -- mem_ck_n
+			memory_mem_cke              : out   std_logic;                                        -- mem_cke
+			memory_mem_cs_n             : out   std_logic;                                        -- mem_cs_n
+			memory_mem_ras_n            : out   std_logic;                                        -- mem_ras_n
+			memory_mem_cas_n            : out   std_logic;                                        -- mem_cas_n
+			memory_mem_we_n             : out   std_logic;                                        -- mem_we_n
+			memory_mem_reset_n          : out   std_logic;                                        -- mem_reset_n
+			memory_mem_dq               : inout std_logic_vector(7 downto 0)  := (others => 'X'); -- mem_dq
+			memory_mem_dqs              : inout std_logic                     := 'X';             -- mem_dqs
+			memory_mem_dqs_n            : inout std_logic                     := 'X';             -- mem_dqs_n
+			memory_mem_odt              : out   std_logic;                                        -- mem_odt
+			memory_mem_dm               : out   std_logic;                                        -- mem_dm
+			memory_oct_rzqin            : in    std_logic                     := 'X';             -- oct_rzqin
+			sdram_clk_clk               : out   std_logic;                                        -- clk
+			system_pll_ref_clk_clk      : in    std_logic                     := 'X';             -- clk
+			system_pll_ref_reset_reset  : in    std_logic                     := 'X'              -- reset
+		);
+	end component spycat_computer;
+
