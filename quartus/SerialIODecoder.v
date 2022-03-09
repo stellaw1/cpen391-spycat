@@ -5,8 +5,6 @@ module SerialIODecoder (
 		input ByteSelect_L,
 		
 		output reg RS232_Port_Enable,
-		output reg GPS_Port_Enable,
-		output reg Bluetooth_Port_Enable,
 		output reg TouchScreen_Port_Enable,
 		output reg WiFi_Port_Enable
 	);
@@ -18,8 +16,6 @@ module SerialIODecoder (
 // so we must do it for all our outputs
 		
 		RS232_Port_Enable <= 0 ;
-		GPS_Port_Enable <= 0 ;
-		Bluetooth_Port_Enable <= 0 ;
 		TouchScreen_Port_Enable <= 0 ;
 		WiFi_Port_Enable <= 0 ;
 		
@@ -33,27 +29,17 @@ module SerialIODecoder (
 // so that they occupy same half of data bus on D15-D8 and ByteSelect_L = 0
 
 		if((IOSelect_H == 1) && (Address[15:4] == 12'h020) && ByteSelect_L == 0) 		// address = 0xFF21_0200 - hex FF21_020F
-			RS232_Port_Enable <= 1 ;		// enable the 1st UART device
-
-// decoder for the 2nd UART 16550 chip (GPS Port) - Registers located between addresses 0xFF21 0210 - 0xFF21 021F 
-// so that they occupy same half of data bus on D15-D8 and ByteSelect_L = 0
-		if((IOSelect_H == 1) && (Address[15:4] == 12'h021) && ByteSelect_L == 0)		// address = 0xFF21_0210 - hex FF21_021F
-			GPS_Port_Enable <= 1;		// enable the 2nd UART device
-
-// decoder for the 3rd UART 16550 chip (Bluetooth Port) - Registers located between addresses 0xFF21 0220 - 0xFF21 022F 
-// so that they occupy same half of data bus on D15-D8 and ByteSelect_L = 0
-		if((IOSelect_H == 1) && (Address[15:4] == 12'h022) && ByteSelect_L == 0)		// address = 0xFF21_0220 - hex FF21_022F
-			Bluetooth_Port_Enable <= 1;		// enable the 3rd UART device
+			RS232_Port_Enable <= 1 ;		
 		
-// decoder for the 4th UART 16550 chip (TouchScreen Port) - Registers located between addresses 0xFF21 0230 - 0xFF21 023F 
+// decoder for the 2nd UART 16550 chip (TouchScreen Port) - Registers located between addresses 0xFF21 0230 - 0xFF21 023F 
 // so that they occupy same half of data bus on D15-D8 and ByteSelect_L = 0
 		if((IOSelect_H == 1) && (Address[15:4] == 12'h023) && ByteSelect_L == 0)		// address = 0xFF21_0230 - hex FF21_023F
-			TouchScreen_Port_Enable <= 1;		// enable the 4th UART device
+			TouchScreen_Port_Enable <= 1;		
 
-// decoder for the 5th UART 16550 chip (WiFi Port) - Registers located between addresses 0xFF21_0240 - 0xFF21 024F 
+// decoder for the 3rd UART 16550 chip (WiFi Port) - Registers located between addresses 0xFF21_0240 - 0xFF21 024F 
 // so that they occupy same half of data bus on D15-D8 and ByteSelect_L = 0
 		if((IOSelect_H == 1)	&& (Address[15:4] == 12'h024) && ByteSelect_L == 0)
-			WiFi_Port_Enable <= 1; // enable the 5th UART device
+			WiFi_Port_Enable <= 1; 
 	
 	end
 endmodule
