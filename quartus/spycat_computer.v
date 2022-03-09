@@ -67,10 +67,6 @@ module spycat_computer (
     //   ///////// HEX5 /////////
     //   output      [6:0]  HEX5,
 
-    // UART
-    input HPS_UART_RX,
-    output HPS_UART_TX,
-
     ///////// HPS /////////
     inout              HPS_CONV_USB_N,
     output      [14:0] HPS_DDR3_ADDR,
@@ -162,7 +158,16 @@ module spycat_computer (
     //   output             VGA_VS
 );
 
+    wire RESET_L_WIRE;
 
+	reg IO_ACK;	
+	wire IO_IRQ_WIRE;
+	wire unsigned [15:0] IO_Address_WIRE;
+	wire IO_Bus_Enable_WIRE;
+	wire unsigned [1:0] IO_Byte_Enable_WIRE;
+	wire IO_RW_WIRE;
+	wire unsigned [15:0] IO_Write_Data_WIRE;
+	wire unsigned [15:0] IO_Read_Data_WIRE;
 
     ///////////////////////////////////////////////////////////////////////////////////////
     // u0 is an instanace of the QSYS generated computer
@@ -170,18 +175,18 @@ module spycat_computer (
     ///////////////////////////////////////////////////////////////////////////////////////
 
     spycat_computer u0(
-		.hps_io_hps_io_uart0_inst_RX,   (),         //               hps_io.hps_io_uart0_inst_RX
-		.hps_io_hps_io_uart0_inst_TX,   (),         //                     .hps_io_uart0_inst_TX
+		.hps_io_hps_io_uart0_inst_RX,   (HPS_UART_RX),         //               hps_io.hps_io_uart0_inst_RX
+		.hps_io_hps_io_uart0_inst_TX,   (HPS_UART_TX),         //                     .hps_io_uart0_inst_TX
 
-        // IO bridge
-		.io_acknowledge,                (),         //                   io.acknowledge
-		.io_irq,                        (),         //                     .irq
-		.io_address,                    (),         //                     .address
-		.io_bus_enable,                 (),         //                     .bus_enable
-		.io_byte_enable,                (),         //                     .byte_enable
-		.io_rw,                         (),         //                     .rw
-		.io_write_data,                 (),         //                     .write_data
-		.io_read_data,                  (),         //                     .read_data
+        // IO bridge     
+		.io_acknowledge  			    (IO_ACK),	
+		.io_irq          			    (IO_IRQ_WIRE),
+		.io_address      			    (IO_Address_WIRE),
+		.io_bus_enable  			    (IO_Bus_Enable_WIRE),
+		.io_byte_enable  			    (IO_Byte_Enable_WIRE),
+		.io_rw           			    (IO_RW_WIRE),  
+		.io_write_data   			    (IO_Write_Data_WIRE),                    
+		.io_read_data    			    (IO_Read_Data_WIRE),
 
         // SDRAM
 		.memory_mem_a,                  (HPS_DDR3_ADDR),         //               memory.mem_a
@@ -204,3 +209,38 @@ module spycat_computer (
 		.system_pll_ref_clk_clk,        (CLOCK_50),         //   system_pll_ref_clk.clk
 		.system_pll_ref_reset_reset     (0)         // system_pll_ref_reset.reset
 	);
+
+    OnChipSerialIO     SerialIOPorts (
+            
+        // Bridge Signals connecting to this component
+        
+        .Reset_L 						(RESET_L_WIRE),
+        .Clock_50Mhz 					(CLOCK_50),
+        .Address 						(IO_Address_WIRE),
+        .DataIn 						(IO_Write_Data_WIRE[7:0]),
+        .DataOut 						(IO_Read_Data_WIRE[7:0]),
+        .IOSelect_H 					(IO_Bus_Enable_WIRE),
+        .ByteSelect_L 				    (IO_LowerByte_Select_L_WIRE),
+        .WE_L 							(IO_RW_WIRE),
+        .IRQ_H 							(IO_IRQ_WIRE),
+        
+        // Real World Signals brought out to Header connections
+
+        .RS232_RxData					(GPIO_1[29]),
+        .RS232_TxData					(GPIO_1[27]),
+
+        .TouchScreen_RxData 		    (GPIO_0[11]),
+        .TouchScreen_TxData 		    (GPIO_0[10]),
+
+        .WiFi_TXD					    (GPIO_1[35]),
+        .WiFi_RXD					    (GPIO_1[33])
+    );
+
+    assign RESET_L_WIRE = 1'b1;
+
+    // process to generate an acknowledge for the IO Bridge 1 clock cycle after bridge IO BUS ENABLE and then remove it 
+    always@(posedge CLOCK_50)
+    begin
+        IO_ACK <= IO_Bus_Enable_WIRE;
+    end
+endmodule

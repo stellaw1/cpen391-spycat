@@ -1,7 +1,14 @@
 	spycat_computer u0 (
-		.system_pll_ref_clk_clk      (<connected-to-system_pll_ref_clk_clk>),      //   system_pll_ref_clk.clk
-		.system_pll_ref_reset_reset  (<connected-to-system_pll_ref_reset_reset>),  // system_pll_ref_reset.reset
-		.sdram_clk_clk               (<connected-to-sdram_clk_clk>),               //            sdram_clk.clk
+		.hps_io_hps_io_uart0_inst_RX (<connected-to-hps_io_hps_io_uart0_inst_RX>), //               hps_io.hps_io_uart0_inst_RX
+		.hps_io_hps_io_uart0_inst_TX (<connected-to-hps_io_hps_io_uart0_inst_TX>), //                     .hps_io_uart0_inst_TX
+		.io_acknowledge              (<connected-to-io_acknowledge>),              //                   io.acknowledge
+		.io_irq                      (<connected-to-io_irq>),                      //                     .irq
+		.io_address                  (<connected-to-io_address>),                  //                     .address
+		.io_bus_enable               (<connected-to-io_bus_enable>),               //                     .bus_enable
+		.io_byte_enable              (<connected-to-io_byte_enable>),              //                     .byte_enable
+		.io_rw                       (<connected-to-io_rw>),                       //                     .rw
+		.io_write_data               (<connected-to-io_write_data>),               //                     .write_data
+		.io_read_data                (<connected-to-io_read_data>),                //                     .read_data
 		.memory_mem_a                (<connected-to-memory_mem_a>),                //               memory.mem_a
 		.memory_mem_ba               (<connected-to-memory_mem_ba>),               //                     .mem_ba
 		.memory_mem_ck               (<connected-to-memory_mem_ck>),               //                     .mem_ck
@@ -18,15 +25,8 @@
 		.memory_mem_odt              (<connected-to-memory_mem_odt>),              //                     .mem_odt
 		.memory_mem_dm               (<connected-to-memory_mem_dm>),               //                     .mem_dm
 		.memory_oct_rzqin            (<connected-to-memory_oct_rzqin>),            //                     .oct_rzqin
-		.hps_io_hps_io_uart0_inst_RX (<connected-to-hps_io_hps_io_uart0_inst_RX>), //               hps_io.hps_io_uart0_inst_RX
-		.hps_io_hps_io_uart0_inst_TX (<connected-to-hps_io_hps_io_uart0_inst_TX>), //                     .hps_io_uart0_inst_TX
-		.io_acknowledge              (<connected-to-io_acknowledge>),              //                   io.acknowledge
-		.io_irq                      (<connected-to-io_irq>),                      //                     .irq
-		.io_address                  (<connected-to-io_address>),                  //                     .address
-		.io_bus_enable               (<connected-to-io_bus_enable>),               //                     .bus_enable
-		.io_byte_enable              (<connected-to-io_byte_enable>),              //                     .byte_enable
-		.io_rw                       (<connected-to-io_rw>),                       //                     .rw
-		.io_write_data               (<connected-to-io_write_data>),               //                     .write_data
-		.io_read_data                (<connected-to-io_read_data>)                 //                     .read_data
+		.sdram_clk_clk               (<connected-to-sdram_clk_clk>),               //            sdram_clk.clk
+		.system_pll_ref_clk_clk      (<connected-to-system_pll_ref_clk_clk>),      //   system_pll_ref_clk.clk
+		.system_pll_ref_reset_reset  (<connected-to-system_pll_ref_reset_reset>)   // system_pll_ref_reset.reset
 	);
 

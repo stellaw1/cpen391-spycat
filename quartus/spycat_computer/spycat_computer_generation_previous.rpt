@@ -83,80 +83,8 @@ Info: to_external_bus_bridge_0_avalon_slave_rsp_width_adapter: "mm_interconnect_
 Info: Reusing file C:/Users/Arnold/Desktop/Yikes/2021W/CPEN391/module2/l2b-15-something/quartus/spycat_computer/synthesis/submodules/altera_merlin_address_alignment.sv
 Info: Reusing file C:/Users/Arnold/Desktop/Yikes/2021W/CPEN391/module2/l2b-15-something/quartus/spycat_computer/synthesis/submodules/altera_merlin_burst_uncompressor.sv
 Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
-Error: border: Error during execution of script generate_hps_sdram.tcl: seq: FATAL: Cannot generate IP in a Windows evironment!
-Error: border: Error during execution of script generate_hps_sdram.tcl: seq: An error occurred
-Error: border: Error during execution of script generate_hps_sdram.tcl: Generation stopped, 3 or more modules remaining
-Error: border: Execution of script generate_hps_sdram.tcl failed
-Error: border: ERROR: FATAL: Cannot generate IP in a Windows evironment!
-Error: border: 2022.03.08.19:31:24 Info:
-Error: border: ********************************************************************************************************************
-Error: border: 
-Error: border: Use qsys-generate for a simpler command-line interface for generating IP.
-Error: border: 
-Error: border: Run ip-generate with switch --remove-qsys-generate-warning to prevent this notice from appearing in subsequent runs.
-Error: border: 
-Error: border: ********************************************************************************************************************
-Error: border: 2022.03.08.19:31:26 Warning: Ignored parameter assignment device=5CSEMA5F31C6
-Error: border: 2022.03.08.19:31:26 Warning: Ignored parameter assignment extended_family_support=true
-Error: border: 2022.03.08.19:31:28 Warning: hps_sdram: ODT is disabled. Enabling ODT (Mode Register 1) may improve signal integrity
-Error: border: 2022.03.08.19:31:28 Warning: hps_sdram: 'Quick' simulation modes are NOT timing accurate. Some simulation memory models may issue warnings or errors
-Error: border: 2022.03.08.19:31:28 Warning: hps_sdram.seq: This module has no ports or interfaces
-Error: border: 2022.03.08.19:31:28 Warning: hps_sdram.c0: ODT is disabled. Enabling ODT (Mode Register 1) may improve signal integrity
-Error: border: 2022.03.08.19:31:28 Warning: hps_sdram.p0: p0.scc must be exported, or connected to a matching conduit.
-Error: border: 2022.03.08.19:31:28 Warning: hps_sdram.as: as.afi_init_cal_req must be exported, or connected to a matching conduit.
-Error: border: 2022.03.08.19:31:28 Warning: hps_sdram.as: as.tracking must be exported, or connected to a matching conduit.
-Error: border: 2022.03.08.19:31:28 Warning: hps_sdram.c0: c0.status must be exported, or connected to a matching conduit.
-Error: border: 2022.03.08.19:31:28 Warning: hps_sdram.p0: p0.avl must be connected to an Avalon-MM master
-Error: border: 2022.03.08.19:31:28 Info: hps_sdram: Generating altera_mem_if_hps_emif "hps_sdram" for QUARTUS_SYNTH
-Error: border: 2022.03.08.19:31:30 Info: pll: "hps_sdram" instantiated altera_mem_if_hps_pll "pll"
-Error: border: 2022.03.08.19:31:30 Info: p0: Generating clock pair generator
-Error: border: 2022.03.08.19:31:31 Info: p0: Generating hps_sdram_p0_altdqdqs
-Error: border: 2022.03.08.19:31:35 Info: p0:
-Error: border: 2022.03.08.19:31:35 Info: p0: *****************************
-Error: border: 2022.03.08.19:31:35 Info: p0:
-Error: border: 2022.03.08.19:31:35 Info: p0: Remember to run the hps_sdram_p0_pin_assignments.tcl
-Error: border: 2022.03.08.19:31:35 Info: p0: script after running Synthesis and before Fitting.
-Error: border: 2022.03.08.19:31:35 Info: p0:
-Error: border: 2022.03.08.19:31:35 Info: p0: *****************************
-Error: border: 2022.03.08.19:31:35 Info: p0:
-Error: border: 2022.03.08.19:31:35 Info: p0: "hps_sdram" instantiated altera_mem_if_ddr3_hard_phy_core "p0"
-Error: border: 2022.03.08.19:31:35 Error: seq: FATAL: Cannot generate IP in a Windows evironment!
-Error: border: 2022.03.08.19:31:35 Error: seq: An error occurred
-Error: border: while executing
-Error: border: "error "An error occurred""
-Error: border: (procedure "_error" line 8)
-Error: border: invoked from within
-Error: border: "_error "FATAL: Cannot generate IP in a Windows evironment!""
-Error: border: ("if" then script line 2)
-Error: border: invoked from within
-Error: border: "if { $OS_WIN == 1} {
-Error: border: _error "FATAL: Cannot generate IP in a Windows evironment!"
-Error: border: return ""
-Error: border: }"
-Error: border: (procedure "alt_mem_if::gen::uniphy_gen::generate_qsys_sequencer_sw" line 22)
-Error: border: invoked from within
-Error: border: "alt_mem_if::gen::uniphy_gen::generate_qsys_sequencer_sw $prefix $protocol $tmpdir $fileset {} $rdimm $lrdimm $mem_size $mem_size  "${prefix}_sequencer..."
-Error: border: invoked from within
-Error: border: "set return_files_sw [alt_mem_if::gen::uniphy_gen::generate_qsys_sequencer_sw $prefix $protocol $tmpdir $fileset {} $rdimm $lrdimm $mem_size $mem_size ..."
-Error: border: (procedure "generate_sw" line 16)
-Error: border: invoked from within
-Error: border: "generate_sw $name $fileset"
-Error: border: ("if" then script line 4)
-Error: border: invoked from within
-Error: border: "if {[string compare -nocase $fileset QUARTUS_SYNTH] == 0} {
-Error: border: 		set top_level_file "altera_mem_if_hhp_qseq_synth_top.v"
-Error: border: 		add_fileset_file $top_level_fi..."
-Error: border: (procedure "generate_files" line 4)
-Error: border: invoked from within
-Error: border: "generate_files $name QUARTUS_SYNTH"
-Error: border: (procedure "generate_synth" line 3)
-Error: border: invoked from within
-Error: border: "generate_synth altera_mem_if_hhp_qseq_synth_top"
-Error: border: 2022.03.08.19:31:35 Info: seq: "hps_sdram" instantiated altera_mem_if_hhp_ddr3_qseq "seq"
-Error: border: 2022.03.08.19:31:35 Error: Generation stopped, 3 or more modules remaining
-Error: border: 2022.03.08.19:31:35 Info: hps_sdram: Done "hps_sdram" with 7 modules, 24 files
 Info: border: "hps_io" instantiated altera_interface_generator "border"
-Error: Generation stopped, 1 or more modules remaining
-Info: spycat_computer: Done "spycat_computer" with 27 modules, 66 files
-Error: qsys-generate failed with exit code 1: 73 Errors, 10 Warnings
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: spycat_computer: Done "spycat_computer" with 27 modules, 84 files
+Info: qsys-generate succeeded.
 Info: Finished: Create HDL design files for synthesis

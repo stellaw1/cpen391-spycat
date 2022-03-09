@@ -5,11 +5,11 @@
  version="1.0"
  fabric="QSYS">
  <!-- Format version 19.1 670 (Future versions may contain additional information.) -->
- <!-- 2022.03.08.19:35:30 -->
+ <!-- 2022.03.08.20:11:36 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1646796930</value>
+  <value>1646799095</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -16636,7 +16636,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>to_external_bus_bridge_0</moduleName>
     <slaveName>avalon_slave</slaveName>
     <name>to_external_bus_bridge_0.avalon_slave</name>
-    <baseAddress>0</baseAddress>
+    <baseAddress>65536</baseAddress>
     <span>65536</span>
    </memoryBlock>
   </interface>
@@ -43031,7 +43031,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>to_external_bus_bridge_0</moduleName>
     <slaveName>avalon_slave</slaveName>
     <name>to_external_bus_bridge_0.avalon_slave</name>
-    <baseAddress>0</baseAddress>
+    <baseAddress>65536</baseAddress>
     <span>65536</span>
    </memoryBlock>
   </interface>
@@ -44558,7 +44558,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>to_external_bus_bridge_0</moduleName>
     <slaveName>avalon_slave</slaveName>
     <name>to_external_bus_bridge_0.avalon_slave</name>
-    <baseAddress>4280287232</baseAddress>
+    <baseAddress>4280352768</baseAddress>
     <span>65536</span>
    </memoryBlock>
    <memoryBlock>
@@ -45389,7 +45389,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>to_external_bus_bridge_0</moduleName>
     <slaveName>avalon_slave</slaveName>
     <name>to_external_bus_bridge_0.avalon_slave</name>
-    <baseAddress>4280287232</baseAddress>
+    <baseAddress>4280352768</baseAddress>
     <span>65536</span>
    </memoryBlock>
    <memoryBlock>
@@ -83857,7 +83857,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>java.math.BigInteger</type>
-   <value>0x0000</value>
+   <value>0x00010000</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>

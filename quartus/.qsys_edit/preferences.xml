@@ -9,7 +9,6 @@
    <inputclock preferredWidth="169" />
   </columns>
  </systemtable>
- <library
-   expandedCategories="Library/University Program/Bridges,Library/University Program,Library,Project" />
+ <library expandedCategories="Project,Library" />
  <window width="1920" height="1040" x="0" y="0" />
 </preferences>

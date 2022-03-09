@@ -1,8 +1,15 @@
 
 module spycat_computer (
-	system_pll_ref_clk_clk,
-	system_pll_ref_reset_reset,
-	sdram_clk_clk,
+	hps_io_hps_io_uart0_inst_RX,
+	hps_io_hps_io_uart0_inst_TX,
+	io_acknowledge,
+	io_irq,
+	io_address,
+	io_bus_enable,
+	io_byte_enable,
+	io_rw,
+	io_write_data,
+	io_read_data,
 	memory_mem_a,
 	memory_mem_ba,
 	memory_mem_ck,
@@ -19,20 +26,20 @@ module spycat_computer (
 	memory_mem_odt,
 	memory_mem_dm,
 	memory_oct_rzqin,
-	hps_io_hps_io_uart0_inst_RX,
-	hps_io_hps_io_uart0_inst_TX,
-	io_acknowledge,
-	io_irq,
-	io_address,
-	io_bus_enable,
-	io_byte_enable,
-	io_rw,
-	io_write_data,
-	io_read_data);	
+	sdram_clk_clk,
+	system_pll_ref_clk_clk,
+	system_pll_ref_reset_reset);	
 
-	input		system_pll_ref_clk_clk;
-	input		system_pll_ref_reset_reset;
-	output		sdram_clk_clk;
+	input		hps_io_hps_io_uart0_inst_RX;
+	output		hps_io_hps_io_uart0_inst_TX;
+	input		io_acknowledge;
+	input		io_irq;
+	output	[15:0]	io_address;
+	output		io_bus_enable;
+	output	[1:0]	io_byte_enable;
+	output		io_rw;
+	output	[15:0]	io_write_data;
+	input	[15:0]	io_read_data;
 	output	[12:0]	memory_mem_a;
 	output	[2:0]	memory_mem_ba;
 	output		memory_mem_ck;
@@ -49,14 +56,7 @@ module spycat_computer (
 	output		memory_mem_odt;
 	output		memory_mem_dm;
 	input		memory_oct_rzqin;
-	input		hps_io_hps_io_uart0_inst_RX;
-	output		hps_io_hps_io_uart0_inst_TX;
-	input		io_acknowledge;
-	input		io_irq;
-	output	[15:0]	io_address;
-	output		io_bus_enable;
-	output	[1:0]	io_byte_enable;
-	output		io_rw;
-	output	[15:0]	io_write_data;
-	input	[15:0]	io_read_data;
+	output		sdram_clk_clk;
+	input		system_pll_ref_clk_clk;
+	input		system_pll_ref_reset_reset;
 endmodule
