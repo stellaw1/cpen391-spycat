@@ -27,7 +27,7 @@
 ###### Cloud:
 
 - [x] Linux server environment setup
-  - [ ] MongoDB Setup
+  - [x] MongoDB Setup
   - [x] Django Setup
 - [ ] Front-end
   - [x] Front-end website run on Django framework that shows a real time leaderboard of SPYCAT users with the most friendship points
