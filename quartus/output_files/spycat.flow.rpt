@@ -1,5 +1,5 @@
 Flow report for spycat
-Tue Mar 08 21:25:32 2022
+Tue Mar 08 21:50:48 2022
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 Patches 0.02std SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------------------------+
 ; Flow Summary                                                                                  ;
 +---------------------------------+-------------------------------------------------------------+
-; Flow Status                     ; Successful - Tue Mar 08 21:25:10 2022                       ;
+; Flow Status                     ; Flow Failed - Tue Mar 08 21:50:48 2022                      ;
 ; Quartus Prime Version           ; 19.1.0 Build 670 09/22/2019 Patches 0.02std SJ Lite Edition ;
 ; Revision Name                   ; spycat                                                      ;
-; Top-level Entity Name           ; spycat_computer                                             ;
+; Top-level Entity Name           ; spycat_computer_top                                         ;
 ; Family                          ; Cyclone V                                                   ;
 ; Device                          ; 5CSEMA5F31C6                                                ;
 ; Timing Models                   ; Final                                                       ;
-; Logic utilization (in ALMs)     ; 379 / 32,070 ( 1 % )                                        ;
-; Total registers                 ; 441                                                         ;
-; Total pins                      ; 96 / 457 ( 21 % )                                           ;
+; Logic utilization (in ALMs)     ; 906 / 32,070 ( 3 % )                                        ;
+; Total registers                 ; 1145                                                        ;
+; Total pins                      ; 244 / 457 ( 53 % )                                          ;
 ; Total virtual pins              ; 0                                                           ;
-; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                                       ;
+; Total block memory bits         ; 656 / 4,065,280 ( < 1 % )                                   ;
 ; Total DSP Blocks                ; 0 / 87 ( 0 % )                                              ;
 ; Total HSSI RX PCSs              ; 0                                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                                           ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/08/2022 21:20:16 ;
+; Start date & time ; 03/08/2022 21:47:26 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; spycat              ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------+-------------------------------------------------------------------------------+---------------+-------------------------------------+------------+
 ; Assignment Name                       ; Value                                                                         ; Default Value ; Entity Name                         ; Section Id ;
 +---------------------------------------+-------------------------------------------------------------------------------+---------------+-------------------------------------+------------+
-; COMPILER_SIGNATURE_ID                 ; 49410864350791.164680321101316                                                ; --            ; --                                  ; --         ;
+; COMPILER_SIGNATURE_ID                 ; 49410864350791.164680484101376                                                ; --            ; --                                  ; --         ;
 ; ECO_REGENERATE_REPORT                 ; On                                                                            ; Off           ; --                                  ; --         ;
 ; HPS_ISW_FILE                          ; spycat_computer/synthesis/submodules/sequencer/alt_types.pre.h                ; --            ; spycat_computer_hps_0_hps_io_border ; --         ;
 ; HPS_ISW_FILE                          ; spycat_computer/synthesis/submodules/sequencer/emif.pre.xml                   ; --            ; spycat_computer_hps_0_hps_io_border ; --         ;
@@ -114,9 +114,9 @@ https://fpgasoftware.intel.com/eula.
 ; MISC_FILE                             ; spycat_computer/synthesis/submodules/sequencer/tclrpt.pre.c                   ; --            ; --                                  ; --         ;
 ; MISC_FILE                             ; spycat_computer/synthesis/submodules/sequencer/tclrpt.pre.h                   ; --            ; --                                  ; --         ;
 ; MISC_FILE                             ; spycat_computer/synthesis/submodules/hps.pre.xml                              ; --            ; --                                  ; --         ;
-; PARTITION_COLOR                       ; -- (Not supported for targeted family)                                        ; --            ; spycat_computer                     ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL   ; -- (Not supported for targeted family)                                        ; --            ; spycat_computer                     ; Top        ;
-; PARTITION_NETLIST_TYPE                ; -- (Not supported for targeted family)                                        ; --            ; spycat_computer                     ; Top        ;
+; PARTITION_COLOR                       ; -- (Not supported for targeted family)                                        ; --            ; spycat_computer_top                 ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL   ; -- (Not supported for targeted family)                                        ; --            ; spycat_computer_top                 ; Top        ;
+; PARTITION_NETLIST_TYPE                ; -- (Not supported for targeted family)                                        ; --            ; spycat_computer_top                 ; Top        ;
 ; POWER_BOARD_THERMAL_MODEL             ; None (CONSERVATIVE)                                                           ; --            ; --                                  ; --         ;
 ; POWER_PRESET_COOLING_SOLUTION         ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                         ; --            ; --                                  ; --         ;
 ; PROJECT_OUTPUT_DIRECTORY              ; output_files                                                                  ; --            ; --                                  ; --         ;
@@ -125,7 +125,7 @@ https://fpgasoftware.intel.com/eula.
 ; SLD_INFO                              ; QSYS_NAME spycat_computer HAS_SOPCINFO 1 GENERATION_ID 1646799095             ; --            ; spycat_computer                     ; --         ;
 ; SOPCINFO_FILE                         ; spycat_computer/synthesis/../../spycat_computer.sopcinfo                      ; --            ; --                                  ; --         ;
 ; SYNTHESIS_ONLY_QIP                    ; On                                                                            ; --            ; --                                  ; --         ;
-; TOP_LEVEL_ENTITY                      ; spycat_computer                                                               ; spycat        ; --                                  ; --         ;
+; TOP_LEVEL_ENTITY                      ; spycat_computer_top                                                           ; spycat        ; --                                  ; --         ;
 ; USE_DLL_FREQUENCY_FOR_DQS_DELAY_CHAIN ; On                                                                            ; Off           ; --                                  ; --         ;
 +---------------------------------------+-------------------------------------------------------------------------------+---------------+-------------------------------------+------------+
 
@@ -135,11 +135,9 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:19     ; 1.0                     ; 5007 MB             ; 00:00:27                           ;
-; Fitter               ; 00:01:37     ; 1.1                     ; 8124 MB             ; 00:06:02                           ;
-; Assembler            ; 00:00:09     ; 1.0                     ; 4872 MB             ; 00:00:09                           ;
-; Timing Analyzer      ; 00:00:20     ; 1.3                     ; 5663 MB             ; 00:00:23                           ;
-; Total                ; 00:02:25     ; --                      ; --                  ; 00:07:01                           ;
+; Analysis & Synthesis ; 00:00:22     ; 1.0                     ; 5079 MB             ; 00:00:30                           ;
+; Fitter               ; 00:00:10     ; 1.0                     ; 5142 MB             ; 00:00:10                           ;
+; Total                ; 00:00:32     ; --                      ; --                  ; 00:00:40                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -150,8 +148,6 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+------------+------------+----------------+
 ; Analysis & Synthesis ; DESKTOP-KN228NI  ; Windows 10 ; 10.0       ; x86_64         ;
 ; Fitter               ; DESKTOP-KN228NI  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; DESKTOP-KN228NI  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; DESKTOP-KN228NI  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -160,8 +156,6 @@ https://fpgasoftware.intel.com/eula.
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off spycat -c spycat
 quartus_fit --read_settings_files=off --write_settings_files=off spycat -c spycat
-quartus_asm --read_settings_files=off --write_settings_files=off spycat -c spycat
-quartus_sta spycat -c spycat
 
 
 

@@ -52,6 +52,10 @@ output wire	IRQ_H;
 output wire	WiFi_TXD;
 output wire	[7:0] DataOut;
 
+wire	[7:0] DataOut_Wifi;
+wire	[7:0] DataOut_TouchScreen;
+wire	[7:0] DataOut_RS;
+
 wire	SYNTHESIZED_WIRE_0;
 wire	SYNTHESIZED_WIRE_1;
 wire	SYNTHESIZED_WIRE_2;
@@ -77,8 +81,7 @@ assign	SYNTHESIZED_WIRE_53 = 0;
 assign	SYNTHESIZED_WIRE_55 = 0;
 assign	SYNTHESIZED_WIRE_57 = 0;
 
-
-
+assign DataOut = DataOut_Wifi;
 
 SerialIODecoder	b2v_inst(
 	.IOSelect_H(IOSelect_H),
@@ -117,7 +120,7 @@ gh_uart_16550_wb_wrapper	b2v_inst16(
 	
 	.IRQ(SYNTHESIZED_WIRE_2),
 	
-	.wb_dat_o(DataOut));
+	.wb_dat_o(DataOut_TouchScreen));
 
 
 
@@ -145,7 +148,7 @@ gh_uart_16550_wb_wrapper	b2v_inst18(
 	
 	.IRQ(SYNTHESIZED_WIRE_20),
 	
-	.wb_dat_o(DataOut));
+	.wb_dat_o(DataOut_Wifi));
 
 
 assign	IRQ_H = SYNTHESIZED_WIRE_20 | SYNTHESIZED_WIRE_21;
@@ -175,7 +178,7 @@ gh_uart_16550_wb_wrapper	b2v_inst3(
 	
 	.IRQ(SYNTHESIZED_WIRE_0),
 	
-	.wb_dat_o(DataOut));
+	.wb_dat_o(DataOut_RS));
 
 assign	SYNTHESIZED_WIRE_46 =  ~Reset_L;
 
