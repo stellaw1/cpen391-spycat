@@ -38,5 +38,5 @@ quartus/*/testbench/
 quartus/*/*_sim/
 quartus/incremental_db/
 quartus/db/
-quartus/_output_files/
+quartus/output_files/
 quartus/PLLJ_PLLSPE_INFO.txt
