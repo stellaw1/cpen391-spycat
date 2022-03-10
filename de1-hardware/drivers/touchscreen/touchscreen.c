@@ -3,6 +3,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+static int ReceiverFifo(void)
+{
+    while (!(*TOUCHSCREEN_VADDR_LineStatusReg & 0x1))
+    ;
+    return *TOUCHSCREEN_VADDR_ReceiverFifo;
+}
+
 /****************************************************************************
 **  Initialize touch screen controller
 ****************************************************************************/
@@ -19,6 +26,7 @@ int ScreenTouched(void)
 {
     // return TRUE if any data received from 6850 connected to touchscreen
     // or FALSE otherwise
+    return *TOUCHSCREEN_VADDR_ReceiverFifo & 0x1;
 }
 
 /****************************************************************************
@@ -38,12 +46,15 @@ typedef struct { int x, y; } Point;
 ****************************************************************************/
 Point GetPress(void)
 {
-    Point p1;
-
     // wait for a pen down command then return the X,Y coord of the point
     // calibrated correctly so that it maps to a pixel on screen
-    
-    return p1;
+	Point p;
+	WaitForTouch();
+	while((getReceiverFifo() & 0x81) != 0x81) //wait for pen down command
+		;
+	p.x = getReceiverFifo() | (getReceiverFifo() << 7) * SCREEN_X_MAX/4096;
+	p.y = getReceiverFifo() | (getReceiverFifo() << 7) * SCREEN_y_MAX/4096;
+	return p;
 }
 
 /****************************************************************************
@@ -51,11 +62,14 @@ Point GetPress(void)
 ****************************************************************************/
 Point GetRelease(void)
 {
-    Point p1;
-
     // wait for a pen up command then return the X,Y coord of the point
     // calibrated correctly so that it maps to a pixel on screen
-
-    return p1;
+	Point p;
+	WaitForTouch();
+	while((getReceiverFifo() & 0x81) != 0x80) //wait for pen down command
+		;
+	p.x = getReceiverFifo() | (getReceiverFifo() << 7) * SCREEN_X_MAX/4096;
+	p.y = getReceiverFifo() | (getReceiverFifo() << 7) * SCREEN_y_MAX/4096;
+	return p;
 }
  

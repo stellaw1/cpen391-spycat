@@ -1,6 +1,3 @@
-#ifdef TOUCHSCREEN_H_
-#define TOUCHSCREEN_H_
-
 /* Screen resolution is 800*480 */
 #define SCREEN_X_MAX 799
 #define SCREEN_y_MAX 479
@@ -45,4 +42,3 @@ Point GetPress(void);
 ****************************************************************************/
 Point GetRelease(void);
 
-#endif
