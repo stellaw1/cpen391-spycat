@@ -8,6 +8,29 @@
 #define HW_REGS_SPAN 							( 0x00200000 )
 #define HW_REGS_MASK 							( HW_REGS_SPAN - 1 )
 
+#define Wifi_ReceiverFifoOffset 				(0x00010200)
+#define Wifi_TransmitterFifoOffset 				(0x00010200)
+#define Wifi_InterruptEnableRegOffset 			(0x00010202)
+#define Wifi_InterruptIdentificationRegOffset 	(0x00010204)
+#define Wifi_FifoControlRegOffset 				(0x00010204)
+#define Wifi_LineControlRegOffset 				(0x00010206)
+#define Wifi_ModemControlRegOffset 				(0x00010208)
+#define Wifi_LineStatusRegOffset 				(0x0001020A)
+#define Wifi_ModemStatusRegOffset 				(0x0001020C)
+#define Wifi_ScratchRegOffset 					(0x0001020E)
+#define Wifi_DivisorLatchLSBOffset				(0x00010200)
+#define Wifi_DivisorLatchMSBOffset 				(0x00010202)
+
+#define Wifi_LineControlReg_WordLengthSelect0 0
+#define Wifi_LineControlReg_WordLengthSelect1 1
+#define Wifi_LineControlReg_DivisorLatchAccessBit 7
+
+#define Wifi_FifoControlReg_ReceiveFIFOReset 1
+#define Wifi_FifoControlReg_TransmitFIFOReset 2
+
+#define Wifi_LineStatusReg_DataReady 0
+#define Wifi_LineStatusReg_TransmitterHoldingRegister 5
+
 void * virtual_base = NULL;
 
 volatile unsigned char *Wifi_ReceiverFifo = NULL;
@@ -119,6 +142,20 @@ void init_wifi_serial()
     *Wifi_FifoControlReg = 0x00;
 }
 
+int put_char_wifi(int c)
+{
+ // wait for Transmitter Holding Register bit (5) of line status register to be '1'
+ // indicating we can write to the device
+    while ((*Wifi_LineStatusReg & 0x20) != 0x20) {
+    }
+
+ // write character to Transmitter fifo register
+    *Wifi_TransmitterFifo = c;
+
+ // return the character we printed
+    return c;
+}
+
 // the following function polls the UART to determine if any character
 // has been received. It doesn't wait for one, or read it, it simply tests
 // to see if one is available to read from the FIFO
@@ -127,6 +164,17 @@ int wifi_test_for_received_data(void)
  // if Wifi_LineStatusReg bit 0 is set to 1
  //return TRUE, otherwise return FALSE
     return ((*Wifi_LineStatusReg >> Wifi_LineStatusReg_DataReady) & 1) == 1;
+}
+
+int get_char_wifi( void )
+{
+ // wait for Data Ready bit (0) of line status register to be '1'
+    while(!wifi_test_for_received_data()) {
+    }
+
+ // read new character from ReceiverFiFo register
+ // return new character
+    return *Wifi_ReceiverFifo;
 }
 
 //
@@ -180,30 +228,6 @@ int lua_command_no_stars_short(char * str, char * res) {
 	return lua_command_no_stars(str, res, 200000);
 }
 
-int put_char_wifi(int c)
-{
- // wait for Transmitter Holding Register bit (5) of line status register to be '1'
- // indicating we can write to the device
-    while ((*Wifi_LineStatusReg & 0x20) != 0x20) {
-    }
-
- // write character to Transmitter fifo register
-    *Wifi_TransmitterFifo = c;
-
- // return the character we printed
-    return c;
-}
-
-int get_char_wifi( void )
-{
- // wait for Data Ready bit (0) of line status register to be '1'
-    while(!wifi_test_for_received_data()) {
-    }
-
- // read new character from ReceiverFiFo register
- // return new character
-    return *Wifi_ReceiverFifo;
-}
 
 void do_file(void)
 {
