@@ -1,5 +1,7 @@
 #include "../io_bridge.h"
 #include "touchscreen.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /****************************************************************************
 **  Initialize touch screen controller

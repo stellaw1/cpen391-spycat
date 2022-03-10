@@ -26,7 +26,7 @@ void io_bridge_init() {
     touchscreen_io_bridge_init();
 }
 /* Deallocate mapping*/
-void ~io_bridge_init() {
+void io_bridge_deallocate() {
     if (munmap(virtual_base, HW_REGS_SPAN) != 0) {
         printf("~io_bridge_init: munmap() failed to deallocate mapping...\n");
     }

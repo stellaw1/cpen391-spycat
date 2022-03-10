@@ -60,6 +60,6 @@ void io_bridge_init();
 /**
  * free up the virtual addresses
  */
-void ~io_bridge_init();
+void io_bridge_deallocate();
 
 #endif
