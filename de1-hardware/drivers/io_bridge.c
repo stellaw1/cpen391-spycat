@@ -7,7 +7,7 @@ static void touchscreen_io_bridge_init();
 int fd;
 void *virtual_base;
 
-/* Refernce: https://www.ee.ryerson.ca/~courses/coe838/labs/HPS-FPGA-Interconnect.pdf*/
+/* Reference: https://www.ee.ryerson.ca/~courses/coe838/labs/HPS-FPGA-Interconnect.pdf */
 void io_bridge_init() {
     fd = open("/dev/mem", (O_RDWR | O_SYNC));
     if (fd == -1) {
