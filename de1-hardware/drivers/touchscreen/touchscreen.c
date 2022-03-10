@@ -17,6 +17,21 @@ void Init_Touch(void)
 {
     // Program 6850 and baud rate generator to communcate with touchscreen
     // send touchscreen controller an "enable touch" command
+    *TOUCHSCREEN_VADDR_LineControlReg = 0x80;
+    *TOUCHSCREEN_VADDR_DivisorLatchLSB = 0x45;
+    *TOUCHSCREEN_VADDR_DivisorLatchMSB = 0x1;
+    *TOUCHSCREEN_VADDR_LineControlReg = 0x3;
+    *TOUCHSCREEN_VADDR_FifoControlReg = 0x6;
+    *TOUCHSCREEN_VADDR_FifoControlReg = 0;
+	while(!(*TOUCHSCREEN_VADDR_LineStatusReg & 0x20))
+    ;
+    *TOUCHSCREEN_VADDR_TransmitterFifo = 0x55;
+    while(!(*TOUCHSCREEN_VADDR_LineStatusReg & 0x20))
+    ;
+    *TOUCHSCREEN_VADDR_TransmitterFifo = 0x1;
+    while(!(*TOUCHSCREEN_VADDR_LineStatusReg & 0x20))
+    ;
+    *TOUCHSCREEN_VADDR_TransmitterFifo = 0x12;
 }
     
 /****************************************************************************
