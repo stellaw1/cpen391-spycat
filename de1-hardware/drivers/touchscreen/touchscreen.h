@@ -45,4 +45,4 @@ Point GetPress(void);
 ****************************************************************************/
 Point GetRelease(void);
 
-#endif TOUCHSCREEN_H_ 
+#endif
