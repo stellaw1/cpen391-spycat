@@ -9,18 +9,23 @@ void *virtual_base;
 
 /* Reference: https://www.ee.ryerson.ca/~courses/coe838/labs/HPS-FPGA-Interconnect.pdf */
 void io_bridge_init() {
-    fd = open("/dev/mem", (O_RDWR | O_SYNC));
-    if (fd == -1) {
-        printf("ERROR: Could not open \"/dev/mem\"...\n");
-        return;
-    }
-    virtual_base = mmap(NULL, HW_REGS_SPAN, (PROT_READ|PROT_WRITE), 
-                        MAP_SHARED, fd, HW_REGS_BASE);
-    if (virtual_base == -1) {
-        printf("ERROR: Mapping for the region failed...\n");
-        close(fd);
-        return;
-    }
+    int fd;
+
+        // Open memory as if it were a device for read and write access
+        if( ( fd = open( "/dev/mem", ( O_RDWR | O_SYNC ) ) ) == -1 ) {
+                printf( "ERROR: could not open \"/dev/mem\"...\n" );
+                return;
+        }
+
+        // map 2Mbyte of memory starting at 0xFF200000 to user space
+        virtual_base = mmap( NULL, HW_REGS_SPAN, ( PROT_READ | PROT_WRITE ),
+        MAP_SHARED, fd, HW_REGS_BASE );
+
+        if( virtual_base == MAP_FAILED ) {
+                printf( "ERROR: mmap() failed...\n" );
+                close( fd );
+                return;
+        }
     wifi_io_bridge_init();
     camera_io_bridge_init();
     touchscreen_io_bridge_init();

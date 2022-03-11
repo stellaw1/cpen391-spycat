@@ -26,18 +26,18 @@
 /* GPIO Camera Module */
 
 /* Touch Screen Controller */
-#define TOUCHSCREEN_PADDR_ReceiverFifo 				    (0xFF210230)
-#define TOUCHSCREEN_PADDR_TransmitterFifo				(0xFF210230)
-#define TOUCHSCREEN_PADDR_InterruptEnableReg 			(0xFF210232)
-#define TOUCHSCREEN_PADDR_InterruptIdentificationReg 	(0xFF210234)
-#define TOUCHSCREEN_PADDR_FifoControlReg 				(0xFF210234)
-#define TOUCHSCREEN_PADDR_LineControlReg 				(0xFF210236)
-#define TOUCHSCREEN_PADDR_ModemControlReg				(0xFF210238)
-#define TOUCHSCREEN_PADDR_LineStatusReg 				(0xFF21023A)
-#define TOUCHSCREEN_PADDR_ModemStatusReg 				(0xFF21023C)
-#define TOUCHSCREEN_PADDR_ScratchReg 					(0xFF21023E)
-#define TOUCHSCREEN_PADDR_DivisorLatchLSB 				(0xFF210230)
-#define TOUCHSCREEN_PADDR_DivisorLatchMSB 				(0xFF210232)
+#define TOUCHSCREEN_PADDR_ReceiverFifo 				    (0x10230)
+#define TOUCHSCREEN_PADDR_TransmitterFifo				(0x10230)
+#define TOUCHSCREEN_PADDR_InterruptEnableReg 			(0x10232)
+#define TOUCHSCREEN_PADDR_InterruptIdentificationReg 	(0x10234)
+#define TOUCHSCREEN_PADDR_FifoControlReg 				(0x10234)
+#define TOUCHSCREEN_PADDR_LineControlReg 				(0x10236)
+#define TOUCHSCREEN_PADDR_ModemControlReg				(0x10238)
+#define TOUCHSCREEN_PADDR_LineStatusReg 				(0x1023A)
+#define TOUCHSCREEN_PADDR_ModemStatusReg 				(0x1023C)
+#define TOUCHSCREEN_PADDR_ScratchReg 					(0x1023E)
+#define TOUCHSCREEN_PADDR_DivisorLatchLSB 				(0x10230)
+#define TOUCHSCREEN_PADDR_DivisorLatchMSB 				(0x10232)
 
 volatile unsigned short int *TOUCHSCREEN_VADDR_ReceiverFifo;
 volatile unsigned short int *TOUCHSCREEN_VADDR_TransmitterFifo;
@@ -63,3 +63,4 @@ void io_bridge_init();
 void io_bridge_deallocate();
 
 #endif
+
