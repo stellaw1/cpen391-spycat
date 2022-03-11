@@ -52,5 +52,41 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VHDL_FILE M68xxIODecoder.vhd
+set_global_assignment -name VHDL_FILE UART_16550_Files/gh_fifo_async16_rcsr_wf.vhd
+set_global_assignment -name VHDL_FILE UART_16550_Files/gh_fifo_async16_sr.vhd
+set_global_assignment -name VHDL_FILE UART_16550_Files/gh_uart_16550.vhd
+set_global_assignment -name VHDL_FILE UART_16550_Files/gh_uart_16550_amba_apb_wrapper.vhd
+set_global_assignment -name VHDL_FILE UART_16550_Files/gh_uart_16550_wb_wrapper.vhd
+set_global_assignment -name VHDL_FILE UART_16550_Files/gh_uart_Tx_8bit.vhd
+set_global_assignment -name VHDL_FILE UART_16550_Files/gh_uart_Rx_8bit.vhd
+set_global_assignment -name VHDL_FILE gh_vhdl_lib_v3_48/counters/gh_counter_down_ce_ld.vhd
+set_global_assignment -name VHDL_FILE gh_vhdl_lib_v3_48/counters/gh_counter_down_ce_ld_tc.vhd
+set_global_assignment -name VHDL_FILE gh_vhdl_lib_v3_48/counters/gh_counter_integer_down.vhd
+set_global_assignment -name VHDL_FILE gh_vhdl_lib_v3_48/custom_MSI/gh_baud_rate_gen.vhd
+set_global_assignment -name VHDL_FILE gh_vhdl_lib_v3_48/custom_MSI/gh_binary2gray.vhd
+set_global_assignment -name VHDL_FILE gh_vhdl_lib_v3_48/custom_MSI/gh_edge_det.vhd
+set_global_assignment -name VHDL_FILE gh_vhdl_lib_v3_48/custom_MSI/gh_edge_det_XCD.vhd
+set_global_assignment -name VHDL_FILE gh_vhdl_lib_v3_48/custom_MSI/gh_gray2binary.vhd
+set_global_assignment -name VHDL_FILE gh_vhdl_lib_v3_48/custom_MSI/gh_parity_gen_Serial.vhd
+set_global_assignment -name VHDL_FILE gh_vhdl_lib_v3_48/registers_gates/gh_DECODE_3to8.vhd
+set_global_assignment -name VHDL_FILE gh_vhdl_lib_v3_48/registers_gates/gh_jkff.vhd
+set_global_assignment -name VHDL_FILE gh_vhdl_lib_v3_48/registers_gates/gh_register_ce.vhd
+set_global_assignment -name VHDL_FILE gh_vhdl_lib_v3_48/registers_gates/gh_shift_reg_PL_sl.vhd
+set_global_assignment -name VHDL_FILE gh_vhdl_lib_v3_48/registers_gates/gh_shift_reg_se_sl.vhd
 set_global_assignment -name QIP_FILE VGA_CLOCK_GEN.qip
 set_global_assignment -name SIP_FILE VGA_CLOCK_GEN.sip
+set_global_assignment -name BDF_FILE OnChipM68xxIO.bdf
+set_global_assignment -name VHDL_FILE VGADataMux.vhd
+set_global_assignment -name VHDL_FILE RamAddressMapper.vhd
+set_global_assignment -name VHDL_FILE LCD_Controller.vhd
+set_global_assignment -name VHDL_FILE GraphicsController.vhd
+set_global_assignment -name BDF_FILE GraphicsFrameBufferMemory.bdf
+set_global_assignment -name BDF_FILE Graphics_and_Video_Controller.bdf
+set_global_assignment -name VHDL_FILE VideoRamFrameBuffer.vhd
+set_global_assignment -name VHDL_FILE ColourPallette_2PortRam.vhd
+set_global_assignment -name VHDL_FILE HexTo7SegmentDisplay.vhd
