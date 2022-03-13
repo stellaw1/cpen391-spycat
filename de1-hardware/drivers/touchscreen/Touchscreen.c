@@ -13,7 +13,7 @@ static int ReceiverFifo(void)
 /****************************************************************************
 **  Initialize touch screen controller
 ****************************************************************************/
-void Init_Touch(void)
+int Init_Touch(void)
 {
     // Program 6850 and baud rate generator to communcate with touchscreen
     // send touchscreen controller an "enable touch" command
@@ -32,6 +32,8 @@ void Init_Touch(void)
     while(!(*TOUCHSCREEN_VADDR_LineStatusReg & 0x20))
     ;
     *TOUCHSCREEN_VADDR_TransmitterFifo = 0x12;
+
+    return 1;
 }
     
 /****************************************************************************
@@ -66,7 +68,7 @@ Point GetPress(void)
 	while((ReceiverFifo() & 0x81) != 0x81) //wait for pen down command
 		;
 	p.x = ReceiverFifo() | (ReceiverFifo() << 7) * SCREEN_X_MAX/4096;
-	p.y = ReceiverFifo() | (ReceiverFifo() << 7) * SCREEN_y_MAX/4096;
+	p.y = ReceiverFifo() | (ReceiverFifo() << 7) * SCREEN_Y_MAX/4096;
 	return p;
 }
 
@@ -82,7 +84,7 @@ Point GetRelease(void)
 	while((ReceiverFifo() & 0x81) != 0x80) //wait for pen down command
 		;
 	p.x = ReceiverFifo() | (ReceiverFifo() << 7) * SCREEN_X_MAX/4096;
-	p.y = ReceiverFifo() | (ReceiverFifo() << 7) * SCREEN_y_MAX/4096;
+	p.y = ReceiverFifo() | (ReceiverFifo() << 7) * SCREEN_Y_MAX/4096;
 	return p;
 }
  

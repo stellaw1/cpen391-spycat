@@ -1,6 +1,6 @@
 /* Screen resolution is 800*480 */
-#define SCREEN_X_MAX 799
-#define SCREEN_y_MAX 479
+#define SCREEN_X_MAX 479
+#define SCREEN_Y_MAX 799
 
 /*
  * TouchScreen_RXD is connected to GPIO_0[11]
@@ -10,7 +10,7 @@
 /****************************************************************************
 **  Initialize touch screen controller
 ****************************************************************************/
-void Init_Touch(void);
+int Init_Touch(void);
     // Program 6850 and baud rate generator to communcate with touchscreen
 
     // send touchscreen controller an "enable touch" command
