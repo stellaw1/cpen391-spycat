@@ -233,6 +233,7 @@ int main(int argc, char **argv)
 
     while(1) {
         Point p = GetPress();
+        printf("x: %d, y: %d\n", p.x, p.y);
         write_pixel(p.x, p.y, 5);
     }
 
