@@ -288,68 +288,33 @@ module spycat (
 			.system_pll_ref_reset_reset      (0)       								// system_pll_ref_reset.reset
 		);
 		
- 
-	  ///////////////////////////////////////////////////////////////////////////////////////////////
-	  // Instantiate 3 instances of the seven seg decoders
-	  // one for hex display 0 and 1
-	  // one for hex display 2 and 3
-	  // one for hex display 4 and 5
-	  // Connect their inputs to the temporary wires/signals being driven by the ports
-	  // exported in Qsys and connect their outputs to the real 7-Segment displays on the DE1
-	  ///////////////////////////////////////////////////////////////////////////////////////////////
-	  
-//	  HexTo7SegmentDisplay    HEXDisplay0_1 (				// HEXDisplay0_1 is an instance of pair of 7 segment decoder
-//			// inputs
-//			.Input1(Temp_hex0_1),								// Connect input1 of the HexDisplay circuit to temporary signal/wire
-//
-//			// outputs: Mapping important
-//			.Display0(HEX0),		// output of the component connect to HEX displays 0 and 1 on the DE1
-//			.Display1(HEX1)		// output of the component connect to HEX displays 0 and 1 on the DE1
-//		);
-//			
-//		HexTo7SegmentDisplay    HEXDisplay2_3 (			// HEXDisplay2_3 is an instance of pair of 7 segment decoder
-//			// inputs
-//			.Input1(Temp_hex2_3),								// Connect input1 of the HexDisplay circuit to temporary signal/wire
-//
-//			// outputs: Mapping important
-//			.Display0(HEX2),		// output of the component connect to HEX displays 2 and 3 on the DE1
-//			.Display1(HEX3)		// output of the component connect to HEX displays 2 and 3 on the DE1
-//		);
-//			
-//		HexTo7SegmentDisplay    HEXDisplay4_5 (			// HEXDisplay4_5 is an instance of pair of 7 segment decoder
-//			// inputs
-//			.Input1(Temp_hex4_5),								// Connect input1 of the HexDisplay circuit to temporary signal/wire
-//
-//			// outputs: Mapping important
-//			.Display0(HEX4),		// output of the component connect to HEX displays 4 and 5 on the DE1
-//			.Display1(HEX5)		// output of the component connect to HEX displays 4 and 5 on the DE1
-//		);	
+
 
 	  ///////////////////////////////////////////////////////////////////////////////////////////////
 	  // Instantiate an instance of the graphics and video controller circuit drawn as a schematic
 	  ///////////////////////////////////////////////////////////////////////////////////////////////
 			
-//		Graphics_and_Video_Controller		GraphicsController1 ( 
-//				.Reset_L							(RESET_L_WIRE),
-//				.Clock_50Mhz 					(CLOCK_50),
-//				.Address 						(IO_Address_WIRE),
-//				.DataIn 							(IO_Write_Data_WIRE),
-//				.DataOut 						(IO_Read_Data_WIRE),
-//				.IOEnable_L 					(IO_Enable_L_WIRE),
-//				.UpperByteSelect_L 			(IO_UpperByte_Select_L_WIRE),
-//				.LowerByteSelect_L 			(IO_LowerByte_Select_L_WIRE),
-//				.WriteEnable_L 				(IO_RW_WIRE),
-//				.GraphicsCS_L 					(IO_Enable_L_WIRE),
-//				
-//				.VGA_Clock						(VGA_CLK),
-//				.VGA_Blue 						(VGA_B),
-//				.VGA_Green 						(VGA_G),
-//				.VGA_Red							(VGA_R),
-//				.VGA_HSync 						(VGA_HS),
-//				.VGA_VSync						(VGA_VS),
-//				.VGA_Blanking 					(VGA_BLANK_N),
-//				.VGA_SYNC						(VGA_SYNC_N)
-//		 );
+		Graphics_and_Video_Controller		GraphicsController1 ( 
+				.Reset_L							(RESET_L_WIRE),
+				.Clock_50Mhz 					(CLOCK_50),
+				.Address 						(IO_Address_WIRE),
+				.DataIn 							(IO_Write_Data_WIRE),
+				.DataOut 						(IO_Read_Data_WIRE),
+				.IOEnable_L 					(IO_Enable_L_WIRE),
+				.UpperByteSelect_L 			(IO_UpperByte_Select_L_WIRE),
+				.LowerByteSelect_L 			(IO_LowerByte_Select_L_WIRE),
+				.WriteEnable_L 				(IO_RW_WIRE),
+				.GraphicsCS_L 					(IO_Enable_L_WIRE),
+				
+				.VGA_CLK						(VGA_CLK),
+				.VGA_B 						(VGA_B),
+				.VGA_G 						(VGA_G),
+				.VGA_R							(VGA_R),
+				.VGA_HS 						(VGA_HS),
+				.VGA_VS						(VGA_VS),
+				.VGA_BLANK_N 					(VGA_BLANK_N)
+
+		 );
 		
 	
 		///////////////////////////////////////////////////////////////////////////////////////////////
@@ -385,7 +350,34 @@ module spycat (
 				 .TouchScreen_TxData 		(GPIO_0[10])
 		);
 
-
+//		 OnChipSerialIO     SerialIOPorts (
+//				 
+//				 // Bridge Signals connecting to this component
+//				 
+//				 .Reset_L 						(RESET_L_WIRE),
+//				 .Clock_50Mhz 					(CLOCK_50),
+//				 .Address 						(IO_Address_WIRE),
+//				 .DataIn 						(IO_Write_Data_WIRE[7:0]),
+//				 .DataOut 						(IO_Read_Data_WIRE[7:0]),
+//				 .IOSelect_H 					(IO_Bus_Enable_WIRE),
+//				 .ByteSelect_L 				(IO_LowerByte_Select_L_WIRE),
+//				 .WE_L 							(IO_RW_WIRE),
+//				 .IRQ_H 							(IO_IRQ_WIRE),
+//				 
+//				 // Real World Signals brought out to Header connections
+//				 
+//				 .RS232_RxData					(GPIO_1[29]),
+//				 .RS232_TxData					(GPIO_1[27]),
+//
+//				 .GPS_RxData 					(GPIO_1[28]),
+//				 .GPS_TxData 					(GPIO_1[26]),
+//
+//				 .BlueTooth_RxData 			(GPIO_1[32]),
+//				 .BlueTooth_TxData 			(GPIO_1[34]),
+//				 
+//				 .TouchScreen_RxData 		(GPIO_0[11]),
+//				 .TouchScreen_TxData 		(GPIO_0[10])
+//		);
 		
 		// Map 16 bit memory upper and lower data byte strobes to individual wires
 		

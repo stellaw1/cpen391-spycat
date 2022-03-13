@@ -2065,11 +2065,6 @@ https://fpgasoftware.intel.com/eula.
 	(bus)
 )
 (connector
-	(pt 880 184)
-	(pt 880 752)
-	(bus)
-)
-(connector
 	(pt 400 184)
 	(pt 408 184)
 	(bus)
@@ -2077,22 +2072,6 @@ https://fpgasoftware.intel.com/eula.
 (connector
 	(pt 408 184)
 	(pt 880 184)
-	(bus)
-)
-(connector
-	(pt 880 184)
-	(pt 888 184)
-	(bus)
-)
-(connector
-	(text "DataIn[2..0]" (rect 898 168 952 185)(font "Intel Clear" ))
-	(pt 888 184)
-	(pt 1152 184)
-	(bus)
-)
-(connector
-	(pt 888 120)
-	(pt 888 184)
 	(bus)
 )
 (connector
@@ -2129,7 +2108,23 @@ https://fpgasoftware.intel.com/eula.
 	(bus)
 )
 (connector
-	(pt 888 120)
+	(text "DataIn[2..0]" (rect 898 168 952 185)(font "Intel Clear" ))
+	(pt 880 184)
+	(pt 1152 184)
+	(bus)
+)
+(connector
+	(pt 880 120)
+	(pt 880 184)
+	(bus)
+)
+(connector
+	(pt 880 184)
+	(pt 880 752)
+	(bus)
+)
+(connector
+	(pt 880 120)
 	(pt 1632 120)
 	(bus)
 )
@@ -2181,7 +2176,6 @@ https://fpgasoftware.intel.com/eula.
 (junction (pt 2072 416))
 (junction (pt 2112 96))
 (junction (pt 1648 96))
-(junction (pt 888 184))
 (junction (pt 880 1080))
 (junction (pt 880 1416))
 (junction (pt 880 752))

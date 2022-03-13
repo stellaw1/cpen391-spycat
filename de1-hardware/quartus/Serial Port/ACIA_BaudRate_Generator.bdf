@@ -198,42 +198,13 @@ https://fpgasoftware.intel.com/eula.
 	(pt 528 312)
 )
 (connector
-	(pt 528 312)
-	(pt 536 312)
-)
-(connector
 	(pt 488 328)
 	(pt 528 328)
-)
-(connector
-	(pt 488 344)
-	(pt 528 344)
-)
-(connector
-	(pt 528 344)
-	(pt 544 344)
 )
 (connector
 	(pt 704 296)
 	(pt 760 296)
 	(bus)
-)
-(connector
-	(pt 760 296)
-	(pt 760 304)
-	(bus)
-)
-(connector
-	(pt 1072 280)
-	(pt 1072 288)
-)
-(connector
-	(pt 992 280)
-	(pt 1040 280)
-)
-(connector
-	(pt 1040 280)
-	(pt 1072 280)
 )
 (connector
 	(pt 488 248)
@@ -247,10 +218,14 @@ https://fpgasoftware.intel.com/eula.
 	(pt 728 280)
 	(pt 728 248)
 )
-(junction (pt 528 312))
-(junction (pt 528 344))
-(junction (pt 760 296))
-(junction (pt 1040 280))
+(connector
+	(pt 992 280)
+	(pt 1040 280)
+)
+(connector
+	(pt 488 344)
+	(pt 528 344)
+)
 (text "3 bit latch to store value used to set the baud rate" (rect 560 408 842 422)(font "Arial" (font_size 8)))
 (text "000 = 230k baud" (rect 560 424 654 438)(font "Arial" (font_size 8)))
 (text "001 = 115k baud" (rect 560 440 654 454)(font "Arial" (font_size 8)))
