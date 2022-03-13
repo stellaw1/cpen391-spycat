@@ -13,7 +13,7 @@ static int ReceiverFifo(void)
 /****************************************************************************
 **  Initialize touch screen controller
 ****************************************************************************/
-void Init_Touch(void)
+int Init_Touch(void)
 {
     // Program 6850 and baud rate generator to communcate with touchscreen
     // send touchscreen controller an "enable touch" command
@@ -32,6 +32,8 @@ void Init_Touch(void)
     while(!(*TOUCHSCREEN_VADDR_LineStatusReg & 0x20))
     ;
     *TOUCHSCREEN_VADDR_TransmitterFifo = 0x12;
+
+    return 1;
 }
     
 /****************************************************************************
