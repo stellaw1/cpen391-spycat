@@ -6,10 +6,11 @@
 
 ###### Hardware:
 
-- [ ] WIFI driver
-- [ ] Linux setup on DE1-SoC
+- [x] WIFI driver
+- [x] Linux setup on DE1-SoC
 - [ ] GPIO camera driver
-- [ ] Touch Screen AR1100 driver
+- [x] VGA driver
+- [x] Touch Screen AR1100 driver
 - [ ] 3.5mm Speaker
 - [ ] Sleep toggle function 
 
@@ -29,7 +30,7 @@
 - [x] Linux server environment setup
   - [x] MongoDB Setup
   - [x] Django Setup
-- [ ] Front-end
+- [x] Front-end
   - [x] Front-end website run on Django framework that shows a real time leaderboard of SPYCAT users with the most friendship points
 - [ ] Back-end
   - [ ] Chat content saving
