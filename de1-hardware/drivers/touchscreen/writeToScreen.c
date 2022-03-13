@@ -11,12 +11,14 @@
 #define HW_REGS_MASK 							( HW_REGS_SPAN - 1 )
 #define	BLACK			0
 #define	WHITE			1
-#define	RED			2
+#define	RED			    2
 #define	LIME			3
 #define	BLUE			4
 #define	YELLOW			5
 #define	CYAN			6
 #define	MAGENTA			7
+#define XRES 800
+#define YRES 480
 
 typedef unsigned long DWORD;
 typedef unsigned short WORD;
@@ -181,6 +183,23 @@ void program_palette(int PaletteNumber, int RGB) {
 	*GraphicsCommandReg = ProgramPaletteColour; // issue command
 }
 
+void horizontal_line(int x1, int y1, int length, int Colour) {
+	wait_for_graphics();
+
+	*GraphicsColourReg = Colour;
+	*GraphicsX1Reg = x1;
+	*GraphicsY1Reg = y1;
+	*GraphicsX2Reg = x1 + length;
+	*GraphicsCommandReg = DrawHLine;
+}
+
+void clear_screen() {
+	int i;
+	for (i = 0; i < YRES; i++) {
+		horizontal_line(0, i, XRES, BLACK);
+	}
+}
+
 void load_original_colour_palette() {
 	int c = 0;
 	for(c = 0; c < 8; c++) { // 8 = number of colours
@@ -230,6 +249,8 @@ int main(int argc, char **argv)
 		return 0;
 	}
     printf("Done \n");
+
+    clear_screen();
 
     while(1) {
         Point p = GetPress();
