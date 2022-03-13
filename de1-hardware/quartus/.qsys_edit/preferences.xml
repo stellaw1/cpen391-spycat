@@ -3,11 +3,13 @@
  <debug showDebugMenu="0" />
  <systemtable filter="All Interfaces">
   <columns>
-   <connections preferredWidth="127" />
-   <irq preferredWidth="34" />
+   <connections preferredWidth="159" />
+   <irq preferredWidth="47" />
+   <name preferredWidth="277" />
+   <description preferredWidth="493" />
+   <inputclock preferredWidth="346" />
   </columns>
  </systemtable>
- <library
-   expandedCategories="Library/Interface Protocols,Library/Basic Functions/On Chip Memory,Library/Qsys Interconnect,Library/Processors and Peripherals,Library/DSP/Error Detection and Correction,Library/Basic Functions,Library/DSP,Library/Processors and Peripherals/Co-Processors,Library/Basic Functions/Simulation; Debug and Verification,Library/Interface Protocols/PCI Express/QSYS Example Designs,Library/Interface Protocols/PCI Express,Library,Library/Basic Functions/Simulation; Debug and Verification/Verification,Library/Qsys Interconnect/Memory-Mapped,Project,Library/Processors and Peripherals/Co-Processors/Nios II Custom Instructions" />
- <window width="1920" height="2233" x="1920" y="45" />
+ <library expandedCategories="Project,Library" />
+ <window width="3866" height="2330" x="-13" y="-13" />
 </preferences>
