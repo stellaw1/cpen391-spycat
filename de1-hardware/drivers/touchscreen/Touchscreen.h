@@ -1,6 +1,6 @@
 /* Screen resolution is 800*480 */
-#define SCREEN_X_MAX 799
-#define SCREEN_y_MAX 479
+#define SCREEN_X_MAX 479
+#define SCREEN_y_MAX 799
 
 /*
  * TouchScreen_RXD is connected to GPIO_0[11]
