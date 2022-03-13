@@ -1,6 +1,6 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
-preplace inst CPEN391_Computer.SysID -pg 1 -lvl 5 -y 870
+preplace inst CPEN391_Computer.SysID -pg 1 -lvl 5 -y 850
 preplace inst CPEN391_Computer.ARM_A9_HPS.dcan1 -pg 1
 preplace inst CPEN391_Computer.JTAG_To_FPGA_Bridge.fifo -pg 1
 preplace inst CPEN391_Computer.JTAG_To_HPS_Bridge.b2p_adapter -pg 1
@@ -52,7 +52,6 @@ preplace inst CPEN391_Computer.JTAG_To_FPGA_Bridge.transacto -pg 1
 preplace inst CPEN391_Computer.ARM_A9_HPS.fpga_interfaces -pg 1
 preplace inst CPEN391_Computer.ARM_A9_HPS.gmac1 -pg 1
 preplace inst CPEN391_Computer.ARM_A9_HPS.usb0 -pg 1
-preplace inst CPEN391_Computer.bit_flipper_0 -pg 1 -lvl 5 -y 1070
 preplace inst CPEN391_Computer.JTAG_To_HPS_Bridge.jtag_phy_embedded_in_jtag_master -pg 1
 preplace inst CPEN391_Computer.ARM_A9_HPS.f2s_sdram_ref_clk -pg 1
 preplace inst CPEN391_Computer -pg 1 -lvl 1 -y 40 -regy -20
@@ -75,7 +74,7 @@ preplace inst CPEN391_Computer.ARM_A9_HPS.qspi -pg 1
 preplace inst CPEN391_Computer.ARM_A9_HPS -pg 1 -lvl 3 -y 420
 preplace inst CPEN391_Computer.JTAG_UART_for_ARM_1 -pg 1 -lvl 5 -y 330
 preplace inst CPEN391_Computer.JTAG_To_FPGA_Bridge -pg 1 -lvl 4 -y 640
-preplace inst CPEN391_Computer.SDRAM -pg 1 -lvl 5 -y 770
+preplace inst CPEN391_Computer.SDRAM -pg 1 -lvl 5 -y 750
 preplace inst CPEN391_Computer.JTAG_To_HPS_Bridge.transacto -pg 1
 preplace inst CPEN391_Computer.JTAG_To_HPS_Bridge.clk_rst -pg 1
 preplace inst CPEN391_Computer.JTAG_To_FPGA_Bridge.p2b_adapter -pg 1
@@ -86,19 +85,19 @@ preplace inst CPEN391_Computer.JTAG_To_HPS_Bridge -pg 1 -lvl 2 -y 640
 preplace inst CPEN391_Computer.JTAG_To_HPS_Bridge.p2b -pg 1
 preplace inst CPEN391_Computer.ARM_A9_HPS.dma -pg 1
 preplace inst CPEN391_Computer.ARM_A9_HPS.dcan0 -pg 1
-preplace netloc FAN_OUT<net_container>CPEN391_Computer</net_container>(SLAVE)JTAG_UART_for_ARM_0.irq,(SLAVE)Interval_Timer.irq,(MASTER)ARM_A9_HPS.f2h_irq0,(SLAVE)IO_Bridge.interrupt) 1 3 2 NJ 430 1300
-preplace netloc POINT_TO_POINT<net_container>CPEN391_Computer</net_container>(SLAVE)JTAG_UART_for_ARM_1.irq,(MASTER)ARM_A9_HPS.f2h_irq1) 1 3 2 NJ 470 1260
-preplace netloc INTERCONNECT<net_container>CPEN391_Computer</net_container>(SLAVE)Onchip_SRAM.s1,(SLAVE)Interval_Timer.s1,(SLAVE)bit_flipper_0.avalon_slave_0,(MASTER)JTAG_To_FPGA_Bridge.master,(SLAVE)JTAG_UART_for_ARM_1.avalon_jtag_slave,(MASTER)ARM_A9_HPS.h2f_axi_master,(SLAVE)SDRAM.s1,(SLAVE)SysID.control_slave,(MASTER)ARM_A9_HPS.h2f_lw_axi_master,(SLAVE)JTAG_UART_for_ARM_0.avalon_jtag_slave,(SLAVE)LCD_0.s1,(SLAVE)IO_Bridge.avalon_slave) 1 3 2 1000 490 1280
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)CPEN391_Computer.sdram,(SLAVE)SDRAM.wire) 1 0 5 NJ 820 NJ 820 NJ 820 NJ 820 NJ
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)CPEN391_Computer.hps_io,(SLAVE)ARM_A9_HPS.hps_io) 1 0 3 NJ 470 NJ 470 NJ
+preplace netloc POINT_TO_POINT<net_container>CPEN391_Computer</net_container>(SLAVE)JTAG_UART_for_ARM_1.irq,(MASTER)ARM_A9_HPS.f2h_irq1) 1 3 2 NJ 450 1340
 preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)System_PLL.ref_clk,(SLAVE)CPEN391_Computer.system_pll_ref_clk) 1 0 1 NJ
 preplace netloc POINT_TO_POINT<net_container>CPEN391_Computer</net_container>(MASTER)JTAG_To_HPS_Bridge.master,(SLAVE)ARM_A9_HPS.f2h_axi_slave) 1 2 1 670
-preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)CPEN391_Computer.io,(SLAVE)IO_Bridge.external_interface) 1 0 5 NJ 580 NJ 580 NJ 580 NJ 580 NJ
-preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)System_PLL.ref_reset,(SLAVE)CPEN391_Computer.system_pll_ref_reset) 1 0 1 NJ
-preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(MASTER)CPEN391_Computer.sdram_clk,(MASTER)System_PLL.sdram_clk) 1 1 5 NJ 960 NJ 960 NJ 960 NJ 1060 NJ
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)CPEN391_Computer.io,(SLAVE)IO_Bridge.external_interface) 1 0 5 NJ 380 NJ 380 NJ 380 NJ 410 NJ
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)ARM_A9_HPS.memory,(SLAVE)CPEN391_Computer.memory) 1 0 3 NJ 530 NJ 530 NJ
 preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)CPEN391_Computer.lcd,(SLAVE)LCD_0.external_connection) 1 0 5 NJ 60 NJ 60 NJ 60 NJ 60 NJ
-preplace netloc FAN_OUT<net_container>CPEN391_Computer</net_container>(SLAVE)JTAG_To_FPGA_Bridge.clk,(MASTER)System_PLL.sys_clk,(SLAVE)Interval_Timer.clk,(SLAVE)Onchip_SRAM.clk1,(SLAVE)JTAG_UART_for_ARM_1.clk,(SLAVE)bit_flipper_0.clock,(SLAVE)ARM_A9_HPS.h2f_axi_clock,(SLAVE)ARM_A9_HPS.h2f_lw_axi_clock,(SLAVE)JTAG_To_HPS_Bridge.clk,(SLAVE)ARM_A9_HPS.f2h_axi_clock,(SLAVE)SDRAM.clk,(SLAVE)SysID.clk,(SLAVE)JTAG_UART_for_ARM_0.clk,(SLAVE)LCD_0.clk,(SLAVE)IO_Bridge.clk) 1 1 4 390 720 650 780 1020 780 1320
-preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)CPEN391_Computer.memory,(SLAVE)ARM_A9_HPS.memory) 1 0 3 NJ 530 NJ 530 NJ
-preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)SDRAM.wire,(SLAVE)CPEN391_Computer.sdram) 1 0 5 NJ 600 NJ 600 NJ 600 NJ 600 NJ
-preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)ARM_A9_HPS.hps_io,(SLAVE)CPEN391_Computer.hps_io) 1 0 3 NJ 470 NJ 470 NJ
-preplace netloc INTERCONNECT<net_container>CPEN391_Computer</net_container>(SLAVE)SysID.reset,(SLAVE)Onchip_SRAM.reset1,(SLAVE)SDRAM.reset,(SLAVE)JTAG_To_HPS_Bridge.clk_reset,(SLAVE)Interval_Timer.reset,(MASTER)ARM_A9_HPS.h2f_reset,(SLAVE)JTAG_UART_for_ARM_1.reset,(SLAVE)LCD_0.reset,(MASTER)System_PLL.reset_source,(SLAVE)bit_flipper_0.reset,(SLAVE)JTAG_UART_for_ARM_0.reset,(SLAVE)IO_Bridge.reset,(SLAVE)JTAG_To_FPGA_Bridge.clk_reset) 1 1 4 410 800 NJ 800 1000 800 1340
-levelinfo -pg 1 0 140 1640
-levelinfo -hier CPEN391_Computer 150 230 490 810 1100 1400 1550
+preplace netloc INTERCONNECT<net_container>CPEN391_Computer</net_container>(SLAVE)LCD_0.s1,(SLAVE)Interval_Timer.s1,(SLAVE)JTAG_UART_for_ARM_1.avalon_jtag_slave,(SLAVE)Onchip_SRAM.s1,(MASTER)JTAG_To_FPGA_Bridge.master,(SLAVE)IO_Bridge.avalon_slave,(SLAVE)JTAG_UART_for_ARM_0.avalon_jtag_slave,(MASTER)ARM_A9_HPS.h2f_axi_master,(SLAVE)SysID.control_slave,(SLAVE)SDRAM.s1,(MASTER)ARM_A9_HPS.h2f_lw_axi_master) 1 3 2 1000 470 1320
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)CPEN391_Computer.system_pll_ref_reset,(SLAVE)System_PLL.ref_reset) 1 0 1 NJ
+preplace netloc FAN_OUT<net_container>CPEN391_Computer</net_container>(SLAVE)SysID.clk,(SLAVE)JTAG_To_FPGA_Bridge.clk,(SLAVE)Interval_Timer.clk,(SLAVE)Onchip_SRAM.clk1,(SLAVE)JTAG_To_HPS_Bridge.clk,(SLAVE)JTAG_UART_for_ARM_1.clk,(SLAVE)JTAG_UART_for_ARM_0.clk,(SLAVE)LCD_0.clk,(MASTER)System_PLL.sys_clk,(SLAVE)SDRAM.clk,(SLAVE)ARM_A9_HPS.f2h_axi_clock,(SLAVE)IO_Bridge.clk,(SLAVE)ARM_A9_HPS.h2f_lw_axi_clock,(SLAVE)ARM_A9_HPS.h2f_axi_clock) 1 1 4 390 720 650 760 1020 720 1400
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(MASTER)System_PLL.sdram_clk,(MASTER)CPEN391_Computer.sdram_clk) 1 1 5 NJ 960 NJ 960 NJ 960 NJ 940 NJ
+preplace netloc FAN_OUT<net_container>CPEN391_Computer</net_container>(MASTER)ARM_A9_HPS.f2h_irq0,(SLAVE)IO_Bridge.interrupt,(SLAVE)Interval_Timer.irq,(SLAVE)JTAG_UART_for_ARM_0.irq) 1 3 2 NJ 430 1380
+preplace netloc INTERCONNECT<net_container>CPEN391_Computer</net_container>(SLAVE)JTAG_UART_for_ARM_1.reset,(SLAVE)LCD_0.reset,(MASTER)System_PLL.reset_source,(SLAVE)Interval_Timer.reset,(SLAVE)SysID.reset,(SLAVE)Onchip_SRAM.reset1,(SLAVE)JTAG_To_HPS_Bridge.clk_reset,(SLAVE)IO_Bridge.reset,(SLAVE)SDRAM.reset,(MASTER)ARM_A9_HPS.h2f_reset,(SLAVE)JTAG_UART_for_ARM_0.reset,(SLAVE)JTAG_To_FPGA_Bridge.clk_reset) 1 1 4 410 740 NJ 740 1000 740 1420
+levelinfo -pg 1 0 140 1700
+levelinfo -hier CPEN391_Computer 150 230 490 810 1160 1460 1610
