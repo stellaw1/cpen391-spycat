@@ -30,3 +30,34 @@ function hello_world()
          end
     end)
 end
+
+function test_post()
+  local http = require("socket.http")
+  local ltn12 = require("ltn12")
+
+  local respbody = {}
+  local reqbody = {
+    "dataSource": "Cluster0",
+    "database": "todo",
+    "collection": "tasks",
+    "document": {
+      "status": "open",
+      "text": "Do the dishes"
+    }
+  }
+  reqbody = json.encode(reqbody)
+  local reqheader = {
+    ['Content-Type'] = 'application/json',
+    ['Access-Control-Request-Headers'] = '*',
+    ['api-key'] = 'ofr78BaUjULh1DiKunM7NJOgPTHNEpEb5pgQid5mtWGHzGdAy70emHXieARabZbt',
+    ['Content-Length'] = string.len(request_body)
+  }
+
+  local result, respcode, respheaders, respstatus = http.request {
+      method = "POST",
+      url = "https://data.mongodb-api.com/app/data-vkqaw/endpoint/data/beta/action/insertOne";,
+      source = ltn12.source.string(reqbody),
+      headers = reqheader,
+      sink = ltn12.sink.table(respbody)
+  }
+end
