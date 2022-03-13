@@ -17,7 +17,7 @@
 #define	YELLOW			5
 #define	CYAN			6
 #define	MAGENTA			7
-#define XRES 800
+#define XRES 700
 #define YRES 480
 
 typedef unsigned long DWORD;
