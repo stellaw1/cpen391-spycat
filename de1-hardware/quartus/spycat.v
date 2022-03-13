@@ -366,14 +366,14 @@ module spycat (
 				 
 				 // Real World Signals brought out to Header connections
 				 
-				 .RS232_RxData					(GPIO_1[29]),
-				 .RS232_TxData					(GPIO_1[27]),
+				 .RS232_RxData					(GPIO_0[29]),
+				 .RS232_TxData					(GPIO_0[27]),
 
-				 .GPS_RxData 					(GPIO_1[28]),
-				 .GPS_TxData 					(GPIO_1[26]),
+				 .GPS_RxData 					(GPIO_0[28]),
+				 .GPS_TxData 					(GPIO_0[26]),
 
-				 .BlueTooth_RxData 			(GPIO_1[32]),
-				 .BlueTooth_TxData 			(GPIO_1[34]),
+				 .BlueTooth_RxData 			(GPIO_0[32]),
+				 .BlueTooth_TxData 			(GPIO_0[34]),
 				 
 				 .TouchScreen_RxData 		(GPIO_0[11]),
 				 .TouchScreen_TxData 		(GPIO_0[10])
