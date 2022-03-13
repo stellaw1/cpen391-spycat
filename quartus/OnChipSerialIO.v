@@ -83,20 +83,21 @@ assign	SYNTHESIZED_WIRE_57 = 0;
 
 assign DataOut = DataOut_Wifi;
 
-SerialIODecoder	b2v_inst(
+SerialIODecoder	IODecoder(
 	.IOSelect_H(IOSelect_H),
 	.ByteSelect_L(ByteSelect_L),
 	.Address(Address),
 	.RS232_Port_Enable(SYNTHESIZED_WIRE_52),
 	.TouchScreen_Port_Enable(SYNTHESIZED_WIRE_47),
-	.WiFi_Port_Enable(SYNTHESIZED_WIRE_50));
+	.WiFi_Port_Enable(SYNTHESIZED_WIRE_50)
+);
 
 
 assign	SYNTHESIZED_WIRE_21 = SYNTHESIZED_WIRE_0 | SYNTHESIZED_WIRE_1 | SYNTHESIZED_WIRE_2 | SYNTHESIZED_WIRE_3;
 
 
 
-gh_uart_16550_wb_wrapper	b2v_inst16(
+gh_uart_16550_wb_wrapper	TouchScreen_UART(
 	.wb_clk_i(Clock_50Mhz),
 	.wb_rst_i(SYNTHESIZED_WIRE_46),
 	.wb_stb_i(SYNTHESIZED_WIRE_47),
@@ -114,17 +115,14 @@ gh_uart_16550_wb_wrapper	b2v_inst16(
 	.sTX(TouchScreen_TxData),
 	
 	
-	
-	
-	
-	
 	.IRQ(SYNTHESIZED_WIRE_2),
 	
-	.wb_dat_o(DataOut_TouchScreen));
+	.wb_dat_o(DataOut_TouchScreen)
+);
 
 
 
-gh_uart_16550_wb_wrapper	b2v_inst18(
+gh_uart_16550_wb_wrapper	Wifi_UART(
 	.wb_clk_i(Clock_50Mhz),
 	.wb_rst_i(SYNTHESIZED_WIRE_46),
 	.wb_stb_i(SYNTHESIZED_WIRE_50),
@@ -142,19 +140,16 @@ gh_uart_16550_wb_wrapper	b2v_inst18(
 	.sTX(WiFi_TXD),
 	
 	
-	
-	
-	
-	
 	.IRQ(SYNTHESIZED_WIRE_20),
 	
-	.wb_dat_o(DataOut_Wifi));
+	.wb_dat_o(DataOut_Wifi)
+);
 
 
 assign	IRQ_H = SYNTHESIZED_WIRE_20 | SYNTHESIZED_WIRE_21;
 
 
-gh_uart_16550_wb_wrapper	b2v_inst3(
+gh_uart_16550_wb_wrapper	RS232_UART(
 	.wb_clk_i(Clock_50Mhz),
 	.wb_rst_i(SYNTHESIZED_WIRE_46),
 	.wb_stb_i(SYNTHESIZED_WIRE_52),
@@ -172,13 +167,10 @@ gh_uart_16550_wb_wrapper	b2v_inst3(
 	.sTX(RS232_TxData),
 	
 	
-	
-	
-	
-	
 	.IRQ(SYNTHESIZED_WIRE_0),
 	
-	.wb_dat_o(DataOut_RS));
+	.wb_dat_o(DataOut_RS)
+);
 
 assign	SYNTHESIZED_WIRE_46 =  ~Reset_L;
 
