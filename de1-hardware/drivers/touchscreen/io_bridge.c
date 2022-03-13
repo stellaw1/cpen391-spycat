@@ -8,13 +8,13 @@ int fd;
 void *virtual_base;
 
 /* Reference: https://www.ee.ryerson.ca/~courses/coe838/labs/HPS-FPGA-Interconnect.pdf */
-void io_bridge_init() {
+int io_bridge_init() {
     int fd;
 
         // Open memory as if it were a device for read and write access
         if( ( fd = open( "/dev/mem", ( O_RDWR | O_SYNC ) ) ) == -1 ) {
                 printf( "ERROR: could not open \"/dev/mem\"...\n" );
-                return;
+                return 0;
         }
 
         // map 2Mbyte of memory starting at 0xFF200000 to user space
@@ -24,11 +24,13 @@ void io_bridge_init() {
         if( virtual_base == MAP_FAILED ) {
                 printf( "ERROR: mmap() failed...\n" );
                 close( fd );
-                return;
+                return 0;
         }
     wifi_io_bridge_init();
     camera_io_bridge_init();
     touchscreen_io_bridge_init();
+
+    return 1;
 }
 /* Deallocate mapping*/
 void io_bridge_deallocate() {

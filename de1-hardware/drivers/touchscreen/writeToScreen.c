@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/mman.h>
+#include "io_bridge.c"
 #include "Touchscreen.c"
 
 #define HW_REGS_BASE 							( 0xff200000 )
@@ -207,6 +208,13 @@ int main(int argc, char **argv)
 		close( fd );
 		return(1);
 	}
+
+    printf("Initializing io_bridge... \n");
+    if(!io_bridge_init()) {
+        printf("Failed to initialize io_bridge... \n");
+        return 0;
+    }
+    printf("Done \n");
 
     printf("Initializing graphics... \n");
 	if(!init_graphics()) {

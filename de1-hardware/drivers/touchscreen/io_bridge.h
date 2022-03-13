@@ -55,7 +55,7 @@ volatile unsigned short int *TOUCHSCREEN_VADDR_DivisorLatchMSB;
 /*
  * Set the virtual addresses for hardware up
  */
-void io_bridge_init();
+int io_bridge_init();
 
 /**
  * free up the virtual addresses
