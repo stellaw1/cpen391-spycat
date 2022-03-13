@@ -321,36 +321,7 @@ module spycat (
 		// create an instance of the IO port with serial ports
 		///////////////////////////////////////////////////////////////////////////////////////////////
 		
-		 OnChipM68xxIO     SerialIOPorts (
-				 
-				 // Bridge Signals connecting to this component
-				 
-				 .Reset_L 						(RESET_L_WIRE),
-				 .Clock_50Mhz 					(CLOCK_50),
-				 .Address 						(IO_Address_WIRE),
-				 .DataIn 						(IO_Write_Data_WIRE[7:0]),
-				 .DataOut 						(IO_Read_Data_WIRE[7:0]),
-				 .IOSelect_H 					(IO_Bus_Enable_WIRE),
-				 .ByteSelect_L 				(IO_LowerByte_Select_L_WIRE),
-				 .WE_L 							(IO_RW_WIRE),
-				 .ACIA_IRQ 						(IO_IRQ_WIRE),
-				 
-				 // Real World Signals brought out to Header connections
-				 
-				 .RS232_RxData					(GPIO_1[29]),
-				 .RS232_TxData					(GPIO_1[27]),
-
-				 .GPS_RxData 					(GPIO_1[28]),
-				 .GPS_TxData 					(GPIO_1[26]),
-
-				 .BlueTooth_RxData 			(GPIO_1[32]),
-				 .BlueTooth_TxData 			(GPIO_1[34]),
-				 
-				 .TouchScreen_RxData 		(GPIO_0[11]),
-				 .TouchScreen_TxData 		(GPIO_0[10])
-		);
-
-//		 OnChipSerialIO     SerialIOPorts (
+//		 OnChipM68xxIO     SerialIOPorts (
 //				 
 //				 // Bridge Signals connecting to this component
 //				 
@@ -362,7 +333,7 @@ module spycat (
 //				 .IOSelect_H 					(IO_Bus_Enable_WIRE),
 //				 .ByteSelect_L 				(IO_LowerByte_Select_L_WIRE),
 //				 .WE_L 							(IO_RW_WIRE),
-//				 .IRQ_H 							(IO_IRQ_WIRE),
+//				 .ACIA_IRQ 						(IO_IRQ_WIRE),
 //				 
 //				 // Real World Signals brought out to Header connections
 //				 
@@ -378,6 +349,35 @@ module spycat (
 //				 .TouchScreen_RxData 		(GPIO_0[11]),
 //				 .TouchScreen_TxData 		(GPIO_0[10])
 //		);
+
+		 OnChipSerialIO     SerialIOPorts (
+				 
+				 // Bridge Signals connecting to this component
+				 
+				 .Reset_L 						(RESET_L_WIRE),
+				 .Clock_50Mhz 					(CLOCK_50),
+				 .Address 						(IO_Address_WIRE),
+				 .DataIn 						(IO_Write_Data_WIRE[7:0]),
+				 .DataOut 						(IO_Read_Data_WIRE[7:0]),
+				 .IOSelect_H 					(IO_Bus_Enable_WIRE),
+				 .ByteSelect_L 				(IO_LowerByte_Select_L_WIRE),
+				 .WE_L 							(IO_RW_WIRE),
+				 .IRQ_H 							(IO_IRQ_WIRE),
+				 
+				 // Real World Signals brought out to Header connections
+				 
+				 .RS232_RxData					(GPIO_1[29]),
+				 .RS232_TxData					(GPIO_1[27]),
+
+				 .GPS_RxData 					(GPIO_1[28]),
+				 .GPS_TxData 					(GPIO_1[26]),
+
+				 .BlueTooth_RxData 			(GPIO_1[32]),
+				 .BlueTooth_TxData 			(GPIO_1[34]),
+				 
+				 .TouchScreen_RxData 		(GPIO_0[11]),
+				 .TouchScreen_TxData 		(GPIO_0[10])
+		);
 		
 		// Map 16 bit memory upper and lower data byte strobes to individual wires
 		

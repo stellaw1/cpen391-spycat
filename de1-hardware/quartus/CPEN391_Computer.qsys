@@ -78,50 +78,11 @@
          type = "String";
       }
    }
-   element HEX0_1
-   {
-      datum _sortIndex
-      {
-         value = "7";
-         type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "0";
-         type = "boolean";
-      }
-   }
-   element HEX2_3
-   {
-      datum _sortIndex
-      {
-         value = "8";
-         type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "0";
-         type = "boolean";
-      }
-   }
-   element HEX4_5
-   {
-      datum _sortIndex
-      {
-         value = "9";
-         type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "0";
-         type = "boolean";
-      }
-   }
    element IO_Bridge
    {
       datum _sortIndex
       {
-         value = "17";
+         value = "11";
          type = "int";
       }
       datum sopceditor_expanded
@@ -134,7 +95,7 @@
    {
       datum _sortIndex
       {
-         value = "14";
+         value = "8";
          type = "int";
       }
       datum sopceditor_expanded
@@ -173,7 +134,7 @@
    {
       datum _sortIndex
       {
-         value = "12";
+         value = "6";
          type = "int";
       }
       datum sopceditor_expanded
@@ -186,7 +147,7 @@
    {
       datum _sortIndex
       {
-         value = "13";
+         value = "7";
          type = "int";
       }
       datum sopceditor_expanded
@@ -199,20 +160,7 @@
    {
       datum _sortIndex
       {
-         value = "16";
-         type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "0";
-         type = "boolean";
-      }
-   }
-   element LEDS
-   {
-      datum _sortIndex
-      {
-         value = "6";
+         value = "10";
          type = "int";
       }
       datum sopceditor_expanded
@@ -234,19 +182,6 @@
          type = "boolean";
       }
    }
-   element PushButtons
-   {
-      datum _sortIndex
-      {
-         value = "11";
-         type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "0";
-         type = "boolean";
-      }
-   }
    element SDRAM
    {
       datum _sortIndex
@@ -260,24 +195,11 @@
          type = "boolean";
       }
    }
-   element Slider_Switches
-   {
-      datum _sortIndex
-      {
-         value = "10";
-         type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "0";
-         type = "boolean";
-      }
-   }
    element SysID
    {
       datum _sortIndex
       {
-         value = "15";
+         value = "9";
          type = "int";
       }
       datum sopceditor_expanded
@@ -320,9 +242,6 @@
  <parameter name="timeStamp" value="0" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
- <interface name="hex0_1" internal="HEX0_1.external_connection" />
- <interface name="hex2_3" internal="HEX2_3.external_connection" />
- <interface name="hex4_5" internal="HEX4_5.external_connection" />
  <interface name="hps_io" internal="ARM_A9_HPS.hps_io" type="conduit" dir="end" />
  <interface
    name="io"
@@ -334,16 +253,13 @@
    internal="LCD_0.external_connection"
    type="conduit"
    dir="end" />
- <interface name="leds" internal="LEDS.external_connection" />
  <interface name="memory" internal="ARM_A9_HPS.memory" type="conduit" dir="end" />
- <interface name="pushbuttons" internal="PushButtons.external_connection" />
  <interface name="sdram" internal="SDRAM.wire" type="conduit" dir="end" />
  <interface
    name="sdram_clk"
    internal="System_PLL.sdram_clk"
    type="clock"
    dir="start" />
- <interface name="slider_switches" internal="Slider_Switches.external_connection" />
  <interface
    name="system_pll_ref_clk"
    internal="System_PLL.ref_clk"
@@ -884,48 +800,6 @@
   <parameter name="usb_mp_clk_div" value="0" />
   <parameter name="use_default_mpu_clk" value="true" />
  </module>
- <module name="HEX0_1" kind="altera_avalon_pio" version="19.1" enabled="0">
-  <parameter name="bitClearingEdgeCapReg" value="false" />
-  <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="50000000" />
-  <parameter name="direction" value="Output" />
-  <parameter name="edgeType" value="RISING" />
-  <parameter name="generateIRQ" value="false" />
-  <parameter name="irqType" value="LEVEL" />
-  <parameter name="resetValue" value="0" />
-  <parameter name="simDoTestBenchWiring" value="false" />
-  <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="8" />
- </module>
- <module name="HEX2_3" kind="altera_avalon_pio" version="19.1" enabled="0">
-  <parameter name="bitClearingEdgeCapReg" value="false" />
-  <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="50000000" />
-  <parameter name="direction" value="Output" />
-  <parameter name="edgeType" value="RISING" />
-  <parameter name="generateIRQ" value="false" />
-  <parameter name="irqType" value="LEVEL" />
-  <parameter name="resetValue" value="0" />
-  <parameter name="simDoTestBenchWiring" value="false" />
-  <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="8" />
- </module>
- <module name="HEX4_5" kind="altera_avalon_pio" version="19.1" enabled="0">
-  <parameter name="bitClearingEdgeCapReg" value="false" />
-  <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="50000000" />
-  <parameter name="direction" value="Output" />
-  <parameter name="edgeType" value="RISING" />
-  <parameter name="generateIRQ" value="false" />
-  <parameter name="irqType" value="LEVEL" />
-  <parameter name="resetValue" value="0" />
-  <parameter name="simDoTestBenchWiring" value="false" />
-  <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="8" />
- </module>
  <module
    name="IO_Bridge"
    kind="altera_up_avalon_to_external_bus_bridge"
@@ -1033,20 +907,6 @@
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="16" />
  </module>
- <module name="LEDS" kind="altera_avalon_pio" version="19.1" enabled="0">
-  <parameter name="bitClearingEdgeCapReg" value="false" />
-  <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="50000000" />
-  <parameter name="direction" value="Output" />
-  <parameter name="edgeType" value="RISING" />
-  <parameter name="generateIRQ" value="false" />
-  <parameter name="irqType" value="LEVEL" />
-  <parameter name="resetValue" value="0" />
-  <parameter name="simDoTestBenchWiring" value="false" />
-  <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="10" />
- </module>
  <module
    name="Onchip_SRAM"
    kind="altera_avalon_onchip_memory2"
@@ -1080,24 +940,6 @@
   <parameter name="writable" value="true" />
  </module>
  <module
-   name="PushButtons"
-   kind="altera_avalon_pio"
-   version="19.1"
-   enabled="0">
-  <parameter name="bitClearingEdgeCapReg" value="true" />
-  <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="true" />
-  <parameter name="clockRate" value="50000000" />
-  <parameter name="direction" value="Input" />
-  <parameter name="edgeType" value="FALLING" />
-  <parameter name="generateIRQ" value="true" />
-  <parameter name="irqType" value="EDGE" />
-  <parameter name="resetValue" value="0" />
-  <parameter name="simDoTestBenchWiring" value="true" />
-  <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="4" />
- </module>
- <module
    name="SDRAM"
    kind="altera_avalon_new_sdram_controller"
    version="19.1"
@@ -1125,24 +967,6 @@
   <parameter name="refreshPeriod" value="15.625" />
   <parameter name="registerDataIn" value="true" />
   <parameter name="rowWidth" value="13" />
- </module>
- <module
-   name="Slider_Switches"
-   kind="altera_avalon_pio"
-   version="19.1"
-   enabled="0">
-  <parameter name="bitClearingEdgeCapReg" value="false" />
-  <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="50000000" />
-  <parameter name="direction" value="Input" />
-  <parameter name="edgeType" value="RISING" />
-  <parameter name="generateIRQ" value="false" />
-  <parameter name="irqType" value="LEVEL" />
-  <parameter name="resetValue" value="0" />
-  <parameter name="simDoTestBenchWiring" value="false" />
-  <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="10" />
  </module>
  <module
    name="SysID"
@@ -1225,60 +1049,6 @@
    kind="avalon"
    version="19.1"
    start="ARM_A9_HPS.h2f_lw_axi_master"
-   end="LEDS.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0020" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="19.1"
-   start="ARM_A9_HPS.h2f_lw_axi_master"
-   end="HEX0_1.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0030" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="19.1"
-   start="ARM_A9_HPS.h2f_lw_axi_master"
-   end="HEX2_3.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0040" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="19.1"
-   start="ARM_A9_HPS.h2f_lw_axi_master"
-   end="HEX4_5.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0050" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="19.1"
-   start="ARM_A9_HPS.h2f_lw_axi_master"
-   end="Slider_Switches.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="19.1"
-   start="ARM_A9_HPS.h2f_lw_axi_master"
-   end="PushButtons.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0010" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="19.1"
-   start="ARM_A9_HPS.h2f_lw_axi_master"
    end="Interval_Timer.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x2000" />
@@ -1342,60 +1112,6 @@
    kind="avalon"
    version="19.1"
    start="JTAG_To_FPGA_Bridge.master"
-   end="LEDS.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0xff200020" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="19.1"
-   start="JTAG_To_FPGA_Bridge.master"
-   end="HEX0_1.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0xff200030" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="19.1"
-   start="JTAG_To_FPGA_Bridge.master"
-   end="HEX2_3.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0xff200040" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="19.1"
-   start="JTAG_To_FPGA_Bridge.master"
-   end="HEX4_5.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0xff200050" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="19.1"
-   start="JTAG_To_FPGA_Bridge.master"
-   end="Slider_Switches.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0xff200000" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="19.1"
-   start="JTAG_To_FPGA_Bridge.master"
-   end="PushButtons.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0xff200010" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="19.1"
-   start="JTAG_To_FPGA_Bridge.master"
    end="Interval_Timer.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0xff202000" />
@@ -1425,32 +1141,6 @@
    version="19.1"
    start="System_PLL.sys_clk"
    end="SDRAM.clk" />
- <connection kind="clock" version="19.1" start="System_PLL.sys_clk" end="LEDS.clk" />
- <connection
-   kind="clock"
-   version="19.1"
-   start="System_PLL.sys_clk"
-   end="HEX0_1.clk" />
- <connection
-   kind="clock"
-   version="19.1"
-   start="System_PLL.sys_clk"
-   end="HEX2_3.clk" />
- <connection
-   kind="clock"
-   version="19.1"
-   start="System_PLL.sys_clk"
-   end="HEX4_5.clk" />
- <connection
-   kind="clock"
-   version="19.1"
-   start="System_PLL.sys_clk"
-   end="Slider_Switches.clk" />
- <connection
-   kind="clock"
-   version="19.1"
-   start="System_PLL.sys_clk"
-   end="PushButtons.clk" />
  <connection
    kind="clock"
    version="19.1"
@@ -1512,13 +1202,6 @@
    kind="interrupt"
    version="19.1"
    start="ARM_A9_HPS.f2h_irq0"
-   end="PushButtons.irq">
-  <parameter name="irqNumber" value="1" />
- </connection>
- <connection
-   kind="interrupt"
-   version="19.1"
-   start="ARM_A9_HPS.f2h_irq0"
    end="JTAG_UART_for_ARM_0.irq">
   <parameter name="irqNumber" value="8" />
  </connection>
@@ -1551,36 +1234,6 @@
    version="19.1"
    start="ARM_A9_HPS.h2f_reset"
    end="SDRAM.reset" />
- <connection
-   kind="reset"
-   version="19.1"
-   start="ARM_A9_HPS.h2f_reset"
-   end="LEDS.reset" />
- <connection
-   kind="reset"
-   version="19.1"
-   start="ARM_A9_HPS.h2f_reset"
-   end="HEX0_1.reset" />
- <connection
-   kind="reset"
-   version="19.1"
-   start="ARM_A9_HPS.h2f_reset"
-   end="HEX2_3.reset" />
- <connection
-   kind="reset"
-   version="19.1"
-   start="ARM_A9_HPS.h2f_reset"
-   end="HEX4_5.reset" />
- <connection
-   kind="reset"
-   version="19.1"
-   start="ARM_A9_HPS.h2f_reset"
-   end="Slider_Switches.reset" />
- <connection
-   kind="reset"
-   version="19.1"
-   start="ARM_A9_HPS.h2f_reset"
-   end="PushButtons.reset" />
  <connection
    kind="reset"
    version="19.1"
@@ -1631,36 +1284,6 @@
    version="19.1"
    start="System_PLL.reset_source"
    end="SDRAM.reset" />
- <connection
-   kind="reset"
-   version="19.1"
-   start="System_PLL.reset_source"
-   end="LEDS.reset" />
- <connection
-   kind="reset"
-   version="19.1"
-   start="System_PLL.reset_source"
-   end="HEX0_1.reset" />
- <connection
-   kind="reset"
-   version="19.1"
-   start="System_PLL.reset_source"
-   end="HEX2_3.reset" />
- <connection
-   kind="reset"
-   version="19.1"
-   start="System_PLL.reset_source"
-   end="HEX4_5.reset" />
- <connection
-   kind="reset"
-   version="19.1"
-   start="System_PLL.reset_source"
-   end="Slider_Switches.reset" />
- <connection
-   kind="reset"
-   version="19.1"
-   start="System_PLL.reset_source"
-   end="PushButtons.reset" />
  <connection
    kind="reset"
    version="19.1"

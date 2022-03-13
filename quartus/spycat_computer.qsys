@@ -37,7 +37,7 @@
    {
       datum baseAddress
       {
-         value = "65536";
+         value = "0";
          type = "String";
       }
    }
@@ -647,7 +647,7 @@
    start="hps_0.h2f_lw_axi_master"
    end="to_external_bus_bridge_0.avalon_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00010000" />
+  <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
