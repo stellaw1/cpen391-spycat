@@ -67,8 +67,14 @@ Point GetPress(void)
 	WaitForTouch();
 	while((ReceiverFifo() & 0x81) != 0x81) //wait for pen down command
 		;
-	p.x = ReceiverFifo() | (ReceiverFifo() << 7) * SCREEN_X_MAX/4096;
-	p.y = ReceiverFifo() | (ReceiverFifo() << 7) * SCREEN_Y_MAX/4096;
+	
+	p.x = ReceiverFifo();  
+	p.x |= (ReceiverFifo() << 7);
+	p.y = ReceiverFifo();  
+	p.y |= (ReceiverFifo() << 7); 
+
+	p.x = p.x * SCREEN_X_MAX/4096;
+	p.y = p.y * SCREEN_Y_MAX/4096;
 	return p;
 }
 
@@ -83,8 +89,13 @@ Point GetRelease(void)
 	WaitForTouch();
 	while((ReceiverFifo() & 0x81) != 0x80) //wait for pen down command
 		;
-	p.x = ReceiverFifo() | (ReceiverFifo() << 7) * SCREEN_X_MAX/4096;
-	p.y = ReceiverFifo() | (ReceiverFifo() << 7) * SCREEN_Y_MAX/4096;
+
+	p.x = ReceiverFifo();  
+	p.x |= (ReceiverFifo() << 7);
+	p.y = ReceiverFifo();  
+	p.y |= (ReceiverFifo() << 7); 
+	p.x = p.x * SCREEN_X_MAX/4096;
+	p.y = p.y * SCREEN_Y_MAX/4096;
 	return p;
 }
  

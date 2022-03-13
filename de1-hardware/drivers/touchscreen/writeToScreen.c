@@ -17,7 +17,7 @@
 #define	YELLOW			5
 #define	CYAN			6
 #define	MAGENTA			7
-#define XRES 700
+#define XRES 750
 #define YRES 480
 
 typedef unsigned long DWORD;
@@ -183,20 +183,12 @@ void program_palette(int PaletteNumber, int RGB) {
 	*GraphicsCommandReg = ProgramPaletteColour; // issue command
 }
 
-void horizontal_line(int x1, int y1, int length, int Colour) {
-	wait_for_graphics();
-
-	*GraphicsColourReg = Colour;
-	*GraphicsX1Reg = x1;
-	*GraphicsY1Reg = y1;
-	*GraphicsX2Reg = x1 + length;
-	*GraphicsCommandReg = DrawHLine;
-}
-
 void clear_screen() {
-	int i;
+	int i, j;
 	for (i = 0; i < YRES; i++) {
-		horizontal_line(0, i, XRES, BLACK);
+        for (j = 0; j < XRES; j++) {
+            write_pixel(j, i, BLACK);
+        }
 	}
 }
 
@@ -272,7 +264,7 @@ int main(int argc, char **argv)
     while(1) {
         Point p = GetPress();
         printf("x: %d, y: %d\n", p.x, p.y);
-        write_pixel(p.x, p.y, 5);
+        write_pixel(p.y, p.x, BLUE);
     }
 
 	return 0;
