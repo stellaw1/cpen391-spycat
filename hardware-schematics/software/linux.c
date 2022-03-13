@@ -3,23 +3,24 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/mman.h>
+#include <string.h>
 
 #define HW_REGS_BASE 							( 0xff200000 )
 #define HW_REGS_SPAN 							( 0x00200000 )
 #define HW_REGS_MASK 							( HW_REGS_SPAN - 1 )
 
-#define Wifi_ReceiverFifoOffset 				(0x00010200)
-#define Wifi_TransmitterFifoOffset 				(0x00010200)
-#define Wifi_InterruptEnableRegOffset 			(0x00010202)
-#define Wifi_InterruptIdentificationRegOffset 	(0x00010204)
-#define Wifi_FifoControlRegOffset 				(0x00010204)
-#define Wifi_LineControlRegOffset 				(0x00010206)
-#define Wifi_ModemControlRegOffset 				(0x00010208)
-#define Wifi_LineStatusRegOffset 				(0x0001020A)
-#define Wifi_ModemStatusRegOffset 				(0x0001020C)
-#define Wifi_ScratchRegOffset 					(0x0001020E)
-#define Wifi_DivisorLatchLSBOffset				(0x00010200)
-#define Wifi_DivisorLatchMSBOffset 				(0x00010202)
+#define Wifi_ReceiverFifo						(volatile unsigned char *)(virtual_base + ((0xFF210200)&(HW_REGS_MASK)))
+#define Wifi_TransmitterFifo					(volatile unsigned char *)(virtual_base + ((0xFF210200)&(HW_REGS_MASK)))
+#define Wifi_InterruptEnableReg					(volatile unsigned char *)(virtual_base + ((0xFF210202)&(HW_REGS_MASK)))
+#define Wifi_InterruptIdentificationReg			(volatile unsigned char *)(virtual_base + ((0xFF210204)&(HW_REGS_MASK)))
+#define Wifi_FifoControlReg						(volatile unsigned char *)(virtual_base + ((0xFF210204)&(HW_REGS_MASK)))
+#define Wifi_LineControlReg						(volatile unsigned char *)(virtual_base + ((0xFF210206)&(HW_REGS_MASK)))
+#define Wifi_ModemControlReg					(volatile unsigned char *)(virtual_base + ((0xFF210208)&(HW_REGS_MASK)))
+#define Wifi_LineStatusReg						(volatile unsigned char *)(virtual_base + ((0xFF21020A)&(HW_REGS_MASK)))
+#define Wifi_ModemStatusReg						(volatile unsigned char *)(virtual_base + ((0xFF21020C)&(HW_REGS_MASK)))
+#define Wifi_ScratchReg							(volatile unsigned char *)(virtual_base + ((0xFF21020E)&(HW_REGS_MASK)))
+#define Wifi_DivisorLatchLSB					(volatile unsigned char *)(virtual_base + ((0xFF210200)&(HW_REGS_MASK)))
+#define Wifi_DivisorLatchMSB					(volatile unsigned char *)(virtual_base + ((0xFF210202)&(HW_REGS_MASK)))
 
 #define Wifi_LineControlReg_WordLengthSelect0 0
 #define Wifi_LineControlReg_WordLengthSelect1 1
@@ -31,95 +32,10 @@
 #define Wifi_LineStatusReg_DataReady 0
 #define Wifi_LineStatusReg_TransmitterHoldingRegister 5
 
-void * virtual_base = NULL;
+void * virtual_base;
 
-volatile unsigned char *Wifi_ReceiverFifo = NULL;
-volatile unsigned char *Wifi_TransmitterFifo = NULL;
-volatile unsigned char *Wifi_InterruptEnableReg = NULL;
-volatile unsigned char *Wifi_InterruptIdentificationReg = NULL;
-volatile unsigned char *Wifi_FifoControlReg = NULL;
-volatile unsigned char *Wifi_LineControlReg = NULL;
-volatile unsigned char *Wifi_ModemControlReg = NULL;
-volatile unsigned char *Wifi_LineStatusReg = NULL;
-volatile unsigned char *Wifi_ModemStatusReg = NULL;
-volatile unsigned char *Wifi_ScratchReg = NULL;
-volatile unsigned char *Wifi_DivisorLatchLSB = NULL;
-volatile unsigned char *Wifi_DivisorLatchMSB = NULL;
-
-void init_wifi_serial()
+void init_wifi_ports(void)
 {
-	Wifi_ReceiverFifo =(unsigned short int *)(virtual_base + (( Wifi_ReceiverFifoOffset ) &
-		(HW_REGS_MASK ) ));
-	if (Wifi_ReceiverFifo == NULL) {
-		printf("ERROR, Wifi_ReceiverFifo was not correctly defined. Try again");
-	}
-
-	Wifi_TransmitterFifo =(unsigned short int *)(virtual_base + (( Wifi_TransmitterFifoOffset ) &
-		(HW_REGS_MASK ) ));
-	if (Wifi_TransmitterFifo == NULL) {
-		printf("ERROR, Wifi_TransmitterFifo was not correctly defined. Try again");
-	}
-
-	Wifi_InterruptEnableReg =(unsigned short int *)(virtual_base + (( Wifi_InterruptEnableRegOffset ) &
-		(HW_REGS_MASK ) ));
-	if (Wifi_InterruptEnableReg == NULL) {
-		printf("ERROR, Wifi_InterruptEnableReg was not correctly defined. Try again");
-	}
-
-	Wifi_InterruptIdentificationReg =(unsigned short int *)(virtual_base + (( Wifi_InterruptIdentificationRegOffset ) &
-		(HW_REGS_MASK ) ));
-	if (Wifi_InterruptIdentificationReg == NULL) {
-		printf("ERROR, Wifi_InterruptIdentificationReg was not correctly defined. Try again");
-	}
-
-	Wifi_FifoControlReg =(unsigned short int *)(virtual_base + (( Wifi_FifoControlRegOffset ) &
-		(HW_REGS_MASK ) ));
-	if (Wifi_FifoControlReg == NULL) {
-		printf("ERROR, Wifi_FifoControlReg was not correctly defined. Try again");
-	}
-
-	Wifi_LineControlReg =(unsigned short int *)(virtual_base + (( Wifi_LineControlRegOffset ) &
-		(HW_REGS_MASK ) ));
-	if (Wifi_LineControlReg == NULL) {
-		printf("ERROR, Wifi_LineControlReg was not correctly defined. Try again");
-	}
-
-	Wifi_ModemControlReg =(unsigned short int *)(virtual_base + (( Wifi_ModemControlRegOffset ) &
-		(HW_REGS_MASK ) ));
-	if (Wifi_ModemControlReg == NULL) {
-		printf("ERROR, Wifi_ModemControlReg was not correctly defined. Try again");
-	}
-
-	Wifi_LineStatusReg =(unsigned short int *)(virtual_base + (( Wifi_LineStatusRegOffset ) &
-		(HW_REGS_MASK ) ));
-	if (Wifi_LineStatusReg == NULL) {
-		printf("ERROR, Wifi_LineStatusReg was not correctly defined. Try again");
-	}
-
-	Wifi_ModemStatusReg =(unsigned short int *)(virtual_base + (( Wifi_ModemStatusRegOffset ) &
-		(HW_REGS_MASK ) ));
-	if (Wifi_ModemStatusReg == NULL) {
-		printf("ERROR, Wifi_ModemStatusReg was not correctly defined. Try again");
-	}
-
-	Wifi_ScratchReg =(unsigned short int *)(virtual_base + (( Wifi_ScratchRegOffset ) &
-		(HW_REGS_MASK ) ));
-	if (Wifi_ScratchReg == NULL) {
-		printf("ERROR, Wifi_ScratchReg was not correctly defined. Try again");
-	}
-
-	Wifi_DivisorLatchLSB =(unsigned short int *)(virtual_base + (( Wifi_DivisorLatchLSBOffset ) &
-		(HW_REGS_MASK ) ));
-	if (Wifi_DivisorLatchLSB == NULL) {
-		printf("ERROR, Wifi_DivisorLatchLSB was not correctly defined. Try again");
-	}
-
-	Wifi_DivisorLatchMSB =(unsigned short int *)(virtual_base + (( Wifi_DivisorLatchMSBOffset ) &
-		(HW_REGS_MASK ) ));
-	if (Wifi_DivisorLatchMSB == NULL) {
-		printf("ERROR, Wifi_DivisorLatchMSB was not correctly defined. Try again");
-	}
-
  // set bit 7 of Line Control Register to 1, to gain access to the baud rate registers
     *Wifi_LineControlReg = 0x80;
 
@@ -224,25 +140,102 @@ int lua_command_no_stars(char * str, char * res, int timeout) {
 	return bytes_received;
 }
 
-int lua_command_no_stars_short(char * str, char * res) {
-	return lua_command_no_stars(str, res, 200000);
+int lua_command_stars(char * str, char * res) {
+	int i;
+
+	int bytes_received = 0;
+	printf("executing %s\n", str);
+
+	char star = '*';
+	int star_count = 0;
+
+	while (*str) {
+		put_char_wifi(*str);
+		str++;
+
+		for(i=0; i<1000; i++) {
+			if(wifi_test_for_received_data() == 1) {
+				char c = get_char_wifi();
+
+				if (c == star) { // Start counting * characters
+					star_count++;
+
+					if (star_count == 4) { // break if we received the last * character
+						res[bytes_received] = '\0';
+
+						return bytes_received;
+					}
+				} else { // reset the star counter
+					while(star_count > 0) {
+						res[bytes_received++] = star;
+						star_count--;
+					}
+					res[bytes_received++] = c;
+				}
+			}
+		}
+	}
+
+	for(i=0; i<30000000; i++) { // start the timeout counter
+		if(wifi_test_for_received_data() == 1) {
+			char c = get_char_wifi();
+
+			if (c == star) { // start counting stars
+				star_count++;
+				if (star_count == 4) { // stop receiving data because last star is received
+					res[bytes_received] = '\0';
+
+					return bytes_received;
+				}
+			} else { // reset the star counter
+				while(star_count > 0) {
+					res[bytes_received++] = star;
+					star_count--;
+				}
+				res[bytes_received++] = c;
+			}
+
+			i = 0; // reset the timeout timer if we received data
+		}
+	}
+	
+	res[bytes_received] = '\0';
+
+	return bytes_received;
 }
 
+int lua_command_no_stars_short(char * str, char * res) {
+	return lua_command_no_stars(str, res, 20000000);
+}
 
 void do_file(void)
 {
-	char * command = "dofile(\"hello.lua\")\r\n";
+	char * command = "dofile(\"wifi.lua\")\r\n";
 	char buf[1024] = "";
-	lua_command_no_stars_short(command, buf);
+	int bytes_received = lua_command_no_stars_short(command, buf);
 
+	printf("bytes received: %d\n", bytes_received);
 	printf("%s\n", buf);
 }
 
 int init_wifi(void)
 {
-	init_wifi_serial(virtual_base);
+	init_wifi_ports();
 	flush_wifi();
 	do_file();
+	return 0;
+}
+
+int hello_world(void)
+{
+	char * command = "hello_world()\r\n";
+
+	char buf[1024] = "";
+	int bytes_received = lua_command_no_stars_short(command, buf);
+
+	printf("bytes received: %d\n", bytes_received);
+	printf("%s\n", buf);
+
 	return 0;
 }
 
@@ -251,6 +244,7 @@ int main(int argc, char **argv)
 
 	int fd;
 
+	// setup lw bridge
 	// Open memory as if it were a device for read and write access
 	if( ( fd = open( "/dev/mem", ( O_RDWR | O_SYNC ) ) ) == -1 ) {
 		printf( "ERROR: could not open \"/dev/mem\"...\n" );
@@ -267,10 +261,13 @@ int main(int argc, char **argv)
 		return(1);
 	}
 
-	// if(!init_wifi()) {
-	// 	return 0;
-	// }
-    printf("Finish Wifi Setup");
+    printf("Start Wifi Setup \n");
+	init_wifi();
+    printf("Finish Wifi Setup \n");
+
+    printf("Start Hello World \n");
+	hello_world();
+    printf("Finish Hello World \n");
 
 	return 0;
 }

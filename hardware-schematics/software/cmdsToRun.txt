@@ -1,0 +1,23 @@
+echo 0 > /sys/class/fpga-bridge/fpga2hps/enable
+echo 0 > /sys/class/fpga-bridge/hps2fpga/enable
+echo 0 > /sys/class/fpga-bridge/lwhps2fpga/enable
+dd if=/home/root/wifi3/medical_output.rbf of=/dev/fpga0 bs=1M
+echo 1 > /sys/class/fpga-bridge/fpga2hps/enable
+echo 1 > /sys/class/fpga-bridge/hps2fpga/enable
+echo 1 > /sys/class/fpga-bridge/lwhps2fpga/enable
+
+
+DEFAULT:
+
+echo 0 > /sys/class/fpga-bridge/fpga2hps/enable
+echo 0 > /sys/class/fpga-bridge/hps2fpga/enable
+echo 0 > /sys/class/fpga-bridge/lwhps2fpga/enable
+dd if=/home/root/DE1_SoC_Computer.rbf of=/dev/fpga0 bs=1M
+echo 1 > /sys/class/fpga-bridge/fpga2hps/enable
+echo 1 > /sys/class/fpga-bridge/hps2fpga/enable
+echo 1 > /sys/class/fpga-bridge/lwhps2fpga/enable
+
+
+3+1 records in
+3+1 records out
+3737980 bytes (3.7 MB) copied, 0.319912 s, 11.7 MB/s
