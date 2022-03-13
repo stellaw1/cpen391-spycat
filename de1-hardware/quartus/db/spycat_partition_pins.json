@@ -132,6 +132,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "GPIO_1[26]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_1[28]",
+					"strict" : false
+				},
+				{
 					"name" : "DRAM_DQ[0]",
 					"strict" : false
 				},
@@ -193,14 +201,6 @@
 				},
 				{
 					"name" : "DRAM_DQ[15]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_1[26]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_1[28]",
 					"strict" : false
 				},
 				{

@@ -1,12 +1,12 @@
-Fitter Status : Successful - Sat Mar 12 17:58:31 2022
+Fitter Status : Successful - Sat Mar 12 20:50:27 2022
 Quartus Prime Version : 19.1.0 Build 670 09/22/2019 Patches 0.09std,0.02std SJ Lite Edition
 Revision Name : spycat
 Top-level Entity Name : spycat
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 4,100 / 32,070 ( 13 % )
-Total registers : 5578
+Logic utilization (in ALMs) : 4,174 / 32,070 ( 13 % )
+Total registers : 5724
 Total pins : 338 / 457 ( 74 % )
 Total virtual pins : 0
 Total block memory bits : 35,968 / 4,065,280 ( < 1 % )
