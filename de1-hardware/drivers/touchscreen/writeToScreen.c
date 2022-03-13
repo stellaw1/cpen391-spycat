@@ -223,5 +223,10 @@ int main(int argc, char **argv)
 	}
     printf("Done \n");
 
+    while(1) {
+        Point p = GetPress();
+        write_pixel(p.x, p.y, 5);
+    }
+
 	return 0;
 }
