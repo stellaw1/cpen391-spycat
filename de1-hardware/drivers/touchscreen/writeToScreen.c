@@ -200,6 +200,20 @@ void clear_screen() {
 	}
 }
 
+void draw_border() {
+    int i;
+
+    for (i = 0; i < YRES; i++) {
+        write_pixel(1, i, RED);
+        write_pixel(XRES-1, i, RED);
+    }
+
+    for (i = 0; i < XRES; i++) {
+        write_pixel(i, 1, RED);
+        write_pixel(i, YRES-1, RED);
+    }
+}
+
 void load_original_colour_palette() {
 	int c = 0;
 	for(c = 0; c < 8; c++) { // 8 = number of colours
@@ -250,7 +264,10 @@ int main(int argc, char **argv)
 	}
     printf("Done \n");
 
+    printf("Drawing screen border... \n");
     clear_screen();
+    draw_border();
+    printf("Done \n");
 
     while(1) {
         Point p = GetPress();
