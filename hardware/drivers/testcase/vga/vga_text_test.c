@@ -16,10 +16,24 @@ int sys_init()
     WriteAPixel(255, 256, YELLOW);
     WriteAPixel(255, 257, BLUE);
     WriteAPixel(255, 258, GREEN);
+ 
+ OutGraphicsCharFont2(85, 100, WHITE, BLACK, 'H', 1);
+ OutGraphicsCharFont2(100, 100, WHITE, BLACK, 'E', 1);
+ OutGraphicsCharFont2(115, 100, WHITE, BLACK, 'L', 1);
+ OutGraphicsCharFont2(130, 100, WHITE, BLACK, 'L', 1);
+ OutGraphicsCharFont2(145, 100, WHITE, BLACK, 'O', 1);
+ OutGraphicsCharFont2(160, 100, WHITE, BLACK, ',', 1);
+ OutGraphicsCharFont2(175, 100, WHITE, BLACK, 'W', 1);
+ OutGraphicsCharFont2(190, 100, WHITE, BLACK, 'O', 1);
+ OutGraphicsCharFont2(205, 100, WHITE, BLACK, 'R', 1);
+ OutGraphicsCharFont2(220, 100, WHITE, BLACK, 'L', 1);    
+ OutGraphicsCharFont2(235, 100, WHITE, BLACK, 'D', 1);
+ OutGraphicsCharFont2(250, 100, WHITE, BLACK, '!', 1);
 
-    OutGraphicsCharFont1(10, 10, WHITE, RED, 'A', 1);
-    OutGraphicsCharFont2(100,100, WHITE, RED, 'B', 1);
-    printf("Finish vga Setup");
+ GraphicsString("Hello From DE1-SoC Linux", 10, 10, WHITE, BLACK);
+ GraphicsString("If you see this line on screen, congratulation: TEST PASSED", 10, 25, WHITE, BLACK);
+ GraphicsString("PASSED", 10, 40, RED, BLACK);
+printf("Finish vga Setup");
 }
 
 int main(void)

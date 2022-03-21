@@ -99,6 +99,9 @@ void clear_screen() {
 	}
 }
 
+////////////////////////////////////////////////////////////////////////////////////////
+// Print characters on VGA screen.
+////////////////////////////////////////////////////////////////////////////////////////
 extern const unsigned char Font5x7[][7] ;
 extern const unsigned short int Font10x14[][14] ;
 
@@ -147,7 +150,6 @@ void OutGraphicsCharFont1(int x, int y, int fontcolour, int backgroundcolour, in
 	}
 }
 
-
 /******************************************************************************************************************************
 ** This function draws a single ASCII character at the coord specified using the colour specified
 ** OutGraphicsCharFont2(100,100, RED, 'A', TRUE, FALSE, 1, 1) ;	// display upper case 'A' in RED at coords 100,100, erase background
@@ -192,4 +194,52 @@ void OutGraphicsCharFont2(int x, int y, int colour, int backgroundcolour, int c,
 			}
 		}
 	}
+}
+
+/*
+ * Print sentence on screen
+ */
+void GraphicsString(char *string_input, int x, int y, int colour, int background)
+{
+	//printf("%s", string_input);
+	int i = 0;
+	while(string_input[i]!='\0') {
+		printf("%c", string_input[i]);
+		OutGraphicsCharFont2(x+i*15, y, colour, background, string_input[i], 1);
+		i++;
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+// Print lines and boxes on VGA screen.
+////////////////////////////////////////////////////////////////////////////////////////
+void horizontal_line(int x1, int y1, int length, int Colour) {
+	WAIT_FOR_GRAPHICS();
+
+	*GraphicsColourReg = Colour;
+	*GraphicsX1Reg = x1;
+	*GraphicsY1Reg = y1;
+	*GraphicsX2Reg = x1 + length;
+	*GraphicsCommandReg = DrawHLine;
+}
+
+void vertical_line(int x1, int y1, int length, int Colour) {
+	WAIT_FOR_GRAPHICS();
+	*GraphicsColourReg = Colour;
+	*GraphicsX1Reg = x1;
+	*GraphicsY1Reg = y1;
+	*GraphicsY2Reg = y1 + length;
+	*GraphicsCommandReg = DrawVLine;
+}
+
+void line(int x1, int y1, int x2, int y2, int Colour)
+{
+    WAIT_FOR_GRAPHICS();              // is graphics ready for new command
+
+    *GraphicsX1Reg = x1;              // write coords to x1, y1, and x2, y2
+    *GraphicsY1Reg = y1;
+    *GraphicsX2Reg = x2;
+    *GraphicsY2Reg = y2;
+    *GraphicsColourReg = Colour;         // set pixel colour
+    *GraphicsCommandReg = DrawLine;         // give graphics "draw line" command
 }
