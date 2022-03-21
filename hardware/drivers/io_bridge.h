@@ -52,6 +52,25 @@ volatile unsigned short int *TOUCHSCREEN_VADDR_ScratchReg;
 volatile unsigned short int *TOUCHSCREEN_VADDR_DivisorLatchLSB;
 volatile unsigned short int *TOUCHSCREEN_VADDR_DivisorLatchMSB;
 
+/* VGA Graphics Controller */
+#define GraphicsCommandReg_PADDR                        (0x10000)
+#define GraphicsStatusReg_PADDR                         (0x10000)
+#define GraphicsX1Reg_PADDR                             (0x10002)
+#define GraphicsY1Reg_PADDR                             (0x10004)
+#define GraphicsX2Reg_PADDR                             (0x10006)
+#define GraphicsY2Reg_PADDR                             (0x10008)
+#define GraphicsColourReg_PADDR                         (0x1000E)
+#define GraphicsBackGroundColourReg_PADDR               (0x10010)
+
+volatile unsigned short int *GraphicsCommandReg;   		
+volatile unsigned short int *GraphicsStatusReg;   		
+volatile unsigned short int *GraphicsX1Reg;   			
+volatile unsigned short int *GraphicsY1Reg;   			
+volatile unsigned short int *GraphicsX2Reg;   			
+volatile unsigned short int *GraphicsY2Reg;   			
+volatile unsigned short int *GraphicsColourReg;   		
+volatile unsigned short int *GraphicsBackGroundColourReg; 
+
 /*
  * Set the virtual addresses for hardware up
  */

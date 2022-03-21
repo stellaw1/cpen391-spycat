@@ -3,6 +3,7 @@
 static void wifi_io_bridge_init();
 static void camera_io_bridge_init();
 static void touchscreen_io_bridge_init();
+static void graphics_bridge_init();
 
 int fd;
 void *virtual_base;
@@ -26,6 +27,7 @@ int io_bridge_init() {
                 close( fd );
                 return 0;
         }
+    graphics_bridge_init();
     wifi_io_bridge_init();
     camera_io_bridge_init();
     touchscreen_io_bridge_init();
@@ -42,6 +44,19 @@ void io_bridge_deallocate() {
         fd = -1;
     }
 }
+
+/* Set up vaddr for VGA controller module */
+static void graphics_bridge_init() {
+    GraphicsCommandReg =          (unsigned short int *) (virtual_base + (GraphicsCommandReg_PADDR & HW_REGS_MASK));
+    GraphicsStatusReg =           (unsigned short int *) (virtual_base + (GraphicsStatusReg_PADDR & HW_REGS_MASK));
+    GraphicsX1Reg = 	          (unsigned short int *) (virtual_base + (GraphicsX1Reg_PADDR & HW_REGS_MASK));
+    GraphicsY1Reg = 	          (unsigned short int *) (virtual_base + (GraphicsY1Reg_PADDR & HW_REGS_MASK));
+    GraphicsX2Reg = 	          (unsigned short int *) (virtual_base + (GraphicsX2Reg_PADDR & HW_REGS_MASK));
+    GraphicsY2Reg = 	          (unsigned short int *) (virtual_base + (GraphicsY2Reg_PADDR & HW_REGS_MASK));
+    GraphicsColourReg =           (unsigned short int *) (virtual_base + (GraphicsColourReg_PADDR & HW_REGS_MASK));
+    GraphicsBackGroundColourReg = (unsigned short int *) (virtual_base + (GraphicsBackGroundColourReg_PADDR & HW_REGS_MASK));
+}
+
 /* Set up vaddr for wifi module */
 static void wifi_io_bridge_init() {
     /* todo */
