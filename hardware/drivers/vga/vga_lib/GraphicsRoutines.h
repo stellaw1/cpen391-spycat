@@ -12,3 +12,9 @@ void clear_screen(void);
 void OutGraphicsCharFont1(int x, int y, int fontcolour, int backgroundcolour, int c, int Erase);
 void OutGraphicsCharFont2(int x, int y, int colour, int backgroundcolour, int c, int Erase);
 void GraphicsString(char *string_input, int x, int y, int colour, int background);
+
+void horizontal_line(int x1, int y1, int length, int Colour);
+
+void vertical_line(int x1, int y1, int length, int Colour);
+
+void line(int x1, int y1, int x2, int y2, int Colour);
