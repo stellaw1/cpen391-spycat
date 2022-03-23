@@ -246,3 +246,81 @@ void text_box_filled(char *string_input, int x1, int y1, int text_x, int text_y,
 	box_filled(x1, y1, width, height, Colour);
 	GraphicsString(string_input, text_x, text_y, font_colour, Colour);
 }
+
+void keyboard (void) {
+	//keyboard background
+	int keyColour = GRAY;
+	int fontColour = WHITE;
+	box_filled(0,239,800,240,DARK_SLATE_GRAY);
+	//1st line ~ 1 2 3 4 5 6 7 8 9 0 - + backspace
+	int i = 50+3;
+	text_box_filled("~", 0+4, 239+8, 0+4+17, 239+8+16, 50, 40, fontColour, keyColour);
+	text_box_filled("1", 0+4+i, 239+8, 0+4+i+17, 239+8+16, 50, 40, fontColour, keyColour);
+	text_box_filled("2", 0+4+i*2, 239+8, 0+4+i*2+17, 239+8+16, 50, 40, fontColour, keyColour);
+	text_box_filled("3", 0+4+i*3, 239+8, 0+4+i*3+17, 239+8+16, 50, 40, fontColour, keyColour);
+	text_box_filled("4", 0+4+i*4, 239+8, 0+4+i*4+17, 239+8+16, 50, 40, fontColour, keyColour);
+	text_box_filled("5", 0+4+i*5, 239+8, 0+4+i*5+17, 239+8+16, 50, 40, fontColour, keyColour);
+	text_box_filled("6", 0+4+i*6, 239+8, 0+4+i*6+17, 239+8+16, 50, 40, fontColour, keyColour);
+	text_box_filled("7", 0+4+i*7, 239+8, 0+4+i*7+17, 239+8+16, 50, 40, fontColour, keyColour);
+	text_box_filled("8", 0+4+i*8, 239+8, 0+4+i*8+17, 239+8+16, 50, 40, fontColour, keyColour);
+	text_box_filled("9", 0+4+i*9, 239+8, 0+4+i*9+17, 239+8+16, 50, 40, fontColour, keyColour);
+	text_box_filled("0", 0+4+i*10, 239+8, 0+4+i*10+17, 239+8+16, 50, 40, fontColour, keyColour);
+	text_box_filled("-", 0+4+i*11, 239+8, 0+4+i*11+17, 239+8+16, 50, 40, fontColour, keyColour);
+	text_box_filled("+", 0+4+i*12, 239+8, 0+4+i*12+17, 239+8+16, 50, 40, fontColour, keyColour);
+	text_box_filled("delete", 0+4+i*13, 239+8, 0+4+i*13+14, 239+8+16, 100, 40, fontColour, keyColour);
+	//2nd line q w e r t y u i o p _ = [ ]
+	text_box_filled("Q", 0+29, 239+8+6+40, 0+29+17, 239+8+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("W", 0+29+i, 239+8+6+40, 0+29+17+i, 239+8+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("E", 0+29+i*2, 239+8+6+40, 0+29+17+i*2, 239+8+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("R", 0+29+i*3, 239+8+6+40, 0+29+17+i*3, 239+8+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("T", 0+29+i*4, 239+8+6+40, 0+29+17+i*4, 239+8+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("Y", 0+29+i*5, 239+8+6+40, 0+29+17+i*5, 239+8+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("U", 0+29+i*6, 239+8+6+40, 0+29+17+i*6, 239+8+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("I", 0+29+i*7, 239+8+6+40, 0+29+17+i*7, 239+8+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("O", 0+29+i*8, 239+8+6+40, 0+29+17+i*8, 239+8+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("P", 0+29+i*9, 239+8+6+40, 0+29+17+i*9, 239+8+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("_", 0+29+i*10, 239+8+6+40, 0+29+17+i*10, 239+8+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("=", 0+29+i*11, 239+8+6+40, 0+29+17+i*11, 239+8+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("[", 0+29+i*12, 239+8+6+40, 0+29+17+i*12, 239+8+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("]", 0+29+i*13, 239+8+6+40, 0+29+17+i*13, 239+8+6+40+16, 50, 40, fontColour, keyColour);
+	//3rd line A S D F G H J K L { } : ;
+	text_box_filled("A", 0+58+i*0, 239+8+6+40+6+40, 0+58+17+i*0, 239+8+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("S", 0+58+i*1, 239+8+6+40+6+40, 0+58+17+i*1, 239+8+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("D", 0+58+i*2, 239+8+6+40+6+40, 0+58+17+i*2, 239+8+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("F", 0+58+i*3, 239+8+6+40+6+40, 0+58+17+i*3, 239+8+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("G", 0+58+i*4, 239+8+6+40+6+40, 0+58+17+i*4, 239+8+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("H", 0+58+i*5, 239+8+6+40+6+40, 0+58+17+i*5, 239+8+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("J", 0+58+i*6, 239+8+6+40+6+40, 0+58+17+i*6, 239+8+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("K", 0+58+i*7, 239+8+6+40+6+40, 0+58+17+i*7, 239+8+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("L", 0+58+i*8, 239+8+6+40+6+40, 0+58+17+i*8, 239+8+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("{", 0+58+i*9, 239+8+6+40+6+40, 0+58+17+i*9, 239+8+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("}", 0+58+i*10, 239+8+6+40+6+40, 0+58+17+i*10, 239+8+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled(":", 0+58+i*11, 239+8+6+40+6+40, 0+58+17+i*11, 239+8+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled(";", 0+58+i*12, 239+8+6+40+6+40, 0+58+17+i*12, 239+8+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("<", 0+58+i*13, 239+8+6+40+6+40, 0+58+17+i*13, 239+8+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	//4th line Z X C V B N M > , . ? / !
+	text_box_filled("Z", 0+87+i*0, 239+8+6+40+6+40+6+40, 0+87+17+i*0, 239+8+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("X", 0+87+i*1, 239+8+6+40+6+40+6+40, 0+87+17+i*1, 239+8+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("C", 0+87+i*2, 239+8+6+40+6+40+6+40, 0+87+17+i*2, 239+8+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("V", 0+87+i*3, 239+8+6+40+6+40+6+40, 0+87+17+i*3, 239+8+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("B", 0+87+i*4, 239+8+6+40+6+40+6+40, 0+87+17+i*4, 239+8+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("N", 0+87+i*5, 239+8+6+40+6+40+6+40, 0+87+17+i*5, 239+8+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("M", 0+87+i*6, 239+8+6+40+6+40+6+40, 0+87+17+i*6, 239+8+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled(">", 0+87+i*7, 239+8+6+40+6+40+6+40, 0+87+17+i*7, 239+8+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled(",", 0+87+i*8, 239+8+6+40+6+40+6+40, 0+87+17+i*8, 239+8+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled(".", 0+87+i*9, 239+8+6+40+6+40+6+40, 0+87+17+i*9, 239+8+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("?", 0+87+i*10, 239+8+6+40+6+40+6+40, 0+87+17+i*10, 239+8+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("/", 0+87+i*11, 239+8+6+40+6+40+6+40, 0+87+17+i*11, 239+8+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("!", 0+87+i*12, 239+8+6+40+6+40+6+40, 0+87+17+i*12, 239+8+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	//5th line @ # $ space % ^ & * ( )
+	text_box_filled("@", 0+4+i*0, 239+8+6+40+6+40+6+40+6+40, 0+4+17+i*0, 239+8+6+40+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("#", 0+4+i*1, 239+8+6+40+6+40+6+40+6+40, 0+4+17+i*1, 239+8+6+40+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("$", 0+4+i*2, 239+8+6+40+6+40+6+40+6+40, 0+4+17+i*2, 239+8+6+40+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("%", 0+4+i*3, 239+8+6+40+6+40+6+40+6+40, 0+4+17+i*3, 239+8+6+40+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("space", 0+4+i*4, 239+8+6+40+6+40+6+40+6+40, 0+4+17+105+i*4, 239+8+6+40+6+40+6+40+6+40+16, 300, 40, fontColour, keyColour);
+	text_box_filled("^", 0+4+300+3+i*4, 239+8+6+40+6+40+6+40+6+40, 0+4+17+300+3+i*4, 239+8+6+40+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("&", 0+4+300+3+i*5, 239+8+6+40+6+40+6+40+6+40, 0+4+17+300+3+i*5, 239+8+6+40+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("*", 0+4+300+3+i*6, 239+8+6+40+6+40+6+40+6+40, 0+4+17+300+3+i*6, 239+8+6+40+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled("(", 0+4+300+3+i*7, 239+8+6+40+6+40+6+40+6+40, 0+4+17+300+3+i*7, 239+8+6+40+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+	text_box_filled(")", 0+4+300+3+i*8, 239+8+6+40+6+40+6+40+6+40, 0+4+17+300+3+i*8, 239+8+6+40+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
+}

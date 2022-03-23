@@ -17,6 +17,7 @@ int sys_init()
     box_empty(250, 155, 100, 50, GREEN);
     box_filled(450, 155, 100, 50, GREEN);
     text_box_filled("Hello", 250, 300, 270, 320, 100, 50, WHITE, GREEN);
+    keyboard();
     printf("Finish vga Setup");
 }
 

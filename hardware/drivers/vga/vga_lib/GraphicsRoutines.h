@@ -18,3 +18,4 @@ void vertical_line(int x1, int y1, int length, int Colour);
 void box_empty(int x1, int y1, int width, int height, int Colour);
 void box_filled(int x1, int y1, int width, int height, int Colour);
 void text_box_filled(char *string_input, int x1, int y1, int text_x, int text_y, int width, int height, int font_colour, int Colour);
+void keyboard(void);
