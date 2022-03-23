@@ -13,8 +13,9 @@ int sys_init()
     init_graphics();
     Init_Touch();
     clear_screen();
-    keyboard();
-    keyboard_response();
+    char out[65536];
+    touchscreen_module(out);
+    printf("%s", out);
     printf("Finish Touchscreen Setup");
 }
 

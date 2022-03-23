@@ -344,317 +344,335 @@ int keyboard_helper (int x, int y, Point p) {
  |               _______50______________    __
  |      29      |                       |  |
 */
-char keyboard_response (void) {
-	Point p;
-	while(1){
-		p = GetPress();
-		int x = p.y;
-		int y = p.x;
-		//TODO add region detection
-		int key_width = 50;
-		int key_height = 40;
-		int topleft = 239;
-		//1st line
-		if (keyboard_helper(4+53*0, 239+8, p)){
-			printf("~");
-			return '~';
-		}
-		if (keyboard_helper(4+53*1, 239+8, p)){
-			printf("1");
-			return '1';
-		}
-		if (keyboard_helper(4+53*2, 239+8, p)){
-			printf("2");
-			return '2';
-		}
-		if (keyboard_helper(4+53*3, 239+8, p)){
-			printf("3");
-			return '3';
-		}
-		if (keyboard_helper(4+53*4, 239+8, p)){
-			printf("4");
-			return '4';
-		}
-		if (keyboard_helper(4+53*5, 239+8, p)){
-			printf("5");
-			return '5';
-		}
-		if (keyboard_helper(4+53*6, 239+8, p)){
-			printf("6");
-			return '6';
-		}
-		if (keyboard_helper(4+53*7, 239+8, p)){
-			printf("7");
-			return '7';
-		}
-		if (keyboard_helper(4+53*8, 239+8, p)){
-			printf("8");
-			return '8';
-		}
-		if (keyboard_helper(4+53*9, 239+8, p)){
-			printf("9");
-			return '9';
-		}
-		if (keyboard_helper(4+53*10, 239+8, p)){
-			printf("0");
-			return '0';
-		}
-		if (keyboard_helper(4+53*11, 239+8, p)){
-			printf("-");
-			return '-';
-		}
-		if (keyboard_helper(4+53*12, 239+8, p)){
-			printf("+");
-			return '+';
-		}
-		if (keyboard_helper(4+53*13, 239+8, p)){
-			printf("delete");
-			return '`';
-		}
-		if (keyboard_helper(4+53*14, 239+8, p)){
-			printf("delete");
-			return '`';
-		}
+char keyboard_response (Point p) {
+	int x = p.y;
+	int y = p.x;
+	//TODO add region detection
+	int key_width = 50;
+	int key_height = 40;
+	int topleft = 239;
+	//1st line
+	if (keyboard_helper(4+53*0, 239+8, p)){
+		//printf("~");
+		return '~';
+	}
+	if (keyboard_helper(4+53*1, 239+8, p)){
+		//printf("1");
+		return '1';
+	}
+	if (keyboard_helper(4+53*2, 239+8, p)){
+		//printf("2");
+		return '2';
+	}
+	if (keyboard_helper(4+53*3, 239+8, p)){
+		//printf("3");
+		return '3';
+	}
+	if (keyboard_helper(4+53*4, 239+8, p)){
+		//printf("4");
+		return '4';
+	}
+	if (keyboard_helper(4+53*5, 239+8, p)){
+		//printf("5");
+		return '5';
+	}
+	if (keyboard_helper(4+53*6, 239+8, p)){
+		//printf("6");
+		return '6';
+	}
+	if (keyboard_helper(4+53*7, 239+8, p)){
+		//printf("7");
+		return '7';
+	}
+	if (keyboard_helper(4+53*8, 239+8, p)){
+		//printf("8");
+		return '8';
+	}
+	if (keyboard_helper(4+53*9, 239+8, p)){
+		//printf("9");
+		return '9';
+	}
+	if (keyboard_helper(4+53*10, 239+8, p)){
+		//printf("0");
+		return '0';
+	}
+	if (keyboard_helper(4+53*11, 239+8, p)){
+		//printf("-");
+		return '-';
+	}
+	if (keyboard_helper(4+53*12, 239+8, p)){
+		//printf("+");
+		return '+';
+	}
+	if (keyboard_helper(4+53*13, 239+8, p)){
+		//printf("delete");
+		return '`';
+	}
+	if (keyboard_helper(4+53*14, 239+8, p)){
+		//printf("delete");
+		return '`';
+	}
 
-		//2nd line
-		if (keyboard_helper(29+53*0, 239+8+40+6, p)){
-			printf("Q");
-			return 'Q';
-		}
-		if (keyboard_helper(29+53*1, 239+8+40+6, p)){
-			printf("W");
-			return 'W';
-		}
-		if (keyboard_helper(29+53*2, 239+8+40+6, p)){
-			printf("E");
-			return 'E';
-		}
-		if (keyboard_helper(29+53*3, 239+8+40+6, p)){
-			printf("R");
-			return 'R';
-		}
-		if (keyboard_helper(29+53*4, 239+8+40+6, p)){
-			printf("T");
-			return 'T';
-		}
-		if (keyboard_helper(29+53*5, 239+8+40+6, p)){
-			printf("Y");
-			return 'Y';
-		}
-		if (keyboard_helper(29+53*6, 239+8+40+6, p)){
-			printf("U");
-			return 'U';
-		}
-		if (keyboard_helper(29+53*7, 239+8+40+6, p)){
-			printf("I");
-			return 'I';
-		}
-		if (keyboard_helper(29+53*8, 239+8+40+6, p)){
-			printf("O");
-			return 'O';
-		}
-		if (keyboard_helper(29+53*9, 239+8+40+6, p)){
-			printf("P");
-			return 'P';
-		}
-		if (keyboard_helper(29+53*10, 239+8+40+6, p)){
-			printf("_");
-			return '_';
-		}
-		if (keyboard_helper(29+53*11, 239+8+40+6, p)){
-			printf("=");
-			return '=';
-		}
-		if (keyboard_helper(29+53*12, 239+8+40+6, p)){
-			printf("[");
-			return '[';
-		}
-		if (keyboard_helper(29+53*13, 239+8+40+6, p)){
-			printf("]");
-			return ']';
-		}
+	//2nd line
+	if (keyboard_helper(29+53*0, 239+8+40+6, p)){
+		//printf("Q");
+		return 'Q';
+	}
+	if (keyboard_helper(29+53*1, 239+8+40+6, p)){
+		//printf("W");
+		return 'W';
+	}
+	if (keyboard_helper(29+53*2, 239+8+40+6, p)){
+		//printf("E");
+		return 'E';
+	}
+	if (keyboard_helper(29+53*3, 239+8+40+6, p)){
+		//printf("R");
+		return 'R';
+	}
+	if (keyboard_helper(29+53*4, 239+8+40+6, p)){
+		//printf("T");
+		return 'T';
+	}
+	if (keyboard_helper(29+53*5, 239+8+40+6, p)){
+		//printf("Y");
+		return 'Y';
+	}
+	if (keyboard_helper(29+53*6, 239+8+40+6, p)){
+		//printf("U");
+		return 'U';
+	}
+	if (keyboard_helper(29+53*7, 239+8+40+6, p)){
+		//printf("I");
+		return 'I';
+	}
+	if (keyboard_helper(29+53*8, 239+8+40+6, p)){
+		//printf("O");
+		return 'O';
+	}
+	if (keyboard_helper(29+53*9, 239+8+40+6, p)){
+		//printf("P");
+		return 'P';
+	}
+	if (keyboard_helper(29+53*10, 239+8+40+6, p)){
+		//printf("_");
+		return '_';
+	}
+	if (keyboard_helper(29+53*11, 239+8+40+6, p)){
+		//printf("=");
+		return '=';
+	}
+	if (keyboard_helper(29+53*12, 239+8+40+6, p)){
+		//printf("[");
+		return '[';
+	}
+	if (keyboard_helper(29+53*13, 239+8+40+6, p)){
+		//printf("]");
+		return ']';
+	}
 
-		//3rd line
-		if (keyboard_helper(58+53*0, 239+8+40+6+40+6, p)){
-			printf("A");
-			return 'A';
-		}
-		if (keyboard_helper(58+53*1, 239+8+40+6+40+6, p)){
-			printf("S");
-			return 'S';
-		}
-		if (keyboard_helper(58+53*2, 239+8+40+6+40+6, p)){
-			printf("D");
-			return 'D';
-		}
-		if (keyboard_helper(58+53*3, 239+8+40+6+40+6, p)){
-			printf("F");
-			return 'F';
-		}
-		if (keyboard_helper(58+53*4, 239+8+40+6+40+6, p)){
-			printf("G");
-			return 'G';
-		}
-		if (keyboard_helper(58+53*5, 239+8+40+6+40+6, p)){
-			printf("H");
-			return 'H';
-		}
-		if (keyboard_helper(58+53*6, 239+8+40+6+40+6, p)){
-			printf("J");
-			return 'J';
-		}
-		if (keyboard_helper(58+53*7, 239+8+40+6+40+6, p)){
-			printf("K");
-			return 'K';
-		}
-		if (keyboard_helper(58+53*8, 239+8+40+6+40+6, p)){
-			printf("L");
-			return 'L';
-		}
-		if (keyboard_helper(58+53*9, 239+8+40+6+40+6, p)){
-			printf("{");
-			return '{';
-		}
-		if (keyboard_helper(58+53*10, 239+8+40+6+40+6, p)){
-			printf("}");
-			return '}';
-		}
-		if (keyboard_helper(58+53*11, 239+8+40+6+40+6, p)){
-			printf(":");
-			return ':';
-		}if (keyboard_helper(58+53*12, 239+8+40+6+40+6, p)){
-			printf(";");
-			return ';';
-		}
-		if (keyboard_helper(58+53*13, 239+8+40+6+40+6, p)){
-			printf("<");
-			return '<';
-		}
-		//4th line
-		if (keyboard_helper(87+53*0, 239+8+40+6+40+6+40+6, p)){
-			printf("Z");
-			return 'Z';
-		}
-		if (keyboard_helper(87+53*1, 239+8+40+6+40+6+40+6, p)){
-			printf("X");
-			return 'X';
-		}
-		if (keyboard_helper(87+53*2, 239+8+40+6+40+6+40+6, p)){
-			printf("C");
-			return 'C';
-		}
-		if (keyboard_helper(87+53*3, 239+8+40+6+40+6+40+6, p)){
-			printf("V");
-			return 'V';
-		}
-		if (keyboard_helper(87+53*4, 239+8+40+6+40+6+40+6, p)){
-			printf("B");
-			return 'B';
-		}
-		if (keyboard_helper(87+53*5, 239+8+40+6+40+6+40+6, p)){
-			printf("N");
-			return 'N';
-		}
-		if (keyboard_helper(87+53*6, 239+8+40+6+40+6+40+6, p)){
-			printf("M");
-			return 'M';
-		}
-		if (keyboard_helper(87+53*7, 239+8+40+6+40+6+40+6, p)){
-			printf(">");
-			return '>';
-		}
-		if (keyboard_helper(87+53*8, 239+8+40+6+40+6+40+6, p)){
-			printf(",");
-			return ',';
-		}		
-		if (keyboard_helper(87+53*9, 239+8+40+6+40+6+40+6, p)){
-			printf(".");
-			return '.';
-		}
-		if (keyboard_helper(87+53*10, 239+8+40+6+40+6+40+6, p)){
-			printf("?");
-			return '?';
-		}
-		if (keyboard_helper(87+53*11, 239+8+40+6+40+6+40+6, p)){
-			printf("/");
-			return '/';
-		}
-		if (keyboard_helper(87+53*12, 239+8+40+6+40+6+40+6, p)){
-			printf("!");
-			return '!';
-		}
-		//5th line
-		if (keyboard_helper(4+53*0, 239+8+40+6+40+6+40+6+40+6, p)){
-			printf("@");
-			return '@';
-		}
-		if (keyboard_helper(4+53*1, 239+8+40+6+40+6+40+6+40+6, p)){
-			printf("#");
-			return '#';
-		}
-		if (keyboard_helper(4+53*2, 239+8+40+6+40+6+40+6+40+6, p)){
-			printf("$");
-			return '$';
-		}
-		if (keyboard_helper(4+53*3, 239+8+40+6+40+6+40+6+40+6, p)){
-			printf("%%");
-			return '%';
-		}
-		//space 1
-		if (keyboard_helper(4+53*4, 239+8+40+6+40+6+40+6+40+6, p)){
-			printf("space");
-			return ' ';
-		}
-		//space 2
-		if (keyboard_helper(4+53*4+50*1, 239+8+40+6+40+6+40+6+40+6, p)){
-			printf("space");
-			return ' ';
-		}
-		//space 3
-		if (keyboard_helper(4+53*4+50*2, 239+8+40+6+40+6+40+6+40+6, p)){
-			printf("space");
-			return ' ';
-		}
-		//space 4
-		if (keyboard_helper(4+53*4+50*3, 239+8+40+6+40+6+40+6+40+6, p)){
-			printf("space");
-			return ' ';
-		}
-		//space 5
-		if (keyboard_helper(4+53*4+50*4, 239+8+40+6+40+6+40+6+40+6, p)){
-			printf("space");
-			return ' ';
-		}
-		//space 6
-		if (keyboard_helper(4+53*4+50*5, 239+8+40+6+40+6+40+6+40+6, p)){
-			printf("space");
-			return ' ';
-		}
-		if (keyboard_helper(4+53*5+50*5, 239+8+40+6+40+6+40+6+40+6, p)){
-			printf("^");
-			return '^';
-		}
-		if (keyboard_helper(4+53*6+50*5, 239+8+40+6+40+6+40+6+40+6, p)){
-			printf("&");
-			return '&';
-		}
-		if (keyboard_helper(4+53*7+50*5, 239+8+40+6+40+6+40+6+40+6, p)){
-			printf("*");
-			return '*';
-		}
-		if (keyboard_helper(4+53*8+50*5, 239+8+40+6+40+6+40+6+40+6, p)){
-			printf("(");
-			return '(';
-		}
-		if (keyboard_helper(4+53*9+50*5, 239+8+40+6+40+6+40+6+40+6, p)){
-			printf(")");
-			return ')';
-		}
+	//3rd line
+	if (keyboard_helper(58+53*0, 239+8+40+6+40+6, p)){
+		//printf("A");
+		return 'A';
+	}
+	if (keyboard_helper(58+53*1, 239+8+40+6+40+6, p)){
+		//printf("S");
+		return 'S';
+	}
+	if (keyboard_helper(58+53*2, 239+8+40+6+40+6, p)){
+		//printf("D");
+		return 'D';
+	}
+	if (keyboard_helper(58+53*3, 239+8+40+6+40+6, p)){
+		//printf("F");
+		return 'F';
+	}
+	if (keyboard_helper(58+53*4, 239+8+40+6+40+6, p)){
+		//printf("G");
+		return 'G';
+	}
+	if (keyboard_helper(58+53*5, 239+8+40+6+40+6, p)){
+		//printf("H");
+		return 'H';
+	}
+	if (keyboard_helper(58+53*6, 239+8+40+6+40+6, p)){
+		//printf("J");
+		return 'J';
+	}
+	if (keyboard_helper(58+53*7, 239+8+40+6+40+6, p)){
+		//printf("K");
+		return 'K';
+	}
+	if (keyboard_helper(58+53*8, 239+8+40+6+40+6, p)){
+		//printf("L");
+		return 'L';
+	}
+	if (keyboard_helper(58+53*9, 239+8+40+6+40+6, p)){
+		//printf("{");
+		return '{';
+	}
+	if (keyboard_helper(58+53*10, 239+8+40+6+40+6, p)){
+		//printf("}");
+		return '}';
+	}
+	if (keyboard_helper(58+53*11, 239+8+40+6+40+6, p)){
+		//printf(":");
+		return ':';
+	}if (keyboard_helper(58+53*12, 239+8+40+6+40+6, p)){
+		//printf(";");
+		return ';';
+	}
+	if (keyboard_helper(58+53*13, 239+8+40+6+40+6, p)){
+		//printf("<");
+		return '<';
+	}
+	//4th line
+	if (keyboard_helper(87+53*0, 239+8+40+6+40+6+40+6, p)){
+		//printf("Z");
+		return 'Z';
+	}
+	if (keyboard_helper(87+53*1, 239+8+40+6+40+6+40+6, p)){
+		//printf("X");
+		return 'X';
+	}
+	if (keyboard_helper(87+53*2, 239+8+40+6+40+6+40+6, p)){
+		//printf("C");
+		return 'C';
+	}
+	if (keyboard_helper(87+53*3, 239+8+40+6+40+6+40+6, p)){
+		//printf("V");
+		return 'V';
+	}
+	if (keyboard_helper(87+53*4, 239+8+40+6+40+6+40+6, p)){
+		//printf("B");
+		return 'B';
+	}
+	if (keyboard_helper(87+53*5, 239+8+40+6+40+6+40+6, p)){
+		//printf("N");
+		return 'N';
+	}
+	if (keyboard_helper(87+53*6, 239+8+40+6+40+6+40+6, p)){
+		//printf("M");
+		return 'M';
+	}
+	if (keyboard_helper(87+53*7, 239+8+40+6+40+6+40+6, p)){
+		//printf(">");
+		return '>';
+	}
+	if (keyboard_helper(87+53*8, 239+8+40+6+40+6+40+6, p)){
+		//printf(",");
+		return ',';
+	}		
+	if (keyboard_helper(87+53*9, 239+8+40+6+40+6+40+6, p)){
+		//printf(".");
+		return '.';
+	}
+	if (keyboard_helper(87+53*10, 239+8+40+6+40+6+40+6, p)){
+		//printf("?");
+		return '?';
+	}
+	if (keyboard_helper(87+53*11, 239+8+40+6+40+6+40+6, p)){
+		//printf("/");
+		return '/';
+	}
+	if (keyboard_helper(87+53*12, 239+8+40+6+40+6+40+6, p)){
+		//printf("!");
+		return '!';
+	}
+	//5th line
+	if (keyboard_helper(4+53*0, 239+8+40+6+40+6+40+6+40+6, p)){
+		//printf("@");
+		return '@';
+	}
+	if (keyboard_helper(4+53*1, 239+8+40+6+40+6+40+6+40+6, p)){
+		//printf("#");
+		return '#';
+	}
+	if (keyboard_helper(4+53*2, 239+8+40+6+40+6+40+6+40+6, p)){
+		//printf("$");
+		return '$';
+	}
+	if (keyboard_helper(4+53*3, 239+8+40+6+40+6+40+6+40+6, p)){
+		//printf("%%");
+		return '%';
+	}
+	//space 1
+	if (keyboard_helper(4+53*4, 239+8+40+6+40+6+40+6+40+6, p)){
+		//printf("space");
+		return ' ';
+	}
+	//space 2
+	if (keyboard_helper(4+53*4+50*1, 239+8+40+6+40+6+40+6+40+6, p)){
+		//printf("space");
+		return ' ';
+	}
+	//space 3
+	if (keyboard_helper(4+53*4+50*2, 239+8+40+6+40+6+40+6+40+6, p)){
+		//printf("space");
+		return ' ';
+	}
+	//space 4
+	if (keyboard_helper(4+53*4+50*3, 239+8+40+6+40+6+40+6+40+6, p)){
+		//printf("space");
+		return ' ';
+	}
+	//space 5
+	if (keyboard_helper(4+53*4+50*4, 239+8+40+6+40+6+40+6+40+6, p)){
+		//printf("space");
+		return ' ';
+	}
+	//space 6
+	if (keyboard_helper(4+53*4+50*5, 239+8+40+6+40+6+40+6+40+6, p)){
+		//printf("space");
+		return ' ';
+	}
+	if (keyboard_helper(4+53*5+50*5, 239+8+40+6+40+6+40+6+40+6, p)){
+		//printf("^");
+		return '^';
+	}
+	if (keyboard_helper(4+53*6+50*5, 239+8+40+6+40+6+40+6+40+6, p)){
+		//printf("&");
+		return '&';
+	}
+	if (keyboard_helper(4+53*7+50*5, 239+8+40+6+40+6+40+6+40+6, p)){
+		//printf("*");
+		return '*';
+	}
+	if (keyboard_helper(4+53*8+50*5, 239+8+40+6+40+6+40+6+40+6, p)){
+		//printf("(");
+		return '(';
+	}
+	if (keyboard_helper(4+53*9+50*5, 239+8+40+6+40+6+40+6+40+6, p)){
+		//printf(")");
+		return ')';
+	}
+}
 
-
-		if(p.x < 239){
+void touchscreen_module (char* out) {
+	int keyColour = GRAY;
+	int fontColour = WHITE;
+	keyboard();
+    int i = 0;
+    Point p;
+    while (1) {
+		text_box_filled(out, 0, 239-20, 0+4, 239-20+3, 800, 20, fontColour, keyColour);
+        p = GetRelease();
+        if(p.x < 239){
 			break;
 		}
-	}
-	return '0';
+        if(!ScreenTouched())
+        {
+            if(keyboard_response(p) == '`' ){
+                if(i != 0){
+                    out[i-1] = '\0';
+                    i--;
+                }
+            } else {
+                out[i] = keyboard_response(p);
+                i++;
+            }
+        }
+    }
+
 }
