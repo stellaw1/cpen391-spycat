@@ -408,7 +408,7 @@ char keyboard_response (Point p) {
 		//printf("delete");
 		return '`';
 	}
-	if (keyboard_helper(4+53*14, 239+8, p)){
+	if (keyboard_helper(4+53*14-3, 239+8, p)){
 		//printf("delete");
 		return '`';
 	}
@@ -649,7 +649,7 @@ char keyboard_response (Point p) {
 	}
 }
 
-void touchscreen_module (char* out) {
+void TSKeyboard (char* out) {
 	int keyColour = GRAY;
 	int fontColour = WHITE;
 	keyboard();

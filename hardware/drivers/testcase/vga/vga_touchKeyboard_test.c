@@ -14,9 +14,9 @@ int sys_init()
     Init_Touch();
     clear_screen();
     char out[65536];
-    touchscreen_module(out);
+    TSKeyboard(out);
     printf("%s", out);
-    printf("Finish Touchscreen Setup");
+    printf("Finish Keyboard test");
 }
 
 int main(void)
