@@ -324,13 +324,45 @@ void keyboard (void) {
 	text_box_filled("(", 0+4+300+3+i*7, 239+8+6+40+6+40+6+40+6+40, 0+4+17+300+3+i*7, 239+8+6+40+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
 	text_box_filled(")", 0+4+300+3+i*8, 239+8+6+40+6+40+6+40+6+40, 0+4+17+300+3+i*8, 239+8+6+40+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
 }
-
+int keyboard_helper (int x, int y, Point p) {
+	if(p.y >= x && p.y <= x + 50 && p.x >= y && p.x <= y + 40){
+		return 1;
+	} else return 0;
+}
+/*
+ (0,239)
+ ________________________________
+ |                   8
+ | _________50_____________    __
+ | |                       |  |
+ |4|                       | 3|
+ | |          ~            |  |
+ | 40                      40 |
+ | |                       |  |
+ | |________50_____________|  |__
+ |                         6   
+ |  _______50______________    __
+ | |                       |  |
+*/
 char keyboard_response (void) {
 	Point p;
 	while(1){
 		p = GetPress();
-		printf("%d", p.y);
+		int x = p.y;
+		int y = p.x;
 		//TODO add region detection
+		int key_width = 50;
+		int key_height = 40;
+		int topleft = 239;
+		//1st line
+		if (keyboard_helper(4, 239+8, p)){
+			printf("~");
+			return '~';
+		}
+		if (keyboard_helper(4+53, 239+8, p)){
+			printf("1");
+			return '1';
+		}
 		if(p.x < 239){
 			break;
 		}
