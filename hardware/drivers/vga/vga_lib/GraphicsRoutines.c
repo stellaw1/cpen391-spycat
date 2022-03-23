@@ -214,32 +214,35 @@ void GraphicsString(char *string_input, int x, int y, int colour, int background
 // Print lines and boxes on VGA screen.
 ////////////////////////////////////////////////////////////////////////////////////////
 void horizontal_line(int x1, int y1, int length, int Colour) {
-	WAIT_FOR_GRAPHICS();
-
-	*GraphicsColourReg = Colour;
-	*GraphicsX1Reg = x1;
-	*GraphicsY1Reg = y1;
-	*GraphicsX2Reg = x1 + length;
-	*GraphicsCommandReg = DrawHLine;
+	int i;
+	for(i = 0; i < length; i++){
+		WriteAPixel (x1 + i, y1, Colour);
+	}
 }
 
 void vertical_line(int x1, int y1, int length, int Colour) {
-	WAIT_FOR_GRAPHICS();
-	*GraphicsColourReg = Colour;
-	*GraphicsX1Reg = x1;
-	*GraphicsY1Reg = y1;
-	*GraphicsY2Reg = y1 + length;
-	*GraphicsCommandReg = DrawVLine;
+	int i;
+	for(i = 0; i < length; i++){
+		horizontal_line(x1, y1+i, 1, Colour);
+	}
 }
 
-void line(int x1, int y1, int x2, int y2, int Colour)
-{
-    WAIT_FOR_GRAPHICS();              // is graphics ready for new command
+void box_empty(int x1, int y1, int width, int height, int Colour) {
+	int i;
+	horizontal_line(x1, y1, width, Colour);
+	horizontal_line(x1, y1 + height, width, Colour);
+	vertical_line(x1, y1, height, Colour);
+	vertical_line(x1 + width, y1, height, Colour);
+}
 
-    *GraphicsX1Reg = x1;              // write coords to x1, y1, and x2, y2
-    *GraphicsY1Reg = y1;
-    *GraphicsX2Reg = x2;
-    *GraphicsY2Reg = y2;
-    *GraphicsColourReg = Colour;         // set pixel colour
-    *GraphicsCommandReg = DrawLine;         // give graphics "draw line" command
+void box_filled(int x1, int y1, int width, int height, int Colour) {
+	int i;
+	for(i = 0; i < height; i++){
+		horizontal_line(x1, y1+i, width, Colour);
+	}
+}
+
+void text_box_filled(char *string_input, int x1, int y1, int text_x, int text_y, int width, int height, int font_colour, int Colour) {
+	box_filled(x1, y1, width, height, Colour);
+	GraphicsString(string_input, text_x, text_y, font_colour, Colour);
 }
