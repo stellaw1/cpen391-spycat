@@ -11,13 +11,11 @@ int sys_init()
 {
     io_bridge_init();
     init_graphics();
+    Init_Touch();
     clear_screen();
-    horizontal_line(10, 10, 200, GREEN);
-    vertical_line(10, 10, 200, GREEN);
-    box_empty(250, 155, 100, 50, GREEN);
-    box_filled(450, 155, 100, 50, GREEN);
-    text_box_filled("Hello", 250, 300, 270, 320, 100, 50, WHITE, GREEN);
-    printf("Finish vga Setup");
+    keyboard();
+    keyboard_response();
+    printf("Finish Touchscreen Setup");
 }
 
 int main(void)

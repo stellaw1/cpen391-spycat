@@ -73,8 +73,10 @@ Point GetPress(void)
 	p.y = ReceiverFifo();  
 	p.y |= (ReceiverFifo() << 7); 
 
-	p.x = p.x * SCREEN_X_MAX/4096;
-	p.y = p.y * SCREEN_Y_MAX/4096;
+    p.x = p.x * SCREEN_X_MAX/3500 - 55;
+    p.y = p.y * SCREEN_Y_MAX/3800 - 25;
+    p.x = p.x<0?0:p.x;
+    p.y = p.y<0?0:p.y;
 	return p;
 }
 
@@ -94,8 +96,10 @@ Point GetRelease(void)
 	p.x |= (ReceiverFifo() << 7);
 	p.y = ReceiverFifo();  
 	p.y |= (ReceiverFifo() << 7); 
-	p.x = p.x * SCREEN_X_MAX/4096;
-	p.y = p.y * SCREEN_Y_MAX/4096;
+    p.x = p.x * SCREEN_X_MAX/3500 - 55;
+    p.y = p.y * SCREEN_Y_MAX/3800 - 25;
+    p.x = p.x<0?0:p.x;
+    p.y = p.y<0?0:p.y;
 	return p;
 }
  

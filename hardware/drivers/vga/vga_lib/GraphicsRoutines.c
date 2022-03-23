@@ -324,3 +324,16 @@ void keyboard (void) {
 	text_box_filled("(", 0+4+300+3+i*7, 239+8+6+40+6+40+6+40+6+40, 0+4+17+300+3+i*7, 239+8+6+40+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
 	text_box_filled(")", 0+4+300+3+i*8, 239+8+6+40+6+40+6+40+6+40, 0+4+17+300+3+i*8, 239+8+6+40+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
 }
+
+char keyboard_response (void) {
+	Point p;
+	while(1){
+		p = GetPress();
+		printf("%d", p.y);
+		//TODO add region detection
+		if(p.x < 239){
+			break;
+		}
+	}
+	return '0';
+}
