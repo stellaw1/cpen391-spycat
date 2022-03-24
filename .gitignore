@@ -1,5 +1,6 @@
 ### GENERAL VSCODE GITIGNORE
 .vscode/
+home/
 
 ### QUARTUS GITIGNORE
 # ignore Quartus II generated files
