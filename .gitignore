@@ -1,3 +1,6 @@
+### GENERAL VSCODE GITIGNORE
+.vscode/
+
 ### QUARTUS GITIGNORE
 # ignore Quartus II generated files
 *_generation_script*
