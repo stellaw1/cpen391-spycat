@@ -4,12 +4,16 @@
   "description": "backend server to handle REST api for spycat",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "devStart": "nodemon server.js"
   },
   "author": "l2b-15",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.8"
+  },
+  "devDependencies": {
     "dotenv": "^16.0.0",
-    "express": "^4.17.3"
+    "nodemon": "^2.0.15"
   }
 }
