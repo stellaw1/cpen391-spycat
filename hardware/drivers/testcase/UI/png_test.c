@@ -14,17 +14,7 @@ int sys_init()
     init_graphics();
     Init_Touch();
     clear_screen();
-    readFromFile("download.png");
-    unsigned x = 0;
-    unsigned y = 0;
-    for (x = 0; x < 300; x++) {
-        for (y = 0; y < 300; y++){
-            if (rgba_data[x][y].a != 0) {
-                printf("print1pixel");
-                WriteAPixel (x, y, GREEN);
-            }
-        }
-    }
+    drawPNGonScreen(50, 50, GREEN);
 }
 
 int main(void)
