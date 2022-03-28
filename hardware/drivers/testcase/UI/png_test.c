@@ -14,7 +14,7 @@ int sys_init()
     init_graphics();
     Init_Touch();
     clear_screen();
-    drawPNGonScreen(50, 50, GREEN);
+    drawPNGonScreen("test.png", 50, 50, GREEN);
 }
 
 int main(void)

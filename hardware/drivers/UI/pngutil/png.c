@@ -32,15 +32,15 @@ void readFromFile(const char* filename) {
   }
 }
 
-void drawPNGonScreen(int topleft_x, int topleft_y, int Colour) {
-    readFromFile("download.png");
+void drawPNGonScreen(char *filename, int topleft_x, int topleft_y, int Colour) {
+    readFromFile(filename);
     unsigned x = 0;
     unsigned y = 0;
     for (x = 0; x < 300; x++) {
         for (y = 0; y < 300; y++){
             if (rgba_data[x][y].a != 0) {
                 printf("print1pixel");
-                WriteAPixel (x + topleft_x, y + topleft_y, Colour);
+                //WriteAPixel (x + topleft_x, y + topleft_y, Colour);
             }
         }
     }
