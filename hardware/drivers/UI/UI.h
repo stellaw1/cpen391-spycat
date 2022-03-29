@@ -5,3 +5,4 @@ int loginScreen (char *UID);
 void friendAddScreen (char *friendUID);
 int gameScreen (char *UID, char *friendUID, int userPetColour, int friendUIColour);
 void sleepScreen (void);
+void chatScreen (char *UID, char *friendUID, char *rcvMsg, char *sentMsg);
