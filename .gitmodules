@@ -1,0 +1,3 @@
+[submodule "l2b-15-something-node-server"]
+	path = l2b-15-something-node-server
+	url = git@github.com:stellaw1/l2b-15-something-node-server.git
