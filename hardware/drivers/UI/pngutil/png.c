@@ -5,15 +5,15 @@ struct rgba
     unsigned char g;
     unsigned char b;
     unsigned char a;
-} rgba_data[300][300];
+} rgba_data[800][480];
 
-void readFromFile(const char* filename) {
+void readFromFile(const char* filename, int size_x, int size_y) {
   unsigned error;
   unsigned char* image;
   unsigned w, h, x, y;
   size_t jump = 1;
-  w = 300;
-  h = 300;
+  w = size_x;
+  h = size_y;
   /*load the PNG in one function call*/
   error = lodepng_decode32_file(&image, &w, &h, filename);
   /*stop if there is an error*/
@@ -32,12 +32,12 @@ void readFromFile(const char* filename) {
   }
 }
 
-void drawPNGonScreen(char *filename, int topleft_x, int topleft_y, int Colour) {
-    readFromFile(filename);
+void drawPNGonScreen(char *filename, int topleft_x, int topleft_y, int Colour, int size_x, int size_y) {
+    readFromFile(filename, size_x, size_y);
     unsigned x = 0;
     unsigned y = 0;
-    for (x = 0; x < 300; x++) {
-        for (y = 0; y < 300; y++){
+    for (x = 0; x < size_x; x++) {
+        for (y = 0; y < size_y; y++){
             if (rgba_data[x][y].a != 0) {
                 WriteAPixel (x + topleft_x, y + topleft_y, Colour);
             }

@@ -14,9 +14,9 @@ int gameScreen (char *UID, char *friendUID, int userPetColour, int friendPetColo
     box_filled(0, 0, 800, 480, LIGHT_SALMON);
     /* Draw Pets*/
     // Your pet
-    drawPNGonScreen("data.png", 50, 100, userPetColour);
+    drawPNGonScreen("data.png", 50, 100, userPetColour, 300, 300);
     // Your friend's pet
-    drawPNGonScreen("data.png", 450, 100, friendPetColour);
+    drawPNGonScreen("data.png", 450, 100, friendPetColour, 300, 300);
     /* Draw return button */
     text_box_filled("< Home", 20, 20, 30, 35, 120, 50, WHITE, GRAY);
     /* Draw game choices buttons */
