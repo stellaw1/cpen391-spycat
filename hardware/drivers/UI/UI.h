@@ -3,4 +3,4 @@
  */
 int loginScreen (char *UID);
 void friendAddScreen (char *friendUID);
-void gameScreen (char *UID, char *friendUID, int userPetColour, int friendUIColour);
+int gameScreen (char *UID, char *friendUID, int userPetColour, int friendUIColour);

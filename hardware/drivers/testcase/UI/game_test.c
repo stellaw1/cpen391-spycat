@@ -13,10 +13,15 @@ int sys_init()
     init_graphics();
     Init_Touch();
     clear_screen();
-    char *out;
-    out = "friendname";
-    gameScreen (out);
-    printf("%s", out);
+    char *string1, *string2;
+    string1 = "myname";
+    string2 = "friendname";
+    int result = gameScreen (string1, string2, WHITE, YELLOW);
+    if (result == 0) {
+        printf(" Friend wins\n");
+    } else {
+        printf("You wins");
+    }
 }
 
 int main(void)
