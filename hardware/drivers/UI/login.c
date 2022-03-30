@@ -1,5 +1,4 @@
 #include "UI.h"
-#include "../vga/vga_lib/GraphicsRoutines.c"
 
 /*
  * Desciption: The main login screen.
@@ -11,7 +10,7 @@
  */
 int loginScreen (char *UID) {
     //Background set the colour LIGHT_SALMON.
-    char out[65536];
+    char *out = malloc(sizeof(char)*65536);
     box_filled(0, 0, 800, 480, LIGHT_SALMON);
     GraphicsString("User Name:", 150, 100, WHITE, LIGHT_SALMON);
     GraphicsString("Pet Colour:", 150, 150, WHITE, LIGHT_SALMON);
@@ -23,17 +22,14 @@ int loginScreen (char *UID) {
     box_filled(400, 150, 50, 30, Colour);
     text_box_filled("", 350, 100, 360, 108, 200, 30, WHITE, GRAY);
     TSKeyboard(out);
-    int j;
-    for (j = 0; j < 10; j++) {
-        UID[j] = out[j];
-    }
+    UID = out;
+    free(out);
     text_box_filled(UID, 350, 100, 360, 108, 200, 30, WHITE, GRAY);
     text_box_filled("LOGIN", 600, 125, 610, 148, 90, 60, WHITE, GRAY);
     Point p;
     while (1) {
         p = GetRelease();
         if(p.x >= 125 && p.x <= 125 + 60 && p.y >= 600 && p.y <= 600 + 90){
-			printf ("TODO: Go to the next page \n Colour selected is %d \n", Colour);
             break;
 		}
         if(!ScreenTouched())

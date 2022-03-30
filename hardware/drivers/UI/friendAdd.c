@@ -1,5 +1,4 @@
 #include "UI.h"
-#include "../vga/vga_lib/GraphicsRoutines.c"
 
 /*
  * Desciption: The Adding friend screen
@@ -10,6 +9,7 @@
  * @ret:       void
  */
 void friendAddScreen (char *friendUID) {
+    friendUID[0] = '\0';
     //Background set the colour LIGHT_SALMON.
     char out[65536];
     box_filled(0, 0, 800, 480, LIGHT_SALMON);
@@ -17,15 +17,18 @@ void friendAddScreen (char *friendUID) {
     text_box_filled("", 350, 93, 360, 101, 200, 30, WHITE, GRAY);
     text_box_filled("< Home", 20, 20, 30, 35, 120, 50, WHITE, GRAY);
     TSKeyboard(out);
-    int j;
-    for (j = 0; j < 10; j++) {
+    int j = 0;
+    while (j < 10 ) {
         friendUID[j] = out[j];
+        j++;
+        if (out[j]=='\0'){
+            break;
+        }
     }
-    text_box_filled(friendUID, 350, 93, 360, 101, 200, 30, WHITE, GRAY);
+    friendUID[j] = '\0';
+    text_box_filled(out, 350, 93, 360, 101, 200, 30, WHITE, GRAY);
     text_box_filled("ADD", 600, 80, 630, 103, 90, 60, WHITE, GRAY);
-
     //Home button
-    
     Point p;
     while (1) {
         p = GetRelease();
@@ -33,7 +36,6 @@ void friendAddScreen (char *friendUID) {
 			printf ("TODO: Go to the next page \n Friend added is %s \n", friendUID);
             //TODO: Check if the user name is valid or not.
             //If the user name is invalid, Input again
-            break;
 		}
         if(p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 90){
 			printf ("TODO: Go to the Home page \n");

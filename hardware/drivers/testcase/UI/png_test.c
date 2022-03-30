@@ -1,6 +1,7 @@
 #include "../../UI/login.c"
 #include "../../UI/pngutil/png.c"
-  
+#include "../vga/vga_lib/GraphicsRoutines.c"
+#include "pngutil/png.c"
 //NOTE: (20, 0) is top left, (799, 479) is bottom right
 #include <stdio.h>
 #include <stdlib.h>
