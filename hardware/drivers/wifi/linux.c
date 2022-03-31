@@ -32,6 +32,8 @@
 #define Wifi_LineStatusReg_DataReady 0
 #define Wifi_LineStatusReg_TransmitterHoldingRegister 5
 
+#define MAX_STRING 1000
+
 void * virtual_base;
 
 void init_wifi_ports(void)
@@ -241,12 +243,11 @@ int hello_world(void)
 
 int api_request(char * function, char * body)
 {
-	char * post_string = strcat(function, "(");
-	char * post_string_ending = ")\r\n";
-
-
-	post_string = strcat(post_string, body);
-	post_string = strcat(post_string, post_string_ending);
+  	char post_string[MAX_STRING];
+	strcpy(post_string, function);
+	strcat(post_string, "(")
+	strcat(post_string, body);
+	strcat(post_string, ")\r\n");
 
 	printf("posting: %s\n", post_string);
 
