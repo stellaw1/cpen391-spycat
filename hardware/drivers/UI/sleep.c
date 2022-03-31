@@ -1,7 +1,4 @@
 #include "UI.h"
-#include "../vga/vga_lib/GraphicsRoutines.c"
-#include "pngutil/png.c"
-
 /*
  * Desciption: The sleep session screen.
  *             

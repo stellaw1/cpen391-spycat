@@ -1,6 +1,4 @@
 #include "UI.h"
-#include "../vga/vga_lib/GraphicsRoutines.c"
-#include "pngutil/png.c"
 
 /*
  * Desciption: The main login screen.
@@ -10,7 +8,9 @@
  * @pram:      string: UID, UID is set to less than 10 characters
  * @ret:       Color
  */
-void chatScreen (char *UID, char *friendUID, char *rcvMsg, char *sentMsg) {
+void chatScreen (char *UID, char *friendUID) {
+    char *rcvMsg = "Hey"; //For test only
+    char sentMsg[65536]; //For test only
     char out[65536];
     //Background set the colour LIGHT_SALMON.
     box_filled(0, 0, 800, 480, LIGHT_SALMON);

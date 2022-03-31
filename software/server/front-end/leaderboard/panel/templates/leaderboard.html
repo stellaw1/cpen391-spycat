@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SPYCAT leaderboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background: #00B4DB;
+            font-family: Assistant, sans-serif;
+            background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+            background: linear-gradient(to right, #0083B0, #00B4DB);
+            height: 100vh;
+        }
+        .cell-1 {
+            border-collapse: separate;
+            border-spacing: 0 4em;
+            background: #fff;
+            border-bottom: 5px solid transparent;
+            background-clip: padding-box
+        }
+        thead {
+            background: #dddcdc
+        }
+
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row mb-5 text-center text-white">
+      <div class="col-lg-10 mx-auto">
+        <h1 class="display-4">SPYCAT Leaderboard</h1>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-10">
+            <div class="rounded">
+                <div class="table-responsive table-borderless">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Position</th>
+                                <th>Username</th>
+                                <th>Points Scored</th>
+                            </tr>
+                        </thead>
+                        {% for object in objects %}
+                        <tbody class="table-body">
+                            <tr class="cell-1">
+                                <td class="text-center">{{forloop.counter}}</td>
+                                <td>{{object.name}}</td>
+                                <td>{{object.points}}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</body>
+</html>
+<script language="JavaScript">
+    function myrefresh() {
+    window.location.reload();
+}
+setTimeout('myrefresh()', 1000);
+</script>
