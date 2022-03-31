@@ -287,7 +287,7 @@ int main(int argc, char **argv)
     printf("Finish Wifi Setup \n");
 
     printf("Test Post Request \n");
-	api_request("post_user", "testname, pink");
+	api_request("post_user", "\"testname\", \"pink\"");
 
 	return 0;
 }
