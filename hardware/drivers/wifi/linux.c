@@ -212,7 +212,7 @@ int lua_command_no_stars_short(char * str, char * res) {
 
 void do_file(void)
 {
-	char * command = "dofile(\"wifi.lua\")\r\n";
+	char * command = "dofile(\"server.lua\")\r\n";
 	char buf[1024] = "";
 	int bytes_received = lua_command_no_stars_short(command, buf);
 
@@ -245,7 +245,7 @@ int api_request(char * function, char * body)
 {
   	char post_string[MAX_STRING];
 	strcpy(post_string, function);
-	strcat(post_string, "(")
+	strcat(post_string, "(");
 	strcat(post_string, body);
 	strcat(post_string, ")\r\n");
 
