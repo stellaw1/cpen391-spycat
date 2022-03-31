@@ -239,6 +239,26 @@ int hello_world(void)
 	return 0;
 }
 
+int api_request(char * function, char * body)
+{
+	char * post_string = strcat(function, "(");
+	char * post_string_ending = ")\r\n";
+
+
+	post_string = strcat(post_string, body);
+	post_string = strcat(post_string, post_string_ending);
+
+	printf("posting: %s\n", post_string);
+
+	char buf[1024] = "";
+	int bytes_received = lua_command_no_stars_short(post_string, buf);
+
+	printf("bytes received: %d\n", bytes_received);
+	printf("%s\n", buf);
+
+	return 0;
+}
+
 int main(int argc, char **argv)
 {
 
@@ -265,9 +285,8 @@ int main(int argc, char **argv)
 	init_wifi();
     printf("Finish Wifi Setup \n");
 
-    printf("Start Hello World \n");
-	hello_world();
-    printf("Finish Hello World \n");
+    printf("Test Post Request \n");
+	api_request("post_user", "testname, pink");
 
 	return 0;
 }
