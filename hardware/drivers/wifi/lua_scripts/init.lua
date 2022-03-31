@@ -8,8 +8,8 @@ wifi.sta.config(station_cfg)
 wifi.sta.connect()
 -- create a timer to wait for wifi connection
 myTimer = tmr.create()
-myTimer:register(1000, tmr.ALARM_SEMI, 
-function(myTimer) 
+myTimer:register(1000, tmr.ALARM_SEMI,
+function(myTimer)
     if wifi.sta.getip() == nil then
         print("IP unavailable, Waiting...")
         myTimer:start()
