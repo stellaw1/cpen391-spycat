@@ -22,6 +22,31 @@
 #define HW_REGS_MASK ( HW_REGS_SPAN - 1 )
 
 /* Wi-Fi Module */
+#define Wifi_ReceiverFifo_PADDR						    (0xFF210200)
+#define Wifi_TransmitterFifo_PADDR					    (0xFF210200)
+#define Wifi_InterruptEnableReg_PADDR					(0xFF210202)
+#define Wifi_InterruptIdentificationReg_PADDR			(0xFF210204)
+#define Wifi_FifoControlReg_PADDR						(0xFF210204)
+#define Wifi_LineControlReg_PADDR						(0xFF210206)
+#define Wifi_ModemControlReg_PADDR					    (0xFF210208)
+#define Wifi_LineStatusReg_PADDR						(0xFF21020A)
+#define Wifi_ModemStatusReg_PADDR						(0xFF21020C)
+#define Wifi_ScratchReg_PADDR							(0xFF21020E)
+#define Wifi_DivisorLatchLSB_PADDR					    (0xFF210200)
+#define Wifi_DivisorLatchMSB_PADDR					    (0xFF210202)
+
+volatile unsigned char *Wifi_ReceiverFifo;
+volatile unsigned char *Wifi_TransmitterFifo;
+volatile unsigned char *Wifi_InterruptEnableReg;
+volatile unsigned char *Wifi_InterruptIdentificationReg;
+volatile unsigned char *Wifi_FifoControlReg;
+volatile unsigned char *Wifi_LineControlReg;
+volatile unsigned char *Wifi_ModemControlReg;
+volatile unsigned char *Wifi_LineStatusReg;
+volatile unsigned char *Wifi_ModemStatusReg;
+volatile unsigned char *Wifi_ScratchReg;
+volatile unsigned char *Wifi_DivisorLatchLSB;
+volatile unsigned char *Wifi_DivisorLatchMSB;
 
 /* GPIO Camera Module */
 

@@ -16,8 +16,6 @@ void sleepScreen (void) {
     while (1) {
         p = GetRelease();
         if(p.x >= 0 && p.x <= 479 && p.y >= 0 && p.y <= 799){
-			printf ("TODO: Go to the Home page \n");
-            //TODO:
             break;
 		}
     }

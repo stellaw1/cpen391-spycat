@@ -1,5 +1,5 @@
 #include "UI.h"
-
+#include <stdio.h>
 
 /*
  * Desciption: The game session screen.
@@ -25,18 +25,32 @@ int gameScreen (char *UID, char *friendUID, int userPetColour, int friendPetColo
     /* Draw user name */
     GraphicsString(UID, 130, 390, WHITE, LIGHT_SALMON);
     GraphicsString(friendUID, 530, 390, WHITE, LIGHT_SALMON);
-
+    box_filled(610, 420, 50, 50, GRAY);
+    drawPNGonScreen("refresh.png", 620, 430, WHITE, 30, 24);
     Point p;
     while (1) {
         p = GetRelease();
         if(p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 90){
-			printf ("TODO: Go to the Home page \n");
-            //TODO:
+            // Home button
+            printf ("Home button triggered");
             break;
-		}  
-        if(!ScreenTouched())
-        {
-            
+		}
+        if (p.x >= 420 && p.x <= 420 + 50 && p.y >=200 && p.y <= 200 + 120) {
+            // Rock button
+            printf ("Rock triggered");
+        }
+        if (p.x >= 420 && p.x <= 420 + 50 && p.y >=200 && p.y <= 330 + 120) {
+            // Paper button
+            printf ("Paper triggered");
+        }
+        if (p.x >= 420 && p.x <= 420 + 50 && p.y >=460 && p.y <= 200 + 120) {
+            // Scissors button
+            printf ("Scissors triggered");
+        }
+
+        if (p.x >= 420 && p.x <= 420 + 50 && p.y >=610 && p.y <= 610 + 50) {
+            // Refresh button
+            printf ("Refresh triggered");
         }
     }
 } 

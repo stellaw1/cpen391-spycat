@@ -3,6 +3,7 @@
 #include <unistd.h>
 
 #include "../vga/vga_lib/GraphicsRoutines.c"
+#include "../wifi/wifi.c"
 #include "pngutil/png.c"
 
 #include "home.c"
@@ -16,11 +17,23 @@ void gui_init()
 {
     //Wi-Fi init should go here
     clear_screen();
-    char UID[65536];
+    char UID[10];
     int User_Colour = loginScreen (UID);
+
+    // Post user to our backend
+    char User_Colour_String[10];
+    sprintf(User_Colour_String, "%d", User_Colour);
+    char post_user_args[64];
+    strcpy(post_user_args, "\"");
+    strcat(post_user_args, UID);
+    strcat(post_user_args, "\", \"");
+    strcat(post_user_args, User_Colour_String);
+    strcat(post_user_args, "\"");
+    api_request("post_user", post_user_args);
+
     while (1) {
         char* selectedFriendUID;
-        char newFriendUID[65536];
+        char newFriendUID[10];
         int nextScreenCode;
         nextScreenCode = homeScreen(UID, User_Colour, selectedFriendUID);
         selectedFriendUID = "friend"; //For test only
@@ -47,6 +60,7 @@ int main(void)
     io_bridge_init();
     init_graphics();
     Init_Touch();
+    init_wifi();
     /* System Loop */
     while(1) {
         //check if motiondetection work

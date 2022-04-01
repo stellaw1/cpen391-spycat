@@ -49,9 +49,11 @@ int homeScreen (char *UID, int userPetColour, char *selectedFriendUID) {
         if(p.x >= 400 && p.x <= 400 + 30 && p.y >= 505 && p.y <= 505 + 130){
             return 3;
 		}
-        if(!ScreenTouched())
-        {
-            
+        if(p.x >= 400 && p.x <= 400 + 30 && p.y >= 640 && p.y <= 640 + 100) {
+            // Delete Friend
+        }
+        if(p.x >= 340 && p.x <= 340 + 24 && p.y >= 340 && p.y <= 340 + 24) {
+            // refresh friend list
         }
     }
 } 

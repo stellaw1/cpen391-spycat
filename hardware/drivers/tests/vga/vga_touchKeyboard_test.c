@@ -13,7 +13,7 @@ int sys_init()
     init_graphics();
     Init_Touch();
     clear_screen();
-    char out[65536];
+    char out[10];
     TSKeyboard(out);
     printf("%s", out);
     printf("Finish Keyboard test");
