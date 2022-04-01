@@ -10,11 +10,11 @@
  *             2: Chat screen
  *             3: Play screen
  */
-int homeScreen (char *UID, int userPetColour, char *selectedFriendUID, int background_colour, char * tempinCelsius) {
+int homeScreen (char *UID, char * userPetColour, char *selectedFriendUID, int background_colour, char * tempinCelsius) {
     //Background set the colour LIGHT_SALMON.
     box_filled(0, 0, 800, 480, background_colour);
     /* Draw Pets*/
-    drawPNGonScreen("data.png", 50, 100, userPetColour, 300, 300);
+    drawPNGonScreen("data.png", 50, 100, atoi(userPetColour), 300, 300);
     /* Draw return button */
     text_box_filled("< Logout", 20, 20, 30, 35, 135, 50, WHITE, GRAY);
     /* Show weather on screen */

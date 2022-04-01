@@ -24,6 +24,7 @@ int lua_command_no_stars_short(char *, char *);
 void do_file(void);
 int init_wifi(void);
 int hello_world(void);
+int get_request(char *, char *, char *);
 int api_request(char *, char *);
 
 #endif

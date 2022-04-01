@@ -647,6 +647,8 @@ char keyboard_response (Point p) {
 		//printf(")");
 		return ')';
 	}
+	// should never get here
+	return ' ';
 }
 
 void TSKeyboard (char* out, int size) {

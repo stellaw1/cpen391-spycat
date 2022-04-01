@@ -11,12 +11,12 @@ void sleepScreen (void) {
     /* Draw Pets*/
     // Your pet
     drawPNGonScreen("data.png", 250, 100, GRAY, 300, 300);
-    // Your friend's pet
-    Point p;
-    while (1) {
-        p = GetRelease();
-        if(p.x >= 0 && p.x <= 479 && p.y >= 0 && p.y <= 799){
-            break;
-		}
-    }
+    // // Your friend's pet
+    // Point p;
+    // while (1) {
+    //     p = GetRelease();
+    //     if(p.x >= 0 && p.x <= 479 && p.y >= 0 && p.y <= 799){
+    //         break;
+	// 	}
+    // }
 } 

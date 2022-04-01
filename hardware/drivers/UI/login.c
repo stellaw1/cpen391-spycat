@@ -8,43 +8,55 @@
  * @pram:      string: UID, UID is set to less than 10 characters
  * @ret:       Color
  */
-int loginScreen (char *UID, int background_colour) {
+int loginScreen (char *UID, char * pet_colour, int background_colour) {
     //Background set the colour LIGHT_SALMON.
-    char * out = malloc(sizeof(char)*10);
     box_filled(0, 0, 800, 480, background_colour);
     GraphicsString("User Name:", 150, 100, WHITE, background_colour);
     GraphicsString("Pet Colour:", 150, 150, WHITE, background_colour);
     // Pet Colour
     int Colour = ColourPalletteData[WHITE]; //default colour is white, adjust the colour using the buttons on the left and right.
-    int i = WHITE; // WHITE
+    int userColour = WHITE; // WHITE
     text_box_filled("<", 350, 150, 360, 158, 30, 30, WHITE, GRAY);
     text_box_filled(">", 470, 150, 480, 158, 30, 30, WHITE, GRAY);
-    box_filled(400, 150, 50, 30, Colour);
+    box_filled(400, 150, 50, 30, userColour);
     text_box_filled("", 350, 100, 360, 108, 200, 30, WHITE, GRAY);
-    TSKeyboard(out, 10);
-    strcpy(UID, out);
-    free(out);
+
+    // fill username
+    TSKeyboard(UID, 10);
     text_box_filled(UID, 350, 100, 360, 108, 200, 30, WHITE, GRAY);
     text_box_filled("LOGIN", 600, 125, 610, 148, 90, 60, WHITE, GRAY);
+
     Point p;
+
     while (1) {
         p = GetRelease();
+
+        // login button pressed
         if(p.x >= 125 && p.x <= 125 + 60 && p.y >= 600 && p.y <= 600 + 90){
-            break;
+
+            // Post user to our backend, do nothing if fail
+            if (postUser(UID, userColour)) {
+                sprintf(pet_colour, "%d", userColour);
+                return 1;
+            }
 		}
+
+        // select colour
         if(!ScreenTouched())
         {
             if(p.x >= 150 && p.x <= 150 + 30 && p.y >= 350 && p.y <= 350 + 30){
-                i = (i - 1 < 0) ? 0 : i - 1;
-                Colour = ColourPalletteData[i];
-                box_filled(400, 150, 50, 30, Colour);
+                userColour = (userColour - 1 < 0) ? 0 : userColour - 1;
+                // Colour = ColourPalletteData[userColour];
+                box_filled(400, 150, 50, 30, userColour);
             }
             if(p.x >= 150 && p.x <= 150 + 30 && p.y >= 470 && p.y <= 470 + 30){
-                i = (i + 1 > 63) ? 63 : i + 1;
-                Colour = ColourPalletteData[i];
-                box_filled(400, 150, 50, 30, Colour);
+                userColour = (userColour + 1 > 63) ? 63 : userColour + 1;
+                // Colour = ColourPalletteData[userColour];
+                box_filled(400, 150, 50, 30, userColour);
             }
         }
     }
-    return i;
+
+    // should never get here
+    return 0;
 }
