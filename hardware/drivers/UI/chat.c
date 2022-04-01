@@ -26,7 +26,7 @@ void chatScreen (char *UID, char *friendUID, int background_colour) {
     /* textbox user*/
     
     /* Touch Keyboard*/
-    TSKeyboard(out);
+    TSKeyboard(out, 100);
     int j;
     for (j = 0; j < 100; j++) {
         sentMsg[j] = out[j];

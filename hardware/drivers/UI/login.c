@@ -10,8 +10,7 @@
  */
 int loginScreen (char *UID, int background_colour) {
     //Background set the colour LIGHT_SALMON.
-    char out[10]; 
-    // malloc(sizeof(char)*65536);
+    char * out = malloc(sizeof(char)*10);
     box_filled(0, 0, 800, 480, background_colour);
     GraphicsString("User Name:", 150, 100, WHITE, background_colour);
     GraphicsString("Pet Colour:", 150, 150, WHITE, background_colour);
@@ -22,10 +21,9 @@ int loginScreen (char *UID, int background_colour) {
     text_box_filled(">", 470, 150, 480, 158, 30, 30, WHITE, GRAY);
     box_filled(400, 150, 50, 30, Colour);
     text_box_filled("", 350, 100, 360, 108, 200, 30, WHITE, GRAY);
-    TSKeyboard(out);
+    TSKeyboard(out, 10);
     strcpy(UID, out);
-    // UID = out;
-    // free(out);
+    free(out);
     text_box_filled(UID, 350, 100, 360, 108, 200, 30, WHITE, GRAY);
     text_box_filled("LOGIN", 600, 125, 610, 148, 90, 60, WHITE, GRAY);
     Point p;

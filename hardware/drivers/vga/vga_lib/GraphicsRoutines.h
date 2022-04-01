@@ -20,4 +20,4 @@ void box_filled(int x1, int y1, int width, int height, int Colour);
 void text_box_filled(char *string_input, int x1, int y1, int text_x, int text_y, int width, int height, int font_colour, int Colour);
 void keyboard(void);
 char keyboard_response (Point p);
-void TSKeyboard (char* out);
+void TSKeyboard (char* out, int size);

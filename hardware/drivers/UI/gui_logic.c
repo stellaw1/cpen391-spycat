@@ -16,7 +16,7 @@
 void gui_init()
 {
     // Get background colour from backend
-    int background_colour = GREEN_REPEAT;
+    int background_colour = BLUE_VIOLET;
     clear_screen();
     char UID[10];
     int User_Colour = loginScreen (UID, background_colour);

@@ -16,7 +16,7 @@ void friendAddScreen (char *friendUID, int background_colour) {
     GraphicsString("Friend Name:", 150, 100, WHITE, background_colour);
     text_box_filled("", 350, 93, 360, 101, 200, 30, WHITE, GRAY);
     text_box_filled("< Home", 20, 20, 30, 35, 120, 50, WHITE, GRAY);
-    TSKeyboard(out);
+    TSKeyboard(out, 10);
     int j = 0;
     while (j < 10 ) {
         friendUID[j] = out[j];
