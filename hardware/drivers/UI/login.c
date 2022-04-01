@@ -15,8 +15,8 @@ int loginScreen (char *UID, int background_colour) {
     GraphicsString("User Name:", 150, 100, WHITE, background_colour);
     GraphicsString("Pet Colour:", 150, 150, WHITE, background_colour);
     // Pet Colour
-    int Colour = WHITE; //default colour is white, adjust the colour using the buttons on the left and right.
-    int i = 1; // WHITE
+    int Colour = ColourPalletteData[WHITE]; //default colour is white, adjust the colour using the buttons on the left and right.
+    int i = WHITE; // WHITE
     text_box_filled("<", 350, 150, 360, 158, 30, 30, WHITE, GRAY);
     text_box_filled(">", 470, 150, 480, 158, 30, 30, WHITE, GRAY);
     box_filled(400, 150, 50, 30, Colour);
@@ -46,5 +46,5 @@ int loginScreen (char *UID, int background_colour) {
             }
         }
     }
-    return Colour;
+    return i;
 }

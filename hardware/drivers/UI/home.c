@@ -10,19 +10,22 @@
  *             2: Chat screen
  *             3: Play screen
  */
-int homeScreen (char *UID, int userPetColour, char *selectedFriendUID, int background_colour) {
+int homeScreen (char *UID, int userPetColour, char *selectedFriendUID, int background_colour, char * tempinCelsius) {
     //Background set the colour LIGHT_SALMON.
     box_filled(0, 0, 800, 480, background_colour);
     /* Draw Pets*/
     drawPNGonScreen("data.png", 50, 100, userPetColour, 300, 300);
     /* Draw return button */
     text_box_filled("< Logout", 20, 20, 30, 35, 135, 50, WHITE, GRAY);
+    /* Show weather on screen */
+    GraphicsString("Temperature:",170, 30, WHITE, background_colour);
+    GraphicsString(tempinCelsius,170, 50, WHITE, background_colour);
     /* Draw friends list */
     box_filled(400, 20, 330, 350, GRAY);
     GraphicsString("Online:", 405, 25, WHITE, GRAY);
     GraphicsString("Offline:", 405, 200, WHITE, GRAY);
     /* Draw refresh button */
-    drawPNGonScreen("refresh.png", 680, 340, userPetColour, 30, 24);
+    drawPNGonScreen("refresh.png", 680, 340, WHITE, 30, 24);
     /* Draw selection button chat playdate delete*/
     text_box_filled("Chat",     400, 400, 420, 405, 100, 30, WHITE, GRAY);
     text_box_filled("Playdate", 505, 400, 515, 405, 130, 30, WHITE, GRAY);

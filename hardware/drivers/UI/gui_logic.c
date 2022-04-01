@@ -20,6 +20,7 @@ void gui_init()
     clear_screen();
     char UID[10];
     int User_Colour = loginScreen (UID, background_colour);
+    text_box_filled("Logging in...",267, 160, 300, 240, 267, 160, WHITE, GRAY);
     // Post user to our backend
     char User_Colour_String[10];
     sprintf(User_Colour_String, "%d", User_Colour);
@@ -30,12 +31,13 @@ void gui_init()
     strcat(post_user_args, User_Colour_String);
     strcat(post_user_args, "\"");
     api_request("post_user", post_user_args);
-
+    char temperature[4] = "24C";
     while (1) {
         char* selectedFriendUID;
         char newFriendUID[10];
         int nextScreenCode;
-        nextScreenCode = homeScreen(UID, User_Colour, selectedFriendUID, background_colour);
+        
+        nextScreenCode = homeScreen(UID, User_Colour, selectedFriendUID, background_colour, temperature);
         selectedFriendUID = "friend"; //For test only
         int Friend_Colour = ORANGE; // For test only
         if (nextScreenCode == 0) {
@@ -52,6 +54,7 @@ void gui_init()
             gameScreen (UID, selectedFriendUID, User_Colour, Friend_Colour, background_colour);
         }
     }
+    
 }
 
 int main(void)
