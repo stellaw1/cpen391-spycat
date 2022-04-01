@@ -15,11 +15,11 @@
 
 void gui_init()
 {
-    //Wi-Fi init should go here
+    // Get background colour from backend
+    int background_colour = GREEN_REPEAT;
     clear_screen();
     char UID[10];
-    int User_Colour = loginScreen (UID);
-
+    int User_Colour = loginScreen (UID, background_colour);
     // Post user to our backend
     char User_Colour_String[10];
     sprintf(User_Colour_String, "%d", User_Colour);
@@ -35,7 +35,7 @@ void gui_init()
         char* selectedFriendUID;
         char newFriendUID[10];
         int nextScreenCode;
-        nextScreenCode = homeScreen(UID, User_Colour, selectedFriendUID);
+        nextScreenCode = homeScreen(UID, User_Colour, selectedFriendUID, background_colour);
         selectedFriendUID = "friend"; //For test only
         int Friend_Colour = ORANGE; // For test only
         if (nextScreenCode == 0) {
@@ -43,13 +43,13 @@ void gui_init()
             return;
         } else if (nextScreenCode == 1) {
             // Add friends screen
-            friendAddScreen(newFriendUID);
+            friendAddScreen(newFriendUID, background_colour);
         } else if (nextScreenCode == 2) {
             // Chat screen
-            chatScreen (UID, selectedFriendUID);
+            chatScreen (UID, selectedFriendUID, background_colour);
         } else {
             // Play screen
-            gameScreen (UID, selectedFriendUID, User_Colour, Friend_Colour);
+            gameScreen (UID, selectedFriendUID, User_Colour, Friend_Colour, background_colour);
         }
     }
 }

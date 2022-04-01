@@ -10,9 +10,9 @@
  *             2: Chat screen
  *             3: Play screen
  */
-int homeScreen (char *UID, int userPetColour, char *selectedFriendUID) {
+int homeScreen (char *UID, int userPetColour, char *selectedFriendUID, int background_colour) {
     //Background set the colour LIGHT_SALMON.
-    box_filled(0, 0, 800, 480, LIGHT_SALMON);
+    box_filled(0, 0, 800, 480, background_colour);
     /* Draw Pets*/
     drawPNGonScreen("data.png", 50, 100, userPetColour, 300, 300);
     /* Draw return button */

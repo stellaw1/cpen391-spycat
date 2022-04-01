@@ -8,9 +8,9 @@
  * @pram:      string: UID, UID is set to less than 10 characters
  * @ret:       void
  */
-int gameScreen (char *UID, char *friendUID, int userPetColour, int friendPetColour) {
+int gameScreen (char *UID, char *friendUID, int userPetColour, int friendPetColour, int background_colour) {
     //Background set the colour LIGHT_SALMON.
-    box_filled(0, 0, 800, 480, LIGHT_SALMON);
+    box_filled(0, 0, 800, 480, background_colour);
     /* Draw Pets*/
     // Your pet
     drawPNGonScreen("data.png", 50, 100, userPetColour, 300, 300);
@@ -23,8 +23,8 @@ int gameScreen (char *UID, char *friendUID, int userPetColour, int friendPetColo
     text_box_filled("Paper", 330, 420, 355, 435, 120, 50, WHITE, GRAY);
     text_box_filled("Scissors", 460, 420, 462, 435, 120, 50, WHITE, GRAY);
     /* Draw user name */
-    GraphicsString(UID, 130, 390, WHITE, LIGHT_SALMON);
-    GraphicsString(friendUID, 530, 390, WHITE, LIGHT_SALMON);
+    GraphicsString(UID, 130, 390, WHITE, background_colour);
+    GraphicsString(friendUID, 530, 390, WHITE, background_colour);
     box_filled(610, 420, 50, 50, GRAY);
     drawPNGonScreen("refresh.png", 620, 430, WHITE, 30, 24);
     Point p;

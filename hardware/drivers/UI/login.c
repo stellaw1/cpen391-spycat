@@ -8,13 +8,13 @@
  * @pram:      string: UID, UID is set to less than 10 characters
  * @ret:       Color
  */
-int loginScreen (char *UID) {
+int loginScreen (char *UID, int background_colour) {
     //Background set the colour LIGHT_SALMON.
     char out[10]; 
     // malloc(sizeof(char)*65536);
-    box_filled(0, 0, 800, 480, LIGHT_SALMON);
-    GraphicsString("User Name:", 150, 100, WHITE, LIGHT_SALMON);
-    GraphicsString("Pet Colour:", 150, 150, WHITE, LIGHT_SALMON);
+    box_filled(0, 0, 800, 480, background_colour);
+    GraphicsString("User Name:", 150, 100, WHITE, background_colour);
+    GraphicsString("Pet Colour:", 150, 150, WHITE, background_colour);
     // Pet Colour
     int Colour = WHITE; //default colour is white, adjust the colour using the buttons on the left and right.
     int i = 1; // WHITE

@@ -8,12 +8,12 @@
  * @pram:      string: UID, UID is set to less than 10 characters
  * @ret:       Color
  */
-void chatScreen (char *UID, char *friendUID) {
+void chatScreen (char *UID, char *friendUID, int background_colour) {
     char *rcvMsg = "Hey"; //For test only
-    char sentMsg[65536]; //For test only
-    char out[65536];
+    char sentMsg[100]; //For test only
+    char out[100];
     //Background set the colour LIGHT_SALMON.
-    box_filled(0, 0, 800, 480, LIGHT_SALMON);
+    box_filled(0, 0, 800, 480, background_colour);
         /* Draw return button */
     text_box_filled("< Home", 20, 20, 30, 35, 120, 50, WHITE, GRAY);
     // Pet Colour
