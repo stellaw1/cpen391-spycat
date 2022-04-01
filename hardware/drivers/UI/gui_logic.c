@@ -15,7 +15,7 @@
 
 void gui_init()
 {
-    // Get background colour from backend
+    // TODO 1: Fetch backgrund colour from backend
     int background_colour = BLUE_VIOLET;
     clear_screen();
     char UID[10];
@@ -30,31 +30,37 @@ void gui_init()
     strcat(post_user_args, "\", \"");
     strcat(post_user_args, User_Colour_String);
     strcat(post_user_args, "\"");
-    api_request("post_user", post_user_args);
-    char temperature[4] = "24C";
+    api_request("post_user", post_user_args); //Send UID to backend
+    // TODO 2: Fetch temperature data from backend
+    char temperature[4] = "24C"; 
     while (1) {
         char* selectedFriendUID;
         char newFriendUID[10];
         int nextScreenCode;
         
         nextScreenCode = homeScreen(UID, User_Colour, selectedFriendUID, background_colour, temperature);
+        // TODO 3: Send selectedFriendUID to backend
         selectedFriendUID = "friend"; //For test only
+        // TODO 4: Fetch friend's colour from backend
         int Friend_Colour = ORANGE; // For test only
         if (nextScreenCode == 0) {
-            // logout
+            // TODO 5: Update online status of the user to offline
             return;
         } else if (nextScreenCode == 1) {
             // Add friends screen
             friendAddScreen(newFriendUID, background_colour);
+            // TODO 6: Send newFriendUID to backend
         } else if (nextScreenCode == 2) {
             // Chat screen
+            // TODO 7: Send chat msg in chatScreen
             chatScreen (UID, selectedFriendUID, background_colour);
         } else {
             // Play screen
+            // TODO 8: Fetch User score
             gameScreen (UID, selectedFriendUID, User_Colour, Friend_Colour, background_colour);
+            // TODO 9: Add user score based on the game
         }
     }
-    
 }
 
 int main(void)
@@ -66,7 +72,7 @@ int main(void)
     init_wifi();
     /* System Loop */
     while(1) {
-        //check if motiondetection work
+        //TODO 10: check if motiondetection work
         //sleepScreen();
         gui_init();
     }

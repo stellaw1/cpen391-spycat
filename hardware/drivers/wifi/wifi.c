@@ -120,7 +120,7 @@ int lua_command_no_stars_short(char * str, char * res)
 
 void do_file(void)
 {
-	char * command = "dofile(\"server.lua\")\r\n";
+	char * command = "dofile(\"api.lua\")\r\n";
 	char buf[1024] = "";
 	int bytes_received = lua_command_no_stars_short(command, buf);
 
