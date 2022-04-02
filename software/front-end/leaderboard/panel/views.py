@@ -6,7 +6,7 @@ import os
 
 def get_points(request):
     template = 'leaderboard.html'
-    os.system("rm db.sqlite3 && python manage.py migrate --run-syncdb")
+    os.system("rm db.sqlite3 && python3 manage.py migrate --run-syncdb")
     with open('./data.csv', newline='', encoding='utf-8') as f:
         reader = csv.reader(f)
         for column in reader:
