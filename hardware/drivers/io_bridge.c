@@ -59,7 +59,18 @@ static void graphics_bridge_init() {
 
 /* Set up vaddr for wifi module */
 static void wifi_io_bridge_init() {
-    /* todo */
+    Wifi_ReceiverFifo =                (unsigned char *) (virtual_base + (Wifi_ReceiverFifo_PADDR & HW_REGS_MASK));                    
+    Wifi_TransmitterFifo =             (unsigned char *) (virtual_base + (Wifi_TransmitterFifo_PADDR & HW_REGS_MASK));                      
+    Wifi_InterruptEnableReg =          (unsigned char *) (virtual_base + (Wifi_InterruptEnableReg_PADDR & HW_REGS_MASK));                    
+    Wifi_InterruptIdentificationReg =  (unsigned char *) (virtual_base + (Wifi_InterruptIdentificationReg_PADDR & HW_REGS_MASK));                            
+    Wifi_FifoControlReg =              (unsigned char *) (virtual_base + (Wifi_FifoControlReg_PADDR & HW_REGS_MASK));                
+    Wifi_LineControlReg =              (unsigned char *) (virtual_base + (Wifi_LineControlReg_PADDR & HW_REGS_MASK));                
+    Wifi_ModemControlReg =             (unsigned char *) (virtual_base + (Wifi_ModemControlReg_PADDR & HW_REGS_MASK));                      
+    Wifi_LineStatusReg =               (unsigned char *) (virtual_base + (Wifi_LineStatusReg_PADDR & HW_REGS_MASK));                  
+    Wifi_ModemStatusReg =              (unsigned char *) (virtual_base + (Wifi_ModemStatusReg_PADDR & HW_REGS_MASK));                
+    Wifi_ScratchReg =                  (unsigned char *) (virtual_base + (Wifi_ScratchReg_PADDR & HW_REGS_MASK));            
+    Wifi_DivisorLatchLSB =             (unsigned char *) (virtual_base + (Wifi_DivisorLatchLSB_PADDR & HW_REGS_MASK));                      
+    Wifi_DivisorLatchMSB =             (unsigned char *) (virtual_base + (Wifi_DivisorLatchMSB_PADDR & HW_REGS_MASK));                      
 }
 
 /* Set up vaddr for camera module */

@@ -647,9 +647,11 @@ char keyboard_response (Point p) {
 		//printf(")");
 		return ')';
 	}
+	// should never get here
+	return ' ';
 }
 
-void TSKeyboard (char* out) {
+void TSKeyboard (char* out, int size) {
 	int keyColour = GRAY;
 	int fontColour = WHITE;
 	keyboard();
@@ -663,16 +665,17 @@ void TSKeyboard (char* out) {
 		}
         if(!ScreenTouched())
         {
-            if(keyboard_response(p) == '`' ){
-                if(i != 0){
-                    out[i-1] = '\0';
-                    i--;
-                }
-            } else {
-                out[i] = keyboard_response(p);
-                i++;
-            }
+			{
+				if(keyboard_response(p) == '`' ){
+					if(i != 0){
+						out[i-1] = '\0';
+						i--;
+					}
+				} else if (i < size) {
+					out[i] = keyboard_response(p);
+					i++;
+				}
+			}
         }
     }
-
 }

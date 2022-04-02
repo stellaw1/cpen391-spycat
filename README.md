@@ -8,7 +8,7 @@
 
 - [x] WIFI driver
 - [x] Linux setup on DE1-SoC
-- [ ] GPIO camera driver
+- [x] ~~GPIO camera driver~~ USB WebCam
 - [x] VGA driver
 - [x] Touch Screen AR1100 driver
 - [ ] 3.5mm Speaker
@@ -16,14 +16,14 @@
 
 ###### UI:
 
-- [ ] Authentication system by login and register using user id from database
+- [x] Authentication system by login and register using user id from database
 - [ ] Show feedback and pet on screen
 - [ ] Motion Detection
 - [ ] Send score to back-end
 - [ ] Friends list management panel: Add/delete by searching user ID
 - [ ] Real time chat function between friends
-  - [ ] On-screen virtual keyboard
-  - [ ] Chat UI
+  - [x] On-screen virtual keyboard
+  - [x] Chat UI
 
 ###### Cloud:
 
@@ -41,4 +41,4 @@
 
 ###### Network:
 
-- [ ] Wi-Fi and DHCP setup on DE1-SoC
+- [x] Wi-Fi and DHCP setup on DE1-SoC
