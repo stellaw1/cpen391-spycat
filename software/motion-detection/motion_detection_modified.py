@@ -5,7 +5,7 @@ import imutils
 
 def motion_detection():
     video_capture = cv2.VideoCapture(0)
-    video_capture.set( CV_CAP_PROP_FPS, 2 )
+    video_capture.set(int(5),1)
 
     if not (video_capture.isOpened()):
         print('camera not open')
