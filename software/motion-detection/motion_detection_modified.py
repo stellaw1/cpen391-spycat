@@ -16,6 +16,8 @@ def motion_detection():
     while video_capture.isOpened():
         frame = video_capture.read()[1]
 
+        text = 'Unoccupied'
+
         greyscale_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         
         gaussian_frame = cv2.GaussianBlur(greyscale_frame, (21,21),0)
@@ -48,10 +50,12 @@ def motion_detection():
 
                     cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
 
+                    text = "Occupied"
                     break
                 else:
                     pass
                 
+        print(text)
 
 
 if __name__=='__main__':    
