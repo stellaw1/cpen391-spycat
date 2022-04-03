@@ -35,7 +35,7 @@ void gui_init()
     char temperature[4] = "24C";
     while (1)
     {
-        char *friendUID;
+        char friendUID[10];
         char newFriendUID[10];
         char colourString[10];
         int nextScreenCode;

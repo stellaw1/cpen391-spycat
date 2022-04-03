@@ -99,6 +99,24 @@ int postChat(char *sender, char *receiver, char *message)
  * @param ret return string buffer
  * @return non-negative integer on success, negative otherwise
  */
+int getIsFriends(char *user, char *friend, char *ret)
+{
+    char args[MAX_ARG_CHARS];
+    strcpy(args, "\"");
+    strcat(args, user);
+    strcpy(args, "\"");
+    strcat(args, friend);
+    strcat(args, "\"");
+    return get_request("get_is_friends", args, ret);
+}
+
+/**
+ * /friendship get request helper function
+ *
+ * @param username username of the user to get friends
+ * @param ret return string buffer
+ * @return non-negative integer on success, negative otherwise
+ */
 int getFriends(char *username, char *ret)
 {
     char args[MAX_ARG_CHARS];
