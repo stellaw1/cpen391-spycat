@@ -165,7 +165,7 @@ void copy_get_response(char *dst, char *src)
 	}
 
 	// copy string over to return buffer
-	memcpy(dst, &src[i], len - i);
+	memcpy(dst, &src[i + 1], len - i);
 }
 
 int get_request(char *function, char *body, char *ret)
@@ -173,7 +173,10 @@ int get_request(char *function, char *body, char *ret)
 	char post_string[MAX_STRING];
 	strcpy(post_string, function);
 	strcat(post_string, "(");
-	strcat(post_string, body);
+	if (strlen(body) != 0)
+	{
+		strcat(post_string, body);
+	}
 	strcat(post_string, ")\r\n");
 
 	printf("posting: %s\n", post_string);

@@ -14,6 +14,7 @@
 #include "login.c"
 #include "game.c"
 #include "friendAdd.c"
+#include "deleteFriend.c"
 #include "chat.c"
 #include "sleep.c"
 
@@ -41,7 +42,7 @@ void gui_init()
         int nextScreenCode;
 
         nextScreenCode = homeScreen(USER->username, USER->pet_colour, friendUID, background_colour, temperature);
-        friendUID = "friend"; // For test only
+        // strcpy(friendUID, "friend"); // For test only
         getUser(friendUID, colourString);
         printf("%s", colourString);
         int Friend_Colour = atoi(colourString);
@@ -60,10 +61,14 @@ void gui_init()
             // Chat screen
             chatScreen(USER->username, friendUID, background_colour);
         }
-        else
+        else if (nextScreenCode == 3)
         {
             // Play screen
             gameScreen(USER->username, friendUID, USER->pet_colour, Friend_Colour, background_colour);
+        }
+        else if (nextScreenCode == 4)
+        {
+            deleteFriendScreen(USER->username, friendUID, background_colour);
         }
     }
 }

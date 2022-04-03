@@ -13,6 +13,11 @@
  */
 int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int background_colour, char *tempinCelsius)
 {
+    // Set Background png according to weather
+    char ret[20];
+    getWeather(ret);
+    printf("%s \n", ret);
+
     // Background set the colour LIGHT_SALMON.
     int isFriendSelected = 0;
     box_filled(0, 0, 800, 480, background_colour);

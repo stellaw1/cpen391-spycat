@@ -10,7 +10,7 @@ extern struct User *USER;
  * @pram:      string: UID, UID is set to less than 10 characters
  * @ret:       void
  */
-void searchFriendScreen(char *UID, char *friendUID, int background_colour)
+void deleteFriendScreen(char *UID, char *friendUID, int background_colour)
 {
     friendUID[MAX_INPUT_CHARS] = '\0';
     // Background set the colour LIGHT_SALMON.
@@ -41,8 +41,8 @@ void searchFriendScreen(char *UID, char *friendUID, int background_colour)
         {
             // check if friend exists
             char ret[MAX_RETURN_CHARS];
-            getIsFriends(USER->username, friendUID, ret);
-            if (atoi(ret))
+            getIsFriends(UID, friendUID, ret);
+            if (atoi(ret) && deleteFriendship(UID, friendUID))
             {
                 text_box_filled("Success", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
                 break;

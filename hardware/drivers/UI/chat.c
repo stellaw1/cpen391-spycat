@@ -10,9 +10,10 @@
  */
 void chatScreen(char *UID, char *friendUID, int background_colour)
 {
-    char *rcvMsg = "Hey"; // For test only
-    char sentMsg[100];    // For test only
-    char out[100];
+    char rcvMsg[MAX_TEXT_CHARS];
+    getChat(UID, friendUID, rcvMsg);
+    char sentMsg[MAX_TEXT_CHARS]; // For test only
+    char out[MAX_TEXT_CHARS];
     // Background set the colour LIGHT_SALMON.
     box_filled(0, 0, 800, 480, background_colour);
     /* Draw return button */
@@ -27,13 +28,14 @@ void chatScreen(char *UID, char *friendUID, int background_colour)
     /* textbox user*/
 
     /* Touch Keyboard*/
-    TSKeyboard(out, 100);
+    TSKeyboard(sentMsg, 100);
     int j;
     for (j = 0; j < 100; j++)
     {
         sentMsg[j] = out[j];
     }
     text_box_filled(sentMsg, 200 + 110, 20 + 110, 200 + 110, 20 + 110, 420, 30, WHITE, GRAY);
+    postChat(UID, friendUID, sentMsg);
     Point p;
     while (1)
     {

@@ -62,7 +62,7 @@ int gameScreen(char *UID, char *friendUID, char * userPetColour, int friendPetCo
             // Refresh button
             char ret[MAX_RETURN_CHARS];
             getGame(UID, friendUID, ret);
-            // TODO: add feedback depending on ret
+            text_box_filled(ret, 267, 160, 300, 240, 267, 160, WHITE, GRAY);
         }
     }
 }
