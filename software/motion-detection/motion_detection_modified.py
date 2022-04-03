@@ -5,6 +5,7 @@ import imutils
 
 def motion_detection():
     video_capture = cv2.VideoCapture(0)
+    video_capture.set(cv2.CAP_PROP_BUFFERSIZE, 1)  # set buffer size 
 
     if not (video_capture.isOpened()):
         print('camera not open')
