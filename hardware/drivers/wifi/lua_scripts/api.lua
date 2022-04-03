@@ -167,3 +167,17 @@ function delete_game(sender, receiver)
        end
   end)
 end
+
+-- weather
+function get_weather()
+  http.delete(
+    URL .. '/weather',
+    nil,
+    function(code, data)
+       if (code < 0) then
+         print("GET weather request failed")
+       else
+         print(data)
+       end
+  end)
+end

@@ -1,6 +1,7 @@
 #ifndef API_H_ /* Include Guard */
 #define API_H_
 
+#define MAX_TEXT_CHARS (100)
 #define MAX_ARG_CHARS (100)
 #define MAX_RETURN_CHARS (100)
 #define MAX_INPUT_CHARS (10)

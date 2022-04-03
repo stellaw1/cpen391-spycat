@@ -88,7 +88,7 @@ int getIsFriends(char *user, char *friend, char *ret)
     char args[MAX_ARG_CHARS];
     strcpy(args, "\"");
     strcat(args, user);
-    strcpy(args, "\"");
+    strcpy(args, "\", \"");
     strcat(args, friend);
     strcat(args, "\"");
     return get_request("get_is_friends", args, ret);
@@ -204,4 +204,17 @@ int deleteGame(char *sender, char *receiver)
     strcat(args, receiver);
     strcat(args, "\"");
     return api_request("delete_game", args);
+}
+
+/**
+ * /weather get request helper function
+ *
+ * @param ret return string buffer
+ * @return non-negative integer on success, negative otherwise
+ */
+int getWeather(char *ret)
+{
+    char args[MAX_ARG_CHARS];
+    strcpy(args, " ");
+    return get_request("get_weather", args, ret);
 }
