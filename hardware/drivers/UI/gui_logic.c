@@ -28,6 +28,7 @@ void gui_init()
     // Get background colour from backend
     int background_colour = BLUE_VIOLET;
     clear_screen();
+    play();
     loginScreen(USER->username, USER->pet_colour, background_colour);
     text_box_filled("Logging in...", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
 

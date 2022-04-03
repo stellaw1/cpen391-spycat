@@ -1,5 +1,5 @@
 #include "../io_bridge.h"
-#include "Touchscreen.h"
+#include "touchscreen.h"
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -5,7 +5,7 @@
 #include <sys/mman.h>
 
 #include "../../io_bridge.c"
-#include "../../touchscreen/Touchscreen.c"
+#include "../../touchscreen/touchscreen.c"
 
 #include "GraphicsRoutines.h"
 #include "Colours.h"
