@@ -48,7 +48,7 @@ void play(void)
     // Open /dev/mem
 	if( ( fd = open( "/dev/mem", ( O_RDWR | O_SYNC ) ) ) == -1 ) 	{
 		printf( "ERROR: could not open \"/dev/mem\"...\n" );
-		return( 1 );
+		return;
 	}
     
     // get virtual addr that maps to physical
@@ -56,7 +56,7 @@ void play(void)
 	if( virtual_base == MAP_FAILED ) {
 		printf( "ERROR: mmap1() failed...\n" );
 		close( fd );
-		return(1);
+		return;
 	}
 
 	// ===========================================
