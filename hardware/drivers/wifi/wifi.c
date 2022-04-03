@@ -161,7 +161,6 @@ void copy_get_response(char *dst, char *src)
 	// check if there is an actual response
 	if (i + 1 >= len)
 	{
-		strcpy(dst, '\0');
 		return;
 	}
 

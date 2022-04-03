@@ -8,6 +8,7 @@
 #include "../wifi/wifi.c"
 #include "pngutil/png.c"
 #include "./api/api.c"
+#include "../audio/audio.c"
 
 #include "home.c"
 #include "login.c"
@@ -16,7 +17,7 @@
 #include "chat.c"
 #include "sleep.c"
 
-struct User * USER;
+struct User *USER;
 
 // gcc gui_logic.c -o test -lpython3.5m
 void gui_init()
@@ -39,11 +40,12 @@ void gui_init()
         int nextScreenCode;
 
         nextScreenCode = homeScreen(USER->username, USER->pet_colour, friendUID, background_colour, temperature);
-        friendUID = "friend"; //For test only
+        friendUID = "friend"; // For test only
         getUser(friendUID, colourString);
-        printf("%s",colourString);
+        printf("%s", colourString);
         int Friend_Colour = atoi(colourString);
-        if (nextScreenCode == 0) {
+        if (nextScreenCode == 0)
+        {
             // TODO 5: Update online status of the user to offline
             return;
         }
