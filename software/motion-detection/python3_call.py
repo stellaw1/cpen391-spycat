@@ -1,9 +1,8 @@
 import subprocess
 
-python3_command = "motion_detection_modified.py"  # launch your python2 script using bash
-
-process = subprocess.Popen(python3_command.split(), stdout=subprocess.PIPE)
-output, error = process.communicate()  # receive output from the python2 script
-
+script = ["python2.7", "motion_detection.py"]    
+process = subprocess.Popen(" ".join(script),
+                                        shell=True,  
+                                        env={"PYTHONPATH": "."})
 print("finished calling py2 script")
 print(output)
