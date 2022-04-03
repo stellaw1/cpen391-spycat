@@ -1,5 +1,13 @@
 
 module CPEN391_Computer (
+	audio_BCLK,
+	audio_DACDAT,
+	audio_DACLRCK,
+	audio_clk_clk,
+	audio_pll_ref_clk_clk,
+	audio_pll_ref_reset_reset,
+	av_config_SDAT,
+	av_config_SCLK,
 	hps_io_hps_io_emac1_inst_TX_CLK,
 	hps_io_hps_io_emac1_inst_TXD0,
 	hps_io_hps_io_emac1_inst_TXD1,
@@ -94,6 +102,14 @@ module CPEN391_Computer (
 	system_pll_ref_clk_clk,
 	system_pll_ref_reset_reset);	
 
+	input		audio_BCLK;
+	output		audio_DACDAT;
+	input		audio_DACLRCK;
+	output		audio_clk_clk;
+	input		audio_pll_ref_clk_clk;
+	input		audio_pll_ref_reset_reset;
+	inout		av_config_SDAT;
+	output		av_config_SCLK;
 	output		hps_io_hps_io_emac1_inst_TX_CLK;
 	output		hps_io_hps_io_emac1_inst_TXD0;
 	output		hps_io_hps_io_emac1_inst_TXD1;

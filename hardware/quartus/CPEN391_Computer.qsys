@@ -22,6 +22,14 @@
          type = "boolean";
       }
    }
+   element ARM_A9_HPS.f2h_axi_slave
+   {
+      datum baseAddress
+      {
+         value = "0";
+         type = "String";
+      }
+   }
    element ARM_A9_HPS.h2f_reset
    {
       datum _tags
@@ -91,6 +99,14 @@
          type = "boolean";
       }
    }
+   element IO_Bridge.avalon_slave
+   {
+      datum baseAddress
+      {
+         value = "65536";
+         type = "String";
+      }
+   }
    element Interval_Timer
    {
       datum _sortIndex
@@ -102,6 +118,14 @@
       {
          value = "0";
          type = "boolean";
+      }
+   }
+   element Interval_Timer.s1
+   {
+      datum baseAddress
+      {
+         value = "8192";
+         type = "String";
       }
    }
    element JTAG_To_FPGA_Bridge
@@ -143,6 +167,14 @@
          type = "boolean";
       }
    }
+   element JTAG_UART_for_ARM_0.avalon_jtag_slave
+   {
+      datum baseAddress
+      {
+         value = "4096";
+         type = "String";
+      }
+   }
    element JTAG_UART_for_ARM_1
    {
       datum _sortIndex
@@ -156,6 +188,14 @@
          type = "boolean";
       }
    }
+   element JTAG_UART_for_ARM_1.avalon_jtag_slave
+   {
+      datum baseAddress
+      {
+         value = "4104";
+         type = "String";
+      }
+   }
    element LCD_0
    {
       datum _sortIndex
@@ -163,10 +203,13 @@
          value = "10";
          type = "int";
       }
-      datum sopceditor_expanded
+   }
+   element LCD_0.s1
+   {
+      datum baseAddress
       {
-         value = "0";
-         type = "boolean";
+         value = "8240";
+         type = "String";
       }
    }
    element Onchip_SRAM
@@ -176,10 +219,13 @@
          value = "5";
          type = "int";
       }
-      datum sopceditor_expanded
+   }
+   element Onchip_SRAM.s1
+   {
+      datum baseAddress
       {
-         value = "0";
-         type = "boolean";
+         value = "134217728";
+         type = "String";
       }
    }
    element SDRAM
@@ -195,6 +241,14 @@
          type = "boolean";
       }
    }
+   element SDRAM.s1
+   {
+      datum baseAddress
+      {
+         value = "0";
+         type = "String";
+      }
+   }
    element SysID
    {
       datum _sortIndex
@@ -208,6 +262,14 @@
          type = "boolean";
       }
    }
+   element SysID.control_slave
+   {
+      datum baseAddress
+      {
+         value = "8224";
+         type = "String";
+      }
+   }
    element System_PLL
    {
       datum _sortIndex
@@ -219,6 +281,46 @@
       {
          value = "1";
          type = "boolean";
+      }
+   }
+   element audio_0
+   {
+      datum _sortIndex
+      {
+         value = "14";
+         type = "int";
+      }
+   }
+   element audio_0.avalon_audio_slave
+   {
+      datum baseAddress
+      {
+         value = "12352";
+         type = "String";
+      }
+   }
+   element audio_and_video_config_0
+   {
+      datum _sortIndex
+      {
+         value = "12";
+         type = "int";
+      }
+   }
+   element audio_and_video_config_0.avalon_av_config_slave
+   {
+      datum baseAddress
+      {
+         value = "12288";
+         type = "String";
+      }
+   }
+   element audio_pll_0
+   {
+      datum _sortIndex
+      {
+         value = "13";
+         type = "int";
       }
    }
 }
@@ -242,6 +344,31 @@
  <parameter name="timeStamp" value="0" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
+ <interface
+   name="audio"
+   internal="audio_0.external_interface"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="audio_clk"
+   internal="audio_pll_0.audio_clk"
+   type="clock"
+   dir="start" />
+ <interface
+   name="audio_pll_ref_clk"
+   internal="audio_pll_0.ref_clk"
+   type="clock"
+   dir="end" />
+ <interface
+   name="audio_pll_ref_reset"
+   internal="audio_pll_0.ref_reset"
+   type="reset"
+   dir="end" />
+ <interface
+   name="av_config"
+   internal="audio_and_video_config_0.external_interface"
+   type="conduit"
+   dir="end" />
  <interface name="hps_io" internal="ARM_A9_HPS.hps_io" type="conduit" dir="end" />
  <interface
    name="io"
@@ -991,6 +1118,60 @@
   <parameter name="gui_refclk" value="50.0" />
   <parameter name="other_boards" value="None" />
  </module>
+ <module
+   name="audio_0"
+   kind="altera_up_avalon_audio"
+   version="18.0"
+   enabled="1">
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="50000000" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
+  <parameter name="audio_in" value="false" />
+  <parameter name="audio_out" value="true" />
+  <parameter name="avalon_bus_type" value="Memory Mapped" />
+  <parameter name="dw" value="32" />
+ </module>
+ <module
+   name="audio_and_video_config_0"
+   kind="altera_up_avalon_audio_and_video_config"
+   version="18.0"
+   enabled="1">
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="50000000" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
+  <parameter name="audio_in" value="Microphone to ADC" />
+  <parameter name="bit_length" value="32" />
+  <parameter name="board" value="DE1-SoC" />
+  <parameter name="d5m_resolution" value="2592 x 1944" />
+  <parameter name="dac_enable" value="true" />
+  <parameter name="data_format" value="Left Justified" />
+  <parameter name="device">On-Board Peripherals</parameter>
+  <parameter name="eai" value="true" />
+  <parameter name="exposure" value="false" />
+  <parameter name="line_in_bypass" value="true" />
+  <parameter name="mic_attenuation" value="-6dB" />
+  <parameter name="mic_bypass" value="false" />
+  <parameter name="sampling_rate" value="48 kHz" />
+  <parameter name="video_format" value="NTSC" />
+ </module>
+ <module
+   name="audio_pll_0"
+   kind="altera_up_avalon_audio_pll"
+   version="18.0"
+   enabled="1">
+  <parameter name="AUTO_DEVICE" value="5CSEMA5F31C6" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="6" />
+  <parameter name="audio_clk_freq" value="12.288" />
+  <parameter name="device_family" value="Cyclone V" />
+  <parameter name="gui_refclk" value="50.0" />
+ </module>
+ <connection
+   kind="avalon"
+   version="19.1"
+   start="ARM_A9_HPS.h2f_axi_master"
+   end="Onchip_SRAM.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x08000000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
  <connection
    kind="avalon"
    version="19.1"
@@ -1003,10 +1184,19 @@
  <connection
    kind="avalon"
    version="19.1"
-   start="ARM_A9_HPS.h2f_axi_master"
-   end="Onchip_SRAM.s1">
+   start="ARM_A9_HPS.h2f_lw_axi_master"
+   end="audio_0.avalon_audio_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08000000" />
+  <parameter name="baseAddress" value="0x3040" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="19.1"
+   start="ARM_A9_HPS.h2f_lw_axi_master"
+   end="audio_and_video_config_0.avalon_av_config_slave">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x3000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1094,9 +1284,9 @@
    kind="avalon"
    version="19.1"
    start="JTAG_To_FPGA_Bridge.master"
-   end="SDRAM.s1">
+   end="Interval_Timer.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="baseAddress" value="0xff202000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1112,18 +1302,18 @@
    kind="avalon"
    version="19.1"
    start="JTAG_To_FPGA_Bridge.master"
-   end="Interval_Timer.s1">
+   end="LCD_0.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0xff202000" />
+  <parameter name="baseAddress" value="0xff202030" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
    kind="avalon"
    version="19.1"
    start="JTAG_To_FPGA_Bridge.master"
-   end="LCD_0.s1">
+   end="SDRAM.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0xff202030" />
+  <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1136,11 +1326,6 @@
    version="19.1"
    start="System_PLL.sys_clk"
    end="JTAG_To_FPGA_Bridge.clk" />
- <connection
-   kind="clock"
-   version="19.1"
-   start="System_PLL.sys_clk"
-   end="SDRAM.clk" />
  <connection
    kind="clock"
    version="19.1"
@@ -1170,7 +1355,22 @@
    kind="clock"
    version="19.1"
    start="System_PLL.sys_clk"
+   end="audio_0.clk" />
+ <connection
+   kind="clock"
+   version="19.1"
+   start="System_PLL.sys_clk"
+   end="audio_and_video_config_0.clk" />
+ <connection
+   kind="clock"
+   version="19.1"
+   start="System_PLL.sys_clk"
    end="LCD_0.clk" />
+ <connection
+   kind="clock"
+   version="19.1"
+   start="System_PLL.sys_clk"
+   end="SDRAM.clk" />
  <connection
    kind="clock"
    version="19.1"
@@ -1233,11 +1433,6 @@
    kind="reset"
    version="19.1"
    start="ARM_A9_HPS.h2f_reset"
-   end="SDRAM.reset" />
- <connection
-   kind="reset"
-   version="19.1"
-   start="ARM_A9_HPS.h2f_reset"
    end="JTAG_UART_for_ARM_0.reset" />
  <connection
    kind="reset"
@@ -1264,6 +1459,11 @@
    version="19.1"
    start="ARM_A9_HPS.h2f_reset"
    end="LCD_0.reset" />
+ <connection
+   kind="reset"
+   version="19.1"
+   start="ARM_A9_HPS.h2f_reset"
+   end="SDRAM.reset" />
  <connection
    kind="reset"
    version="19.1"
@@ -1283,11 +1483,6 @@
    kind="reset"
    version="19.1"
    start="System_PLL.reset_source"
-   end="SDRAM.reset" />
- <connection
-   kind="reset"
-   version="19.1"
-   start="System_PLL.reset_source"
    end="JTAG_UART_for_ARM_0.reset" />
  <connection
    kind="reset"
@@ -1313,7 +1508,22 @@
    kind="reset"
    version="19.1"
    start="System_PLL.reset_source"
+   end="audio_0.reset" />
+ <connection
+   kind="reset"
+   version="19.1"
+   start="System_PLL.reset_source"
+   end="audio_and_video_config_0.reset" />
+ <connection
+   kind="reset"
+   version="19.1"
+   start="System_PLL.reset_source"
    end="LCD_0.reset" />
+ <connection
+   kind="reset"
+   version="19.1"
+   start="System_PLL.reset_source"
+   end="SDRAM.reset" />
  <connection
    kind="reset"
    version="19.1"
