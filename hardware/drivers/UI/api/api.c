@@ -37,22 +37,6 @@ int postUser(char *username, int User_Colour)
 }
 
 /**
- * /increment post request helper function
- *
- * @param username username of the user
- * @param ret return string buffer
- * @return non-negative integer on success, negative otherwise
- */
-int incrementFriendship(char *username)
-{
-    char args[MAX_ARG_CHARS];
-    strcpy(args, "\"");
-    strcat(args, username);
-    strcat(args, "\"");
-    return api_request("put_increment_frienship", args);
-}
-
-/**
  * /chat get request helper function
  *
  * @param sender sender of the chat

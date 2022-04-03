@@ -7,7 +7,6 @@
 
 int getUser(char *, char *);
 int postUser(char *, int);
-int incrementFriendship(char *);
 int getChat(char *, char *, char *);
 int postChat(char *, char *, char *);
 int getFriends(char *, char *);

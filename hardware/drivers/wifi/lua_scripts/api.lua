@@ -1,8 +1,9 @@
+URL = 'http://3.140.252.116:8000'
 
 -- user
 function get_user(username)
   http.get(
-    'http://18.191.115.7:8000/user?username=' .. username,
+    URL .. '/user?username=' .. username,
     nil,
     function(code, data)
        if (code < 0) then
@@ -15,7 +16,7 @@ end
 
 function post_user(username, pet_colour)
   http.post(
-    'http://18.191.115.7:8000/user',
+    URL .. '/user',
     'Content-Type: application/json\r\n',
     [[{
       "username": "]] .. username .. [[",
@@ -30,27 +31,11 @@ function post_user(username, pet_colour)
   end)
 end
 
-function put_increment_friendship(username)
-  http.post(
-    'http://18.191.115.7:8000/increment',
-    'Content-Type: application/json\r\n',
-    [[{
-      "username": "]] .. username .. [["
-    }]],
-    function(code, data)
-       if (code < 0) then
-         print("PUT increment friendship request failed")
-       else
-         print(data)
-       end
-  end)
-end
-
 
 -- chat
 function get_chat(sender, receiver)
   http.get(
-    'http://18.191.115.7:8000/chat?sender_id=' .. sender .. '&receiver_id=' .. receiver,
+    URL .. '/chat?sender_id=' .. sender .. '&receiver_id=' .. receiver,
     nil,
     function(code, data)
        if (code < 0) then
@@ -63,7 +48,7 @@ end
 
 function post_chat(sender, receiver, message)
   http.post(
-    'http://18.191.115.7:8000/chat',
+    URL .. '/chat',
     'Content-Type: application/json\r\n',
     [[{
       "sender_id": "]] .. sender .. [[",
@@ -81,9 +66,22 @@ end
 
 
 -- friendship
+function get_is_friends(user, friend)
+  http.get(
+    URL .. '/isFriends?user_id=' .. user .. '&friend_id=' .. friend,
+    nil,
+    function(code, data)
+       if (code < 0) then
+         print("GET is friends request failed")
+       else
+         print(data)
+       end
+  end)
+end
+
 function get_friends(username)
   http.get(
-    'http://18.191.115.7:8000/friendship?user_id=' .. username,
+    URL .. '/friendship?user_id=' .. username,
     nil,
     function(code, data)
        if (code < 0) then
@@ -96,7 +94,7 @@ end
 
 function post_friendship(user, friend)
   http.post(
-    'http://18.191.115.7:8000/friendship',
+    URL .. '/friendship',
     'Content-Type: application/json\r\n',
     [[{
       "user_id": "]] .. user .. [[",
@@ -113,7 +111,7 @@ end
 
 function delete_friendship(user, friend)
   http.delete(
-    'http://18.191.115.7:8000/friendship?user_id=' .. user .. '&friend_id=' .. friend,
+    URL .. '/friendship?user_id=' .. user .. '&friend_id=' .. friend,
     nil,
     function(code, data)
        if (code < 0) then
@@ -128,7 +126,7 @@ end
 -- game
 function get_game(sender, receiver)
   http.get(
-    'http://18.191.115.7:8000/game?sender_id=' .. sender .. '&receiver_id=' .. receiver,
+    URL .. '/game?sender_id=' .. sender .. '&receiver_id=' .. receiver,
     nil,
     function(code, data)
        if (code < 0) then
@@ -141,7 +139,7 @@ end
 
 function post_game(sender, receiver, choice)
   http.post(
-    'http://18.191.115.7:8000/game',
+    URL .. '/game',
     'Content-Type: application/json\r\n',
     [[{
       "sender_id": "]] .. sender .. [[",
@@ -159,7 +157,7 @@ end
 
 function delete_game(sender, receiver)
   http.delete(
-    'http://18.191.115.7:8000/game?sender_id=' .. sender .. '&receiver_id=' .. receiver,
+    URL .. '/game?sender_id=' .. sender .. '&receiver_id=' .. receiver,
     nil,
     function(code, data)
        if (code < 0) then
