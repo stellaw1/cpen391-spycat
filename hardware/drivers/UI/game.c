@@ -44,13 +44,13 @@ int gameScreen(char *UID, char *friendUID, char * userPetColour, int friendPetCo
             printf("Rock triggered");
             postGame(UID, friendUID, ROCK);
         }
-        if (p.x >= 420 && p.x <= 420 + 50 && p.y >= 200 && p.y <= 330 + 120)
+        if (p.x >= 420 && p.x <= 420 + 50 && p.y >= 330 && p.y <= 330 + 120)
         {
             // Paper button
             printf("Paper triggered");
             postGame(UID, friendUID, PAPER);
         }
-        if (p.x >= 420 && p.x <= 420 + 50 && p.y >= 460 && p.y <= 200 + 120)
+        if (p.x >= 420 && p.x <= 420 + 50 && p.y >= 460 && p.y <= 460 + 120)
         {
             // Scissors button
             printf("Scissors triggered");
