@@ -3,6 +3,7 @@ import time
 import datetime
 import imutils
 
+
 def motion_detection():
     video_capture = cv2.VideoCapture(0)
 
@@ -15,6 +16,8 @@ def motion_detection():
 
     while video_capture.isOpened():
         frame = video_capture.read()[1]
+
+        text = 'Unoccupied'
 
         greyscale_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         
@@ -48,11 +51,6 @@ def motion_detection():
 
                     cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
 
-                    break
+                    text = 'Occupied'
                 else:
                     pass
-                
-
-
-if __name__=='__main__':    
-    motion_detection()

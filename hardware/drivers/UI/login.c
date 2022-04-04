@@ -40,7 +40,6 @@ int loginScreen(char *UID, char *pet_colour, int background_colour)
             // Post user to our backend, do nothing if fail
             if (postUser(UID, userColour))
             {
-                sprintf(pet_colour, "%d", userColour);
                 return 1;
             }
         }

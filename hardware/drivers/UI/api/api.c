@@ -26,7 +26,6 @@ int getUser(char *username, char *ret)
 int postUser(char *username, int User_Colour)
 {
     char User_Colour_String[MAX_ARG_CHARS];
-    sprintf(User_Colour_String, "%d", User_Colour);
     char post_user_args[MAX_ARG_CHARS];
     strcpy(post_user_args, "\"");
     strcat(post_user_args, username);
@@ -88,7 +87,7 @@ int getIsFriends(char *user, char *friend, char *ret)
     char args[MAX_ARG_CHARS];
     strcpy(args, "\"");
     strcat(args, user);
-    strcpy(args, "\", \"");
+    strcat(args, "\", \"");
     strcat(args, friend);
     strcat(args, "\"");
     return get_request("get_is_friends", args, ret);
@@ -173,7 +172,7 @@ int getGame(char *sender, char *receiver, char *ret)
  * @param choice choice of the sender
  * @return non-negative integer on success, negative otherwise
  */
-int postGame(char *sender, char *receiver, int choice)
+int postGame(char *sender, char *receiver, char * choice)
 {
     char args[MAX_ARG_CHARS]; // TODO MIGHT BE TOO SMALL
     strcpy(args, "\"");
@@ -181,9 +180,7 @@ int postGame(char *sender, char *receiver, int choice)
     strcat(args, "\", \"");
     strcat(args, receiver);
     strcat(args, "\", \"");
-    char choice_string[MAX_INPUT_CHARS];
-    sprintf(choice_string, "%d", choice);
-    strcat(args, choice_string);
+    strcat(args, choice);
     strcat(args, "\"");
     return api_request("post_game", args);
 }

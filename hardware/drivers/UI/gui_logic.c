@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-// #include <python3.5/Python.h>
+#include <python3.5/Python.h>
 
 #include "./utils/types.h"
 #include "../vga/vga_lib/GraphicsRoutines.c"
@@ -43,7 +43,6 @@ void gui_init()
         nextScreenCode = homeScreen(USER->username, USER->pet_colour, friendUID, background_colour);
         // strcpy(friendUID, "friend"); // For test only
         getUser(friendUID, colourString);
-        printf("%s", colourString);
         int Friend_Colour = atoi(colourString);
         if (nextScreenCode == 0)
         {
@@ -53,7 +52,7 @@ void gui_init()
         else if (nextScreenCode == 1)
         {
             // Add friends screen
-            friendAddScreen(newFriendUID, background_colour);
+            friendAddScreen(USER->username, newFriendUID, background_colour);
         }
         else if (nextScreenCode == 2)
         {
@@ -80,15 +79,15 @@ int main(void)
     Init_Touch();
     init_wifi();
     /* System Loop */
-    // FILE *fp;
-    // Py_Initialize();
-    // fp = _Py_fopen("../../../software/motion-detection/motion_detecton_modified.py", "r");
+    FILE *fp;
+    Py_Initialize();
+    fp = _Py_fopen("../../../software/motion-detection/python3_call.py", "r");
     while (1)
     {
-        // sleepScreen();
-        // PyRun_SimpleFile(fp, "../../../software/motion-detection/motion_detecton_modified.py");
+        sleepScreen();
+        PyRun_SimpleFile(fp, "../../../software/motion-detection/python3_call.py");
         gui_init();
     }
-    // Py_Finalize();
+    Py_Finalize();
     return 0;
 }

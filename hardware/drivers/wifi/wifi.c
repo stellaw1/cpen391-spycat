@@ -173,10 +173,7 @@ int get_request(char *function, char *body, char *ret)
 	char post_string[MAX_STRING];
 	strcpy(post_string, function);
 	strcat(post_string, "(");
-	if (strlen(body) != 0)
-	{
-		strcat(post_string, body);
-	}
+	strcat(post_string, body);
 	strcat(post_string, ")\r\n");
 
 	printf("posting: %s\n", post_string);

@@ -1,7 +1,5 @@
 #include "UI.h"
 
-extern struct User *USER;
-
 /*
  * Desciption: The search friend screen
  *             User enter the fromd user name.

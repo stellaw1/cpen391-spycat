@@ -1,7 +1,5 @@
 #include "UI.h"
 
-extern struct User *USER;
-
 /*
  * Desciption: The search friend screen
  *             User enter the fromd user name.
@@ -41,7 +39,7 @@ void searchFriendScreen(char *UID, char *friendUID, int background_colour)
         {
             // check if friend exists
             char ret[MAX_RETURN_CHARS];
-            getIsFriends(USER->username, friendUID, ret);
+            getIsFriends(UID, friendUID, ret);
             if (atoi(ret))
             {
                 text_box_filled("Success", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
