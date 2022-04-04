@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-// #include <python3.5/Python.h>
+#include <python3.5/Python.h>
 
 #include "./utils/types.h"
 #include "../vga/vga_lib/GraphicsRoutines.c"
@@ -81,15 +81,15 @@ int main(void)
     Init_Touch();
     init_wifi();
     /* System Loop */
-    // FILE *fp;
-    // Py_Initialize();
-    // fp = _Py_fopen("../../../software/motion-detection/motion_detecton_modified.py", "r");
+    FILE *fp;
+    Py_Initialize();
+    fp = _Py_fopen("../../../software/motion-detection/python3_call.py", "r");
     while (1)
     {
-        // sleepScreen();
-        // PyRun_SimpleFile(fp, "../../../software/motion-detection/motion_detecton_modified.py");
+        sleepScreen();
+        PyRun_SimpleFile(fp, "../../../software/motion-detection/python3_call.py");
         gui_init();
     }
-    // Py_Finalize();
+    Py_Finalize();
     return 0;
 }
