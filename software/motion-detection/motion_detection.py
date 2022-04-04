@@ -3,9 +3,9 @@ import time
 import datetime
 import imutils
 
-
 def motion_detection():
     video_capture = cv2.VideoCapture(0)
+    video_capture.set(int(5),1)
 
     if not (video_capture.isOpened()):
         print('camera not open')
@@ -47,34 +47,15 @@ def motion_detection():
         else:
             for c in cnt[-2]:
                 if cv2.contourArea(c) > 800:
-                    (x, y, w, h) = cv2.boundingRect(c)
-
-                    cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
-
-                    text = 'Occupied'
+                    text = "Occupied"
+                    break
                 else:
                     pass
-
-
-        ''' now draw text and timestamp on security feed '''
-        font = cv2.FONT_HERSHEY_SIMPLEX 
-
-        cv2.putText(frame, '{+} Room Status: %s' % (text), 
-            (10,20), cv2.FONT_HERSHEY_SIMPLEX , 0.5, (0, 0, 255), 2)
-
-
-        cv2.putText(frame, datetime.datetime.now().strftime('%A %d %B %Y %I:%M:%S%p'), 
-            (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX , 0.35, (0, 0, 255),1)
-
-        cv2.imshow('Security Feed', frame)
-        cv2.imshow('Threshold(foreground mask)', dilate_image)
-        cv2.imshow('Frame_delta', frame_delta)
-
-        key = cv2.waitKey(1) & 0xFF
-        if key == ord('q'):
-            cv2.destroyAllWindows()
-            break
                 
+        print(text)
+        if text is "Occupied":
+            break
+
 
 
 if __name__=='__main__':    

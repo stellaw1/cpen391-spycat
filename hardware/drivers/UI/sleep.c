@@ -10,7 +10,7 @@ void sleepScreen (void) {
     box_filled(0, 0, 800, 480, BLACK);
     /* Draw Pets*/
     // Your pet
-    drawPNGonScreen("data.png", 250, 100, GRAY, 300, 300);
+    drawPNGonScreen("data_sleep.png", 250, 100, GRAY, 300, 300);
     // // Your friend's pet
     // Point p;
     // while (1) {

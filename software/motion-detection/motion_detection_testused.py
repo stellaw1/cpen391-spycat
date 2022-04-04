@@ -3,9 +3,9 @@ import time
 import datetime
 import imutils
 
+
 def motion_detection():
     video_capture = cv2.VideoCapture(0)
-    video_capture.set(CV_CAP_PROP_BUFFERSIZE, 1)
 
     if not (video_capture.isOpened()):
         print('camera not open')
@@ -15,7 +15,6 @@ def motion_detection():
     first_frame = None
 
     while video_capture.isOpened():
-        # video_capture.set(cv2.CAP_PROP_POS_FRAMES, 0)
         frame = video_capture.read()[1]
 
         text = 'Unoccupied'
@@ -48,13 +47,10 @@ def motion_detection():
         else:
             for c in cnt[-2]:
                 if cv2.contourArea(c) > 800:
-                    text = "Occupied"
-                    break
+                    (x, y, w, h) = cv2.boundingRect(c)
+
+                    cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
+
+                    text = 'Occupied'
                 else:
                     pass
-                
-        print(text)
-
-
-if __name__=='__main__':    
-    motion_detection()

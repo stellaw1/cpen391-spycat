@@ -43,12 +43,12 @@ int gameScreen(char *UID, char *friendUID, char * userPetColour, int friendPetCo
             // Rock button
             postGame(UID, friendUID, "ROCK");
         }
-        if (p.x >= 420 && p.x <= 420 + 50 && p.y >= 200 && p.y <= 330 + 120)
+        if (p.x >= 420 && p.x <= 420 + 50 && p.y >= 330 && p.y <= 330 + 120)
         {
             // Paper button
             postGame(UID, friendUID, "PAPER");
         }
-        if (p.x >= 420 && p.x <= 420 + 50 && p.y >= 460 && p.y <= 200 + 120)
+        if (p.x >= 420 && p.x <= 420 + 50 && p.y >= 460 && p.y <= 460 + 120)
         {
             // Scissors button
             postGame(UID, friendUID, "SCISSORS");
