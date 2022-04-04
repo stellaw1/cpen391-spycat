@@ -8,11 +8,11 @@
 #ifndef TYPES_H_
 #define TYPES_H_
 
-typedef enum {
-    ROCK,
-    PAPER,
-    SCISSORS
-} Choice;
+// typedef enum {
+//     ROCK,
+//     PAPER,
+//     SCISSORS
+// } Choice;
 
 typedef struct User {
     char username[MAX_INPUT_CHARS];

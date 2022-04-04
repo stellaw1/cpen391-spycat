@@ -14,6 +14,6 @@ int getFriends(char *, char *);
 int postFriendship(char *, char *);
 int deleteFriendship(char *, char *);
 int getGame(char *, char *, char *);
-int postGame(char *, char *, int);
+int postGame(char *, char *, char *);
 int deleteGame(char *, char *);
 #endif

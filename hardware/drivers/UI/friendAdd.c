@@ -1,7 +1,5 @@
 #include "UI.h"
 
-extern struct User * USER;
-
 /*
  * Desciption: The Adding friend screen
  *             User enter the fromd user name.
@@ -10,7 +8,7 @@ extern struct User * USER;
  * @pram:      string: UID, UID is set to less than 10 characters
  * @ret:       void
  */
-void friendAddScreen(char *friendUID, int background_colour)
+void friendAddScreen(char * UID, char *friendUID, int background_colour)
 {
     friendUID[MAX_INPUT_CHARS] = '\0';
     // Background set the colour LIGHT_SALMON.
@@ -48,7 +46,7 @@ void friendAddScreen(char *friendUID, int background_colour)
             }
 
             // add friend
-            postFriendship(USER->username, friendUID);
+            postFriendship(UID, friendUID);
         }
         if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 90)
         {

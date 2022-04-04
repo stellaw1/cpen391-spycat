@@ -44,7 +44,6 @@ void gui_init()
         nextScreenCode = homeScreen(USER->username, USER->pet_colour, friendUID, background_colour, temperature);
         // strcpy(friendUID, "friend"); // For test only
         getUser(friendUID, colourString);
-        printf("%s", colourString);
         int Friend_Colour = atoi(colourString);
         if (nextScreenCode == 0)
         {
@@ -54,7 +53,7 @@ void gui_init()
         else if (nextScreenCode == 1)
         {
             // Add friends screen
-            friendAddScreen(newFriendUID, background_colour);
+            friendAddScreen(USER->username, newFriendUID, background_colour);
         }
         else if (nextScreenCode == 2)
         {
