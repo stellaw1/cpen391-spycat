@@ -50,7 +50,7 @@ void searchFriendScreen(char *UID, char *friendUID, int background_colour)
             else
             {
                 GraphicsString("Not valid friend name", 350, 120, WHITE, background_colour);
-                continue;
+                break;
             }
         }
     }

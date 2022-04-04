@@ -11,7 +11,7 @@
  *             2: Chat screen
  *             3: Play screen
  */
-int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int background_colour, char *tempinCelsius)
+int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int background_colour)
 {
     // Set Background png according to weather
     char ret[20];
@@ -27,7 +27,7 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
     text_box_filled("< Logout", 20, 20, 30, 35, 135, 50, WHITE, GRAY);
     /* Show weather on screen */
     GraphicsString("Temperature:", 170, 30, WHITE, background_colour);
-    GraphicsString(tempinCelsius, 170, 50, WHITE, background_colour);
+    GraphicsString(ret, 170, 50, WHITE, background_colour);
     /* Draw friends list */
     box_filled(400, 20, 330, 350, GRAY);
     GraphicsString("Online:", 405, 25, WHITE, GRAY);

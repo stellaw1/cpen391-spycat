@@ -33,7 +33,6 @@ void gui_init()
     loginScreen(USER->username, USER->pet_colour, background_colour);
     text_box_filled("Logging in...", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
 
-    char temperature[4] = "24C";
     while (1)
     {
         char friendUID[10];
@@ -41,7 +40,7 @@ void gui_init()
         char colourString[10];
         int nextScreenCode;
 
-        nextScreenCode = homeScreen(USER->username, USER->pet_colour, friendUID, background_colour, temperature);
+        nextScreenCode = homeScreen(USER->username, USER->pet_colour, friendUID, background_colour);
         // strcpy(friendUID, "friend"); // For test only
         getUser(friendUID, colourString);
         printf("%s", colourString);
