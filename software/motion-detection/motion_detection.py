@@ -15,7 +15,6 @@ def motion_detection():
     first_frame = None
 
     while video_capture.isOpened():
-        # video_capture.set(cv2.CAP_PROP_POS_FRAMES, 0)
         frame = video_capture.read()[1]
 
         text = 'Unoccupied'
