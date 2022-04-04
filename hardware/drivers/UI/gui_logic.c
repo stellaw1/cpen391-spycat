@@ -25,6 +25,8 @@ void gui_init()
 {
     // initialize global user
     USER = malloc(sizeof(struct User));
+    memset(USER->username, '\0', sizeof(USER->username));
+    memset(USER->pet_colour, '\0', sizeof(USER->pet_colour));
 
     // Get background colour from backend
     int background_colour = BLUE_VIOLET;
