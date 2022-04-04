@@ -170,7 +170,7 @@ end
 
 -- weather
 function get_weather()
-  http.delete(
+  http.get(
     URL .. '/weather',
     nil,
     function(code, data)
