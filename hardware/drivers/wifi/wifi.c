@@ -178,10 +178,11 @@ int get_request(char *function, char *body, char *ret)
 
 	printf("posting: %s\n", post_string);
 
-	char buf[1024] = "";
+	char buf[MAX_RETURN_CHARS] = "";
 	int bytes_received = lua_command_no_stars_short(post_string, buf);
 
 	printf("bytes received: %d\n", bytes_received);
+	printf("res: %s\n", buf);
 	copy_get_response(ret, buf);
 
 	return bytes_received;
@@ -197,7 +198,7 @@ int api_request(char *function, char *body)
 
 	printf("posting: %s\n", post_string);
 
-	char buf[1024] = "";
+	char buf[MAX_RETURN_CHARS] = "";
 	int bytes_received = lua_command_no_stars_short(post_string, buf);
 
 	printf("bytes received: %d\n", bytes_received);
