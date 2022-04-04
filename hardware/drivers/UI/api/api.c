@@ -172,7 +172,7 @@ int getGame(char *sender, char *receiver, char *ret)
  * @param choice choice of the sender
  * @return non-negative integer on success, negative otherwise
  */
-int postGame(char *sender, char *receiver, char * choice)
+int postGame(char *sender, char *receiver, char *choice)
 {
     char args[MAX_ARG_CHARS]; // TODO MIGHT BE TOO SMALL
     strcpy(args, "\"");
@@ -211,7 +211,5 @@ int deleteGame(char *sender, char *receiver)
  */
 int getWeather(char *ret)
 {
-    char args[MAX_ARG_CHARS];
-    strcpy(args, " ");
-    return get_request("get_weather", args, ret);
+    return get_request("get_weather", "", ret);
 }
