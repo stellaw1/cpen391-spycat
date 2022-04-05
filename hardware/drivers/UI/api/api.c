@@ -23,14 +23,13 @@ int getUser(char *username, char *ret)
  * @param ret return string buffer
  * @return non-negative integer on success, negative otherwise
  */
-int postUser(char *username, int User_Colour)
+int postUser(char *username, char *pet_colour)
 {
-    char User_Colour_String[MAX_ARG_CHARS];
     char post_user_args[MAX_ARG_CHARS];
     strcpy(post_user_args, "\"");
     strcat(post_user_args, username);
     strcat(post_user_args, "\", \"");
-    strcat(post_user_args, User_Colour_String);
+    strcat(post_user_args, pet_colour);
     strcat(post_user_args, "\"");
     return api_request("post_user", post_user_args);
 }
