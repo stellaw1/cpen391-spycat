@@ -46,7 +46,7 @@ void gui_init()
         nextScreenCode = homeScreen(USER->username, USER->pet_colour, friendUID, background_colour);
         // strcpy(friendUID, "friend"); // For test only
         getUser(friendUID, colourString);
-        int Friend_Colour = atoi(colourString[1]);
+        int Friend_Colour = atoi(colourString);
         if (nextScreenCode == 0)
         {
             // TODO 5: Update online status of the user to offline
