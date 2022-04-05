@@ -264,10 +264,6 @@ module spycat (
 			.io_write_data   						(IO_Write_Data_WIRE),
 			.io_read_data    						(IO_Read_Data_WIRE),
 
-			// 2x24 LCD Display Connections to 16 bit PIO port
-			.lcd_export								(LCD_WIRE),
-
-
 			// Red LED connections
 			//!!!.leds_export                     (LEDR),                     		//                 leds.export
 
@@ -311,23 +307,23 @@ module spycat (
 	  ///////////////////////////////////////////////////////////////////////////////////////////////
 
 		Graphics_and_Video_Controller		GraphicsController1 (
-				.Reset_L							(RESET_L_WIRE),
+				.Reset_L						(RESET_L_WIRE),
 				.Clock_50Mhz 					(CLOCK_50),
 				.Address 						(IO_Address_WIRE),
-				.DataIn 							(IO_Write_Data_WIRE),
+				.DataIn 						(IO_Write_Data_WIRE),
 				.DataOut 						(IO_Read_Data_WIRE),
 				.IOEnable_L 					(IO_Enable_L_WIRE),
-				.UpperByteSelect_L 			(IO_UpperByte_Select_L_WIRE),
-				.LowerByteSelect_L 			(IO_LowerByte_Select_L_WIRE),
-				.WriteEnable_L 				(IO_RW_WIRE),
+				.UpperByteSelect_L 				(IO_UpperByte_Select_L_WIRE),
+				.LowerByteSelect_L 				(IO_LowerByte_Select_L_WIRE),
+				.WriteEnable_L 					(IO_RW_WIRE),
 				.GraphicsCS_L 					(IO_Enable_L_WIRE),
 
 				.VGA_CLK						(VGA_CLK),
-				.VGA_B 						(VGA_B),
-				.VGA_G 						(VGA_G),
+				.VGA_B 							(VGA_B),
+				.VGA_G 							(VGA_G),
 				.VGA_R							(VGA_R),
 				.VGA_HS 						(VGA_HS),
-				.VGA_VS						(VGA_VS),
+				.VGA_VS							(VGA_VS),
 				.VGA_BLANK_N 					(VGA_BLANK_N)
 
 		 );
@@ -336,35 +332,6 @@ module spycat (
 		///////////////////////////////////////////////////////////////////////////////////////////////
 		// create an instance of the IO port with serial ports
 		///////////////////////////////////////////////////////////////////////////////////////////////
-
-//		 OnChipM68xxIO     SerialIOPorts (
-//
-//				 // Bridge Signals connecting to this component
-//
-//				 .Reset_L 						(RESET_L_WIRE),
-//				 .Clock_50Mhz 					(CLOCK_50),
-//				 .Address 						(IO_Address_WIRE),
-//				 .DataIn 						(IO_Write_Data_WIRE[7:0]),
-//				 .DataOut 						(IO_Read_Data_WIRE[7:0]),
-//				 .IOSelect_H 					(IO_Bus_Enable_WIRE),
-//				 .ByteSelect_L 				(IO_LowerByte_Select_L_WIRE),
-//				 .WE_L 							(IO_RW_WIRE),
-//				 .ACIA_IRQ 						(IO_IRQ_WIRE),
-//
-//				 // Real World Signals brought out to Header connections
-//
-//				 .RS232_RxData					(GPIO_1[29]),
-//				 .RS232_TxData					(GPIO_1[27]),
-//
-//				 .GPS_RxData 					(GPIO_1[28]),
-//				 .GPS_TxData 					(GPIO_1[26]),
-//
-//				 .BlueTooth_RxData 			(GPIO_1[32]),
-//				 .BlueTooth_TxData 			(GPIO_1[34]),
-//
-//				 .TouchScreen_RxData 		(GPIO_0[11]),
-//				 .TouchScreen_TxData 		(GPIO_0[10])
-//		);
 
 		 OnChipSerialIO     SerialIOPorts (
 
@@ -385,14 +352,8 @@ module spycat (
 				 .RS232_RxData					(GPIO_0[29]),
 				 .RS232_TxData					(GPIO_0[27]),
 
-				 .GPS_RxData 					(GPIO_0[28]),
-				 .GPS_TxData 					(GPIO_0[26]),
-
-				 .BlueTooth_RxData 			(GPIO_0[32]),
-				 .BlueTooth_TxData 			(GPIO_0[34]),
-
-				 .TouchScreen_RxData 		(GPIO_0[11]),
-				 .TouchScreen_TxData 		(GPIO_0[10])
+				 .TouchScreen_RxData 			(GPIO_0[11]),
+				 .TouchScreen_TxData 			(GPIO_0[10])
 		);
 
 		// Map 16 bit memory upper and lower data byte strobes to individual wires
@@ -407,23 +368,6 @@ module spycat (
 		assign IO_Enable_L_WIRE 				= ~IO_Bus_Enable_WIRE;
 		assign IO_UpperByte_Select_L_WIRE 	= ~IO_Byte_Enable_WIRE[1];
 		assign IO_LowerByte_Select_L_WIRE 	= ~IO_Byte_Enable_WIRE[0];
-
-		// wire the LCD wires to the GPIO Header pins
-		// data bits 0 - 7
-
-		assign GPIO_1[0] = LCD_WIRE[0] ;
-		assign GPIO_1[1] = LCD_WIRE[1] ;
-		assign GPIO_1[2] = LCD_WIRE[2] ;
-		assign GPIO_1[3] = LCD_WIRE[3] ;
-		assign GPIO_1[4] = LCD_WIRE[4] ;
-		assign GPIO_1[5] = LCD_WIRE[5] ;
-		assign GPIO_1[6] = LCD_WIRE[6] ;
-		assign GPIO_1[7] = LCD_WIRE[7] ;
-
-		// RS, EN and R/W connections and contrast pin
-		assign GPIO_1[11] = LCD_WIRE[8] ;			// LCD_RS
-		assign GPIO_1[13] = LCD_WIRE[9] ;			// LCD_EN
-		assign GPIO_1[15] = LCD_WIRE[10] ;			// LCD_RW
 
 		// connect contrast pin on 24x2 LCD display to ground
 		assign GPIO_1[10] = 1'b0;
