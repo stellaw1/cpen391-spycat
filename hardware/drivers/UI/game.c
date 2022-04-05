@@ -1,7 +1,6 @@
 #include "UI.h"
 #include <stdio.h>
 
-
 /*
  * Desciption: The game session screen.
  *             Gamers can select paper, scissors and stons to play
@@ -9,7 +8,7 @@
  * @pram:      string: UID, UID is set to less than 10 characters
  * @ret:       void
  */
-int gameScreen(char *UID, char *friendUID, char * userPetColour, int friendPetColour, int background_colour)
+int gameScreen(char *UID, char *friendUID, char *userPetColour, int friendPetColour, int background_colour)
 {
     // Background set the colour LIGHT_SALMON.
     box_filled(0, 0, 800, 480, background_colour);
@@ -41,16 +40,19 @@ int gameScreen(char *UID, char *friendUID, char * userPetColour, int friendPetCo
         if (p.x >= 420 && p.x <= 420 + 50 && p.y >= 200 && p.y <= 200 + 120)
         {
             // Rock button
+            text_box_filled("Chose ROCK", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
             postGame(UID, friendUID, "ROCK");
         }
         if (p.x >= 420 && p.x <= 420 + 50 && p.y >= 330 && p.y <= 330 + 120)
         {
             // Paper button
+            text_box_filled("Chose PAPER", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
             postGame(UID, friendUID, "PAPER");
         }
         if (p.x >= 420 && p.x <= 420 + 50 && p.y >= 460 && p.y <= 460 + 120)
         {
             // Scissors button
+            text_box_filled("Chose SCISSORS", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
             postGame(UID, friendUID, "SCISSORS");
         }
 
@@ -58,10 +60,14 @@ int gameScreen(char *UID, char *friendUID, char * userPetColour, int friendPetCo
         {
             // Refresh button
             char ret[MAX_RETURN_CHARS];
-            if (getGame(UID, friendUID, ret)){ 
+            text_box_filled("Getting game result...", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
+            if (getGame(UID, friendUID, ret))
+            {
                 text_box_filled(ret, 267, 160, 300, 240, 267, 160, WHITE, GRAY);
                 deleteGame(UID, friendUID);
-            } else {
+            }
+            else
+            {
                 continue;
             }
         }
