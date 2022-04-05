@@ -37,8 +37,9 @@ int loginScreen(char *UID, char *pet_colour, int background_colour)
         if (p.x >= 125 && p.x <= 125 + 60 && p.y >= 600 && p.y <= 600 + 90)
         {
             text_box_filled("Logging in...", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
+            sprintf(pet_colour, "%d", userColour);
             // Post user to our backend, do nothing if fail
-            if (postUser(UID, userColour))
+            if (postUser(UID, pet_colour))
             {
                 return 1;
             }

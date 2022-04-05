@@ -7,7 +7,7 @@
 #define MAX_INPUT_CHARS (10)
 
 int getUser(char *, char *);
-int postUser(char *, int);
+int postUser(char *, char *);
 int getChat(char *, char *, char *);
 int postChat(char *, char *, char *);
 int getFriends(char *, char *);
