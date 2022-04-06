@@ -58,7 +58,7 @@ void chatScreen(char *UID, char *friendUID, int background_colour)
         if (p.x >= 20 && p.x <= 20 + 30 && p.y >= 750 && p.y <= 750 + 24)
         {
             drawPNGonScreen("chat.png", 200, 20, GRAY, 600, 200);
-            getChat(UID, friendUID, rcvMsg);
+            getChat(friendUID, UID, rcvMsg);
             text_box_filled(rcvMsg, 200 + 85, 20 + 25, 200 + 85, 20 + 25, 420, 30, WHITE, GRAY);
         }
 
