@@ -1,4 +1,5 @@
 ### GENERAL VSCODE GITIGNORE
+.DS_Store
 .vscode/
 home/
 
