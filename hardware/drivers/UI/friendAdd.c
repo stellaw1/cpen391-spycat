@@ -36,7 +36,7 @@ void friendAddScreen(char * UID, char *friendUID, int background_colour)
     while (1)
     {
         p = GetRelease();
-        if (p.x >= 80 && p.x <= 80 + 60 && p.y >= 600 && p.y <= 600 + 90)
+        if (p.y >= 80 && p.y <= 80 + 60 && p.x >= 600 && p.x <= 600 + 90)
         {
             // check if friend exists
             char ret[MAX_RETURN_CHARS];
@@ -48,7 +48,7 @@ void friendAddScreen(char * UID, char *friendUID, int background_colour)
             // add friend
             postFriendship(UID, friendUID);
         }
-        if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 90)
+        if (p.y >= 20 && p.y <= 20 + 50 && p.x >= 20 && p.x <= 20 + 90)
         {
             // return to home screen
             return;

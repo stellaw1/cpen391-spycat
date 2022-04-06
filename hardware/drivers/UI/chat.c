@@ -49,22 +49,19 @@ void chatScreen(char *UID, char *friendUID, int background_colour)
         p = GetRelease();
 
         // home button
-        if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 90)
-        {
+        if (p.y >= 20 && p.y <= 20 + 50 && p.x >= 20 && p.x <= 20 + 90) {
             return;
         }
 
         // refresh button
-        if (p.x >= 20 && p.x <= 20 + 30 && p.y >= 750 && p.y <= 750 + 24)
-        {
+        if (p.y >= 20 && p.y <= 20 + 30 && p.x >= 750 && p.x <= 750 + 24) {
             drawPNGonScreen("chat.png", 200, 20, GRAY, 600, 200);
             getChat(UID, friendUID, rcvMsg);
             text_box_filled(rcvMsg, 200 + 85, 20 + 25, 200 + 85, 20 + 25, 420, 30, WHITE, GRAY);
         }
 
         // send button
-        if (p.x >= 120 && p.x <= 120 + 50 && p.y >= 20 && p.y <= 20 + 120)
-        {
+        if (p.y >= 120 && p.y <= 120 + 50 && p.x >= 20 && p.x <= 20 + 120) {
             postChat(UID, friendUID, sentMsg);
             drawPNGonScreen("chat.png", 200, 20, GRAY, 600, 200);
             text_box_filled(rcvMsg, 200 + 85, 20 + 25, 200 + 85, 20 + 25, 420, 30, WHITE, GRAY);

@@ -15,7 +15,7 @@ int sys_init()
     Point p;
     while (1){
         p = GetPress();
-        printf("x=%d, y=%d\n",p.x, p.y);
+        printf("x=%d, y=%d\n",p.y, p.x);
     }
     printf("Finish touch Setup");
 
