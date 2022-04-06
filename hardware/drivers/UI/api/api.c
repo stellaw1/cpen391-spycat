@@ -68,8 +68,9 @@ int postChat(char *sender, char *receiver, char *message)
     strcat(args, sender);
     strcat(args, "\", \"");
     strcat(args, receiver);
-    strcat(args, "\", ");
+    strcat(args, "\", \"");
     strcat(args, message);
+    strcat(args, "\"");
     return api_request("post_chat", args);
 }
 

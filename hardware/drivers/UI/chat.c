@@ -12,8 +12,11 @@ void chatScreen(char *UID, char *friendUID, int background_colour)
 {
     char rcvMsg[MAX_TEXT_CHARS];
     getChat(UID, friendUID, rcvMsg);
-    char sentMsg[MAX_TEXT_CHARS]; // For test only
+    char sentMsg[MAX_TEXT_CHARS];
     char out[MAX_TEXT_CHARS];
+    rcvMsg[0] = '\0';
+    sentMsg[0] = '\0';
+    out[0] = '\0';
     // Background set the colour LIGHT_SALMON.
     box_filled(0, 0, 800, 480, background_colour);
     /* Draw Home button */
@@ -45,25 +48,27 @@ void chatScreen(char *UID, char *friendUID, int background_colour)
         p = GetRelease();
 
         // home button
-        if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 90) {
+        if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 90)
+        {
             return;
         }
 
         // refresh button
-        if (p.x >= 20 && p.x <= 20 + 30 && p.y >= 750 && p.y <= 750 + 24) {
+        if (p.x >= 20 && p.x <= 20 + 30 && p.y >= 750 && p.y <= 750 + 24)
+        {
             drawPNGonScreen("chat.png", 200, 20, GRAY, 600, 200);
             getChat(UID, friendUID, rcvMsg);
             text_box_filled(rcvMsg, 200 + 85, 20 + 25, 200 + 85, 20 + 25, 420, 30, WHITE, GRAY);
         }
 
         // send button
-        if (p.x >= 120 && p.x >= 20 && p.y<= 120 + 50 && p.y<= 20 + 120) {
+        if (p.x >= 120 && p.x >= 20 && p.y <= 120 + 50 && p.y <= 20 + 120)
+        {
             postChat(UID, friendUID, sentMsg);
             drawPNGonScreen("chat.png", 200, 20, GRAY, 600, 200);
             text_box_filled(rcvMsg, 200 + 85, 20 + 25, 200 + 85, 20 + 25, 420, 30, WHITE, GRAY);
             sentMsg[j] = '\0';
             text_box_filled(sentMsg, 200 + 110, 20 + 110, 200 + 110, 20 + 110, 420, 30, WHITE, GRAY);
-            
         }
     }
 }
