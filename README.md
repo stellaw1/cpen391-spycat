@@ -19,3 +19,4 @@ gcc ./gui_logic.c -lm -lpython3.5m -o project
 ### Software Dependencies on DE1
  - Python 2.7
  - Python 3.5
+ - python-opencv
