@@ -12,7 +12,7 @@ void searchFriendScreen(char *UID, char *friendUID, int background_colour)
 {
     friendUID[MAX_INPUT_CHARS] = '\0';
     // Background set the colour LIGHT_SALMON.
-    char out[65536];
+    char out[MAX_INPUT_CHARS];
     box_filled(0, 0, 800, 480, background_colour);
     GraphicsString("Friend Name:", 150, 100, WHITE, background_colour);
     text_box_filled("", 350, 93, 360, 101, 200, 30, WHITE, GRAY);

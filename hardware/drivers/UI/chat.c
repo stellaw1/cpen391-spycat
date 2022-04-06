@@ -16,11 +16,12 @@ void chatScreen(char *UID, char *friendUID, int background_colour)
     char out[MAX_TEXT_CHARS];
     // Background set the colour LIGHT_SALMON.
     box_filled(0, 0, 800, 480, background_colour);
-    /* Draw return button */
+    /* Draw Home button */
     text_box_filled("< Home", 20, 20, 30, 35, 120, 50, WHITE, GRAY);
-    // Pet Colour
-    /* Screen title*/
-    // GraphicsString("Chat", 350, 20, WHITE, LIGHT_SALMON);
+    // refresh button
+    drawPNGonScreen("refresh.png", 20, 50, WHITE, 30, 24);
+    // send button
+    text_box_filled("Send", 20, 120, 30, 35, 120, 50, WHITE, GRAY);
     /* Chat Box */
     drawPNGonScreen("chat.png", 200, 20, GRAY, 600, 200);
     /* textbox friend*/
@@ -28,24 +29,43 @@ void chatScreen(char *UID, char *friendUID, int background_colour)
     /* textbox user*/
 
     /* Touch Keyboard*/
-    TSKeyboard(sentMsg, 100);
-    int j;
-    for (j = 0; j < 100; j++)
+    TSKeyboard(out, 10);
+    int j = 0;
+    while (j < 10)
     {
         sentMsg[j] = out[j];
+        j++;
+        if (out[j] == '\0')
+        {
+            break;
+        }
     }
-    text_box_filled(sentMsg, 200 + 110, 20 + 110, 200 + 110, 20 + 110, 420, 30, WHITE, GRAY);
-    postChat(UID, friendUID, sentMsg);
+
     Point p;
     while (1)
     {
         p = GetRelease();
-        if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 90)
-        {
+
+        // home button
+        if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 90) {
             return;
         }
-        if (!ScreenTouched())
-        {
+
+        // refresh button
+        if (p.x >= 20 && p.x <= 20 + 30 && p.y >= 50 && p.y <= 50 + 24) {
+            drawPNGonScreen("chat.png", 200, 20, GRAY, 600, 200);
+            getChat(UID, friendUID, rcvMsg);
+            text_box_filled(rcvMsg, 200 + 85, 20 + 25, 200 + 85, 20 + 25, 420, 30, WHITE, GRAY);
+        }
+
+        // send button
+        if () {
+            postChat(UID, friendUID, sentMsg);
+            drawPNGonScreen("chat.png", 200, 20, GRAY, 600, 200);
+            text_box_filled(rcvMsg, 200 + 85, 20 + 25, 200 + 85, 20 + 25, 420, 30, WHITE, GRAY);
+            sentMsg[j] = '\0';
+            text_box_filled(sentMsg, 200 + 110, 20 + 110, 200 + 110, 20 + 110, 420, 30, WHITE, GRAY);
+            
         }
     }
 }
