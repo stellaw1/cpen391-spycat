@@ -1,3 +1,6 @@
 [submodule "l2b-15-something-node-server"]
 	path = l2b-15-something-node-server
 	url = git@github.com:stellaw1/l2b-15-something-node-server.git
+[submodule "l2b-15-something-django-website"]
+	path = l2b-15-something-django-website
+	url = git@github.com:stellaw1/l2b-15-something-django-website
