@@ -38,15 +38,16 @@ void friendAddScreen(char * UID, char *friendUID, int background_colour)
         p = GetRelease();
         if (p.x >= 80 && p.x <= 80 + 60 && p.y >= 600 && p.y <= 600 + 90)
         {
-            // check if friend exists
-            char ret[MAX_RETURN_CHARS];
-            if (!getUser(friendUID, ret))
-            {
-                break;
-            }
-
             // add friend
-            postFriendship(UID, friendUID);
+            if (postFriendship(UID, friendUID)) 
+            {
+                text_box_filled("Add successful", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
+            }  
+            else 
+            {
+                text_box_filled("Cannot find friend", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
+            }
+            return;
         }
         if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 90)
         {

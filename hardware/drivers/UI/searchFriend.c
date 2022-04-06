@@ -38,18 +38,23 @@ void searchFriendScreen(char *UID, char *friendUID, int background_colour)
         if (p.x >= 80 && p.x <= 80 + 60 && p.y >= 600 && p.y <= 600 + 130)
         {
             // check if friend exists
-            char ret[MAX_RETURN_CHARS];
-            getIsFriends(UID, friendUID, ret);
-            if (atoi(ret))
+            text_box_filled("Searching...", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
+            if (getIsFriends(UID, friendUID))
             {
                 text_box_filled("Success", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
                 break;
             }
             else
             {
-                GraphicsString("Not valid friend name", 350, 120, WHITE, background_colour);
+                text_box_filled("Cannot find friend", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
+                memset(friendUID, '\0', sizeof(friendUID));
                 break;
             }
+        }
+        if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 90)
+        {
+            // return to home screen
+            return;
         }
     }
 }

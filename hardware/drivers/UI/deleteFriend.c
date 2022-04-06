@@ -39,17 +39,21 @@ void deleteFriendScreen(char *UID, char *friendUID, int background_colour)
         {
             // check if friend exists
             char ret[MAX_RETURN_CHARS];
-            getIsFriends(UID, friendUID, ret);
-            if (atoi(ret) && deleteFriendship(UID, friendUID))
+            if (deleteFriendship(UID, friendUID))
             {
                 text_box_filled("Success", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
                 break;
             }
             else
             {
-                GraphicsString("Not valid friend name", 350, 120, WHITE, background_colour);
-                continue;
+                GraphicsString("Not valid friend", 350, 120, WHITE, background_colour);
+                break;
             }
+        }
+        if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 90)
+        {
+            // return to home screen
+            return;
         }
     }
 }

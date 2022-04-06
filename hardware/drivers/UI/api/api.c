@@ -81,7 +81,7 @@ int postChat(char *sender, char *receiver, char *message)
  * @param ret return string buffer
  * @return non-negative integer on success, negative otherwise
  */
-int getIsFriends(char *user, char *friend, char *ret)
+int getIsFriends(char *user, char *friend)
 {
     char args[MAX_ARG_CHARS];
     strcpy(args, "\"");
@@ -89,7 +89,9 @@ int getIsFriends(char *user, char *friend, char *ret)
     strcat(args, "\", \"");
     strcat(args, friend);
     strcat(args, "\"");
-    return get_request("get_is_friends", args, ret);
+    char ret[MAX_ARG_CHARS];
+    get_request("get_is_friends", args, ret);
+    return strlen(ret) > 2;
 }
 
 /**
@@ -123,7 +125,10 @@ int postFriendship(char *user, char *friend)
     strcat(args, "\", \"");
     strcat(args, friend);
     strcat(args, "\"");
-    return api_request("post_friendship", args);
+    // using get here because we are checking if we add successful
+    char ret[MAX_ARG_CHARS];
+    get_request("post_friendship", args, ret); 
+    return strlen(ret) > 2;
 }
 
 /**
@@ -141,7 +146,9 @@ int deleteFriendship(char *user, char *friend)
     strcat(args, "\", \"");
     strcat(args, friend);
     strcat(args, "\"");
-    return api_request("delete_friendship", args);
+    char ret[MAX_ARG_CHARS];
+    get_request("delete_friendship", args, ret);
+    return strlen(ret) > 2;
 }
 
 /**

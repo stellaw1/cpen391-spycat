@@ -83,7 +83,7 @@ void flush_wifi(void)
 	return; // no more characters so return
 }
 
-int lua_command_no_stars(char *str, char *res, int timeout)
+int lua_command(char *str, char *res, int timeout)
 {
 	int i;
 	int bytes_received = 0;
@@ -121,16 +121,71 @@ int lua_command_no_stars(char *str, char *res, int timeout)
 	return bytes_received;
 }
 
-int lua_command_no_stars_short(char *str, char *res)
+int lua_command_check_for_end(char *str, char *res)
 {
-	return lua_command_no_stars(str, res, 20000000);
+	int i;
+
+	int bytes_received = 0;
+	printf("executing %s\n", str);
+
+	char end = '<';
+
+	while (*str) {
+		put_char_wifi(*str);
+		str++;
+
+		for(i=0; i<1000; i++) {
+			if(wifi_test_for_received_data() == 1) {
+				char c = get_char_wifi();
+
+				if (c == end) { // Start counting * characters
+					res[bytes_received] = '\0';
+
+					return bytes_received;
+				}
+				
+				res[bytes_received++] = c;
+			}
+		}
+	}
+
+	for(i=0; i<30000000; i++) { // start the timeout counter
+		if(wifi_test_for_received_data() == 1) {
+			char c = get_char_wifi();
+
+			if (c == end) { // Start counting * characters
+				res[bytes_received] = '\0';
+
+				return bytes_received;
+			}
+
+			res[bytes_received++] = c;
+
+			i = 0; // reset the timeout timer if we received data
+		}
+	}
+	
+	res[bytes_received] = '\0';
+
+	return bytes_received;
+}
+
+int send_post_command_to_lua(char *str, char *res)
+{
+	return lua_command(str, res, 200000);
+}
+
+int send_get_command_to_lua(char *str, char *res)
+{
+	flush_wifi();
+	return lua_command_check_for_end(str, res);
 }
 
 void do_file(void)
 {
 	char *command = "dofile(\"api.lua\")\r\n";
 	char buf[1024] = "";
-	int bytes_received = lua_command_no_stars_short(command, buf);
+	int bytes_received = send_post_command_to_lua(command, buf);
 
 	printf("bytes received: %d\n", bytes_received);
 	printf("%s\n", buf);
@@ -161,6 +216,7 @@ void copy_get_response(char *dst, char *src)
 	// check if there is an actual response
 	if (i + 1 >= len)
 	{
+		dst[0] = '\0';
 		return;
 	}
 
@@ -179,7 +235,7 @@ int get_request(char *function, char *body, char *ret)
 	printf("posting: %s\n", post_string);
 
 	char buf[MAX_RETURN_CHARS] = "";
-	int bytes_received = lua_command_no_stars_short(post_string, buf);
+	int bytes_received = send_get_command_to_lua(post_string, buf);
 
 	printf("bytes received: %d\n", bytes_received);
 	printf("res: %s\n", buf);
@@ -199,7 +255,7 @@ int api_request(char *function, char *body)
 	printf("posting: %s\n", post_string);
 
 	char buf[MAX_RETURN_CHARS] = "";
-	int bytes_received = lua_command_no_stars_short(post_string, buf);
+	int bytes_received = send_post_command_to_lua(post_string, buf);
 
 	printf("bytes received: %d\n", bytes_received);
 

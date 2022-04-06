@@ -9,7 +9,7 @@ function get_user(username)
        if (code < 0) then
          print("GET user request failed")
        else
-         print(data)
+         print(data .. '<')
        end
   end)
 end
@@ -26,7 +26,7 @@ function post_user(username, pet_colour)
        if (code < 0) then
          print("POST user request failed")
        else
-         print(data)
+         print(data .. '<')
        end
   end)
 end
@@ -41,7 +41,7 @@ function get_chat(sender, receiver)
        if (code < 0) then
          print("GET chat request failed")
        else
-         print(data)
+         print(data .. '<')
        end
   end)
 end
@@ -59,7 +59,7 @@ function post_chat(sender, receiver, message)
        if (code < 0) then
          print("POST chat request failed")
        else
-         print(data)
+         print(data .. '<')
        end
   end)
 end
@@ -74,7 +74,7 @@ function get_is_friends(user, friend)
        if (code < 0) then
          print("GET is friends request failed")
        else
-         print(data)
+         print(data .. '<')
        end
   end)
 end
@@ -87,7 +87,7 @@ function get_friends(username)
        if (code < 0) then
          print("GET friends request failed")
        else
-         print(data)
+         print(data .. '<')
        end
   end)
 end
@@ -104,7 +104,7 @@ function post_friendship(user, friend)
        if (code < 0) then
          print("POST friend request failed")
        else
-         print(data)
+         print(data .. '<')
        end
   end)
 end
@@ -117,7 +117,7 @@ function delete_friendship(user, friend)
        if (code < 0) then
          print("DELETE friend request failed")
        else
-         print(data)
+         print(data .. '<')
        end
   end)
 end
@@ -132,7 +132,7 @@ function get_game(sender, receiver)
        if (code < 0) then
          print("GET game request failed")
        else
-         print(data)
+         print(data .. '<')
        end
   end)
 end
@@ -150,7 +150,7 @@ function post_game(sender, receiver, choice)
        if (code < 0) then
          print("POST game request failed")
        else
-         print(data)
+         print(data .. '<')
        end
   end)
 end
@@ -163,7 +163,7 @@ function delete_game(sender, receiver)
        if (code < 0) then
          print("DELETE friend request failed")
        else
-         print(data)
+         print(data .. '<')
        end
   end)
 end
@@ -177,7 +177,7 @@ function get_weather()
        if (code < 0) then
          print("GET weather request failed")
        else
-         print(data)
+         print(data .. '<')
        end
   end)
 end
