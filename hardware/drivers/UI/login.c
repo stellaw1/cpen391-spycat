@@ -34,7 +34,7 @@ int loginScreen(char *UID, char *pet_colour, int background_colour)
         p = GetRelease();
 
         // login button pressed
-        if (p.y >= 125 && p.y <= 125 + 60 && p.x >= 600 && p.x <= 600 + 90)
+        if (p.x >= 125 && p.x <= 125 + 60 && p.y >= 600 && p.y <= 600 + 90)
         {
             text_box_filled("Logging in...", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
             sprintf(pet_colour, "%d", userColour);
@@ -48,13 +48,13 @@ int loginScreen(char *UID, char *pet_colour, int background_colour)
         // select colour
         if (!ScreenTouched())
         {
-            if (p.y >= 150 && p.y <= 150 + 30 && p.x >= 350 && p.x <= 350 + 30)
+            if (p.x >= 150 && p.x <= 150 + 30 && p.y >= 350 && p.y <= 350 + 30)
             {
                 userColour = (userColour - 1 < 0) ? 0 : userColour - 1;
                 // Colour = ColourPalletteData[userColour];
                 box_filled(400, 150, 50, 30, userColour);
             }
-            if (p.y >= 150 && p.y <= 150 + 30 && p.x >= 470 && p.x <= 470 + 30)
+            if (p.x >= 150 && p.x <= 150 + 30 && p.y >= 470 && p.y <= 470 + 30)
             {
                 userColour = (userColour + 1 > 63) ? 63 : userColour + 1;
                 // Colour = ColourPalletteData[userColour];

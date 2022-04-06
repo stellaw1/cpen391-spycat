@@ -32,31 +32,31 @@ int gameScreen(char *UID, char *friendUID, char *userPetColour, int friendPetCol
     while (1)
     {
         p = GetRelease();
-        if (p.y >= 20 && p.y <= 20 + 50 && p.x >= 20 && p.x <= 20 + 90)
+        if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 90)
         {
             // Home button
             deleteGame(UID, friendUID);
         }
-        if (p.y >= 420 && p.y <= 420 + 50 && p.x >= 200 && p.x <= 200 + 120)
+        if (p.x >= 420 && p.x <= 420 + 50 && p.y >= 200 && p.y <= 200 + 120)
         {
             // Rock button
             text_box_filled("Chose ROCK", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
             postGame(UID, friendUID, "ROCK");
         }
-        if (p.y >= 420 && p.y <= 420 + 50 && p.x >= 330 && p.x <= 330 + 120)
+        if (p.x >= 420 && p.x <= 420 + 50 && p.y >= 330 && p.y <= 330 + 120)
         {
             // Paper button
             text_box_filled("Chose PAPER", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
             postGame(UID, friendUID, "PAPER");
         }
-        if (p.y >= 420 && p.y <= 420 + 50 && p.x >= 460 && p.x <= 460 + 120)
+        if (p.x >= 420 && p.x <= 420 + 50 && p.y >= 460 && p.y <= 460 + 120)
         {
             // Scissors button
             text_box_filled("Chose SCISSORS", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
             postGame(UID, friendUID, "SCISSORS");
         }
 
-        if (p.y >= 420 && p.y <= 420 + 50 && p.x >= 610 && p.x <= 610 + 50)
+        if (p.x >= 420 && p.x <= 420 + 50 && p.y >= 610 && p.y <= 610 + 50)
         {
             // Refresh button
             char ret[MAX_RETURN_CHARS];

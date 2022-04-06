@@ -68,15 +68,15 @@ Point GetPress(void)
 	while((ReceiverFifo() & 0x81) != 0x81) //wait for pen down command
 		;
 	
-	p.y = ReceiverFifo();  
-	p.y |= (ReceiverFifo() << 7);
 	p.x = ReceiverFifo();  
-	p.x |= (ReceiverFifo() << 7); 
+	p.x |= (ReceiverFifo() << 7);
+	p.y = ReceiverFifo();  
+	p.y |= (ReceiverFifo() << 7); 
 
-    p.y *= SCREEN_Y_MAX/3500 - 55;
-    p.x *= SCREEN_X_MAX/3800 - 25;
-    p.y = (p.y < 0) ? 0 : p.y;
-    p.x = (p.x < 0) ? 0 : p.x;
+    p.x = p.x * SCREEN_X_MAX/3500 - 55;
+    p.y = p.y * SCREEN_Y_MAX/3800 - 25;
+    p.x = p.x<0?0:p.x;
+    p.y = p.y<0?0:p.y;
 	return p;
 }
 
@@ -92,15 +92,14 @@ Point GetRelease(void)
 	while((ReceiverFifo() & 0x81) != 0x80) //wait for pen down command
 		;
 
-	p.y = ReceiverFifo();  
-	p.y |= (ReceiverFifo() << 7);
 	p.x = ReceiverFifo();  
-	p.x |= (ReceiverFifo() << 7); 
-
-    p.y *= SCREEN_Y_MAX/3500 - 55;
-    p.x *= SCREEN_X_MAX/3800 - 25;
-    p.y = (p.y < 0) ? 0 : p.y;
-    p.x = (p.x < 0) ? 0 : p.x;
+	p.x |= (ReceiverFifo() << 7);
+	p.y = ReceiverFifo();  
+	p.y |= (ReceiverFifo() << 7); 
+    p.x = p.x * SCREEN_X_MAX/3500 - 55;
+    p.y = p.y * SCREEN_Y_MAX/3800 - 25;
+    p.x = p.x<0?0:p.x;
+    p.y = p.y<0?0:p.y;
 	return p;
 }
  

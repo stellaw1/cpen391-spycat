@@ -325,7 +325,7 @@ void keyboard (void) {
 	text_box_filled(")", 0+4+300+3+i*8, 239+8+6+40+6+40+6+40+6+40, 0+4+17+300+3+i*8, 239+8+6+40+6+40+6+40+6+40+16, 50, 40, fontColour, keyColour);
 }
 int keyboard_helper (int x, int y, Point p) {
-	if(p.x >= x && p.x <= x + 50 && p.y >= y && p.y <= y + 40){
+	if(p.y >= x && p.y <= x + 50 && p.x >= y && p.x <= y + 40){
 		return 1;
 	} else return 0;
 }
@@ -345,6 +345,8 @@ int keyboard_helper (int x, int y, Point p) {
  |      29      |                       |  |
 */
 char keyboard_response (Point p) {
+	int x = p.y;
+	int y = p.x;
 	//TODO add region detection
 	int key_width = 50;
 	int key_height = 40;
@@ -658,7 +660,7 @@ void TSKeyboard (char* out, int size) {
     while (1) {
 		text_box_filled(out, 0, 239-20, 0+4, 239-20+3, 800, 20, fontColour, keyColour);
         p = GetRelease();
-        if(p.y < 239){
+        if(p.x < 239){
 			break;
 		}
         if(!ScreenTouched())
