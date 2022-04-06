@@ -53,17 +53,17 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
         {
             p = GetRelease();
             // Logout button
-            if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 130)
+            if (p.y >= 20 && p.y <= 20 + 50 && p.x >= 20 && p.x <= 20 + 130)
             {
                 return 0;
             }
             // Add friend button
-            if (p.x >= 400 && p.x <= 400 + 30 && p.y >= 295 && p.y <= 295 + 100)
+            if (p.y >= 400 && p.y <= 400 + 30 && p.x >= 295 && p.x <= 295 + 100)
             {
                 return 1;
             }
             // Chat button
-            if (p.x >= 400 && p.x <= 400 + 30 && p.y >= 400 && p.y <= 400 + 100)
+            if (p.y >= 400 && p.y <= 400 + 30 && p.x >= 400 && p.x <= 400 + 100)
             {
                 if (!isFriendSelected)
                 {
@@ -76,7 +76,7 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
                 }
             }
             // Play game button
-            if (p.x >= 400 && p.x <= 400 + 30 && p.y >= 505 && p.y <= 505 + 130)
+            if (p.y >= 400 && p.y <= 400 + 30 && p.x >= 505 && p.x <= 505 + 130)
             {
                 if (!isFriendSelected)
                 {
@@ -89,7 +89,7 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
                 }
             }
             // Delete friend ship
-            if (p.x >= 400 && p.x <= 400 + 30 && p.y >= 640 && p.y <= 640 + 100)
+            if (p.y >= 400 && p.y <= 400 + 30 && p.x >= 640 && p.x <= 640 + 100)
             {
                 if (!isFriendSelected)
                 {
@@ -102,7 +102,7 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
                 }
             }
             // Search Friend
-            if (p.x >= 350 && p.x <= 350 + 30 && p.y >= 400 && p.y <= 400 + 330)
+            if (p.y >= 350 && p.y <= 350 + 30 && p.x >= 400 && p.x <= 400 + 330)
             {
                 searchFriendScreen(UID, selectedFriendUID, background_colour);
 

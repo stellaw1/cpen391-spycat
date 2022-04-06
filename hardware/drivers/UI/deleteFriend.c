@@ -35,7 +35,7 @@ void deleteFriendScreen(char *UID, char *friendUID, int background_colour)
     while (1)
     {
         p = GetRelease();
-        if (p.x >= 80 && p.x <= 80 + 60 && p.y >= 600 && p.y <= 600 + 130)
+        if (p.y >= 80 && p.y <= 80 + 60 && p.x >= 600 && p.x <= 600 + 130)
         {
             // check if friend exists
             char ret[MAX_RETURN_CHARS];
