@@ -41,6 +41,7 @@ void chatScreen(char *UID, char *friendUID, int background_colour)
             break;
         }
     }
+    sentMsg[j] = '\0';
 
     Point p;
     while (1)
