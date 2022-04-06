@@ -18,10 +18,8 @@ void chatScreen(char *UID, char *friendUID, int background_colour)
     box_filled(0, 0, 800, 480, background_colour);
     /* Draw Home button */
     text_box_filled("< Home", 20, 20, 30, 35, 120, 50, WHITE, GRAY);
-    // refresh button
-    drawPNGonScreen("refresh.png", 20, 50, WHITE, 30, 24);
     // send button
-    text_box_filled("Send", 20, 120, 30, 35, 120, 50, WHITE, GRAY);
+    text_box_filled("Send", 20, 120, 30, 135, 120, 50, WHITE, GRAY);
     /* Chat Box */
     drawPNGonScreen("chat.png", 200, 20, GRAY, 600, 200);
     /* textbox friend*/
@@ -52,14 +50,14 @@ void chatScreen(char *UID, char *friendUID, int background_colour)
         }
 
         // refresh button
-        if (p.x >= 20 && p.x <= 20 + 30 && p.y >= 50 && p.y <= 50 + 24) {
+        if (p.x >= 20 && p.x <= 20 + 30 && p.y >= 750 && p.y <= 750 + 24) {
             drawPNGonScreen("chat.png", 200, 20, GRAY, 600, 200);
             getChat(UID, friendUID, rcvMsg);
             text_box_filled(rcvMsg, 200 + 85, 20 + 25, 200 + 85, 20 + 25, 420, 30, WHITE, GRAY);
         }
 
         // send button
-        if () {
+        if (p.x >= 120 && p.x >= 20 && p.y<= 120 + 50 && p.y<= 20 + 120) {
             postChat(UID, friendUID, sentMsg);
             drawPNGonScreen("chat.png", 200, 20, GRAY, 600, 200);
             text_box_filled(rcvMsg, 200 + 85, 20 + 25, 200 + 85, 20 + 25, 420, 30, WHITE, GRAY);
