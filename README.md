@@ -16,3 +16,8 @@ Code: https://github.com/stellaw1/l2b-15-something-django-website
 ```
 gcc ./gui_logic.c -lm -lpython3.5m -o project
 ```
+### Software Dependencies on DE1
+ - Python 2.7
+ - Python 3.5
+ - django 4.0.2
+ - pymongo
