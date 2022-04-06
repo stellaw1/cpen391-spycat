@@ -15,7 +15,9 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
 {
     // Set Background png according to weather
     char tempinCelsius[20];
+    char weatherString[20];
     getWeather(tempinCelsius);
+    display_weather(weatherString, tempinCelsius);
 
     // Background set the colour LIGHT_SALMON.
     int isFriendSelected = 0;
@@ -30,7 +32,13 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
         text_box_filled("< Logout", 20, 20, 30, 35, 135, 50, WHITE, GRAY);
 
         /* Show weather on screen */
-        GraphicsString("Temperature:", 430, 200, WHITE, background_colour);
+        if (!strcmp(weatherString, "Clear")) {
+            drawPNGonScreen("clear.png", 430, 80, YELLOW, 120, 120);
+        } else if (!strcmp(weatherString, "Rain")) {
+            drawPNGonScreen("rain.png", 430, 80, GRAY, 120, 120);
+        } else {
+            drawPNGonScreen("cloud.png", 430, 80, WHITE, 120, 120);
+        }
         GraphicsString(tempinCelsius, 430, 220, WHITE, background_colour);
 
         /* Draw selection button chat playdate delete*/
@@ -112,4 +120,25 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
             }
         }
     }
+}
+
+
+void display_weather(char *dst, char *src)
+{
+	int i;
+	int len = strlen(src);
+    char temp[20];
+
+	// ignore the temp part (after comma)
+	for (i = 0; i < len; i++)
+	{
+		if (src[i+1] == ',')
+		{
+			break;
+		}
+        temp[i] = src[i+1];
+    }
+    temp[i] = '\0';
+
+    strcpy(dst, temp);
 }
