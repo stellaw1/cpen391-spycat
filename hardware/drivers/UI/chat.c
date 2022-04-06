@@ -11,12 +11,12 @@
 void chatScreen(char *UID, char *friendUID, int background_colour)
 {
     char rcvMsg[MAX_TEXT_CHARS];
+    memset(rcvMsg, '\0', sizeof(rcvMsg));
     getChat(UID, friendUID, rcvMsg);
     char sentMsg[MAX_TEXT_CHARS];
     char out[MAX_TEXT_CHARS];
-    rcvMsg[0] = '\0';
-    sentMsg[0] = '\0';
-    out[0] = '\0';
+    memset(sentMsg, '\0', sizeof(sentMsg));
+    memset(out, '\0', sizeof(out));
     // Background set the colour LIGHT_SALMON.
     box_filled(0, 0, 800, 480, background_colour);
     /* Draw Home button */
