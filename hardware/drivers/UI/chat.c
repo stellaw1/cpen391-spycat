@@ -62,7 +62,7 @@ void chatScreen(char *UID, char *friendUID, int background_colour)
         }
 
         // send button
-        if (p.x >= 120 && p.x >= 20 && p.y <= 120 + 50 && p.y <= 20 + 120)
+        if (p.x >= 120 && p.x <= 120 + 50 && p.y >= 20 && p.y <= 20 + 120)
         {
             postChat(UID, friendUID, sentMsg);
             drawPNGonScreen("chat.png", 200, 20, GRAY, 600, 200);
