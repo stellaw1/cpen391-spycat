@@ -39,7 +39,6 @@ void gui_init()
     {
         char friendUID[10];
         memset(friendUID, '\0', sizeof(friendUID));
-        char newFriendUID[10];
         char colourString[10];
         int nextScreenCode;
 
@@ -56,6 +55,7 @@ void gui_init()
         else if (nextScreenCode == 1)
         {
             // Add friends screen
+            memset(friendUID, '\0', sizeof(friendUID));
             friendAddScreen(USER->username, friendUID, background_colour);
         }
         else if (nextScreenCode == 2)
@@ -70,6 +70,7 @@ void gui_init()
         }
         else if (nextScreenCode == 4)
         {
+            memset(friendUID, '\0', sizeof(friendUID));
             deleteFriendScreen(USER->username, friendUID, background_colour);
         }
     }

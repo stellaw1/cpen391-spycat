@@ -12,7 +12,7 @@ void chatScreen(char *UID, char *friendUID, int background_colour)
 {
     char rcvMsg[MAX_TEXT_CHARS];
     memset(rcvMsg, '\0', sizeof(rcvMsg));
-    getChat(UID, friendUID, rcvMsg);
+    getChat(friendUID, UID, rcvMsg);
     char sentMsg[MAX_TEXT_CHARS];
     char out[MAX_TEXT_CHARS];
     memset(sentMsg, '\0', sizeof(sentMsg));

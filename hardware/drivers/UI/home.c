@@ -104,6 +104,7 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
             // Search Friend
             if (p.x >= 350 && p.x <= 350 + 30 && p.y >= 400 && p.y <= 400 + 330)
             {
+                memset(selectedFriendUID, '\0', sizeof(selectedFriendUID));
                 searchFriendScreen(UID, selectedFriendUID, background_colour);
 
                 isFriendSelected = 1;
