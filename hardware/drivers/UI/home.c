@@ -77,8 +77,10 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
             }
             // pets cat, play music
             if (p.x >= 100 && p.x <= 100 + 300 && p.y >= 50 && p.y <= 50 + 300) {
+                box_filled(50, 100, 300, 300, background_colour);
                 drawPNGonScreen("data_sing.png", 50, 100, atoi(userPetColour), 300, 300);
                 play();
+                box_filled(50, 100, 300, 300, background_colour);
                 drawPNGonScreen("data.png", 50, 100, atoi(userPetColour), 300, 300);
             }
             // Add friend button
