@@ -8,7 +8,7 @@
  * @pram:      string: UID, UID is set to less than 10 characters
  * @ret:       void
  */
-int gameScreen(char *UID, char *friendUID, char *userPetColour, int friendPetColour, int background_colour)
+void gameScreen(char *UID, char *friendUID, char *userPetColour, int friendPetColour, int background_colour)
 {
     // Background set the colour LIGHT_SALMON.
     box_filled(0, 0, 800, 480, background_colour);
