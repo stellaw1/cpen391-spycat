@@ -67,10 +67,8 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
         clock_t before = clock();
         while (1)
         {
-            // p = GetRelease();
-            p = GetReleaseTimer(before);
-            clock_t difference = (clock() - before) / CLOCKS_PER_SEC;
-            printf("getrelease");
+            p = GetRelease();
+            // p = GetReleaseTimer(before);
             if (p.x == NULL_RETURN_X)
             {
                 return 5; // go to sleep screen
