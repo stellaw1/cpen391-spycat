@@ -28,10 +28,6 @@ void gui_init()
     memset(USER->username, '\0', sizeof(USER->username));
     memset(USER->pet_colour, '\0', sizeof(USER->pet_colour));
 
-    FILE *fp;
-    Py_Initialize();
-    fp = _Py_fopen("../../../software/motion-detection/python3_call.py", "r");
-
     // Get background colour from backend
     int background_colour = BLUE_VIOLET;
     clear_screen();
@@ -82,6 +78,10 @@ void gui_init()
         }
         else if (nextScreenCode == 5)
         {
+
+            FILE *fp;
+            Py_Initialize();
+            fp = _Py_fopen("../../../software/motion-detection/python3_call.py", "r");
             sleepScreen();
             PyRun_SimpleFile(fp, "../../../software/motion-detection/python3_call.py");
         }

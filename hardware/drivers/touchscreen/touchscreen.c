@@ -115,7 +115,7 @@ Point GetReleaseTimer(void)
     {
         // check timer
         clock_t difference = (clock() - before) / CLOCKS_PER_SEC;
-        if (difference > SLEEP_TIMEOUT) // 5 second timeout
+        if (difference > SLEEP_TIMEOUT)
         {
             p.x = NULL_RETURN_X;
             p.y = NULL_RETURN_Y;
