@@ -67,12 +67,12 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
         clock_t before = clock();
         while (1)
         {
-            // p = GetRelease();
-            p = GetReleaseTimer(before);
-            if (p.x == NULL_RETURN_X)
-            {
-                return 5; // go to sleep screen
-            }
+            p = GetRelease();
+            // p = GetReleaseTimer(before);
+            // if (p.x == NULL_RETURN_X)
+            // {
+            //     return 5; // go to sleep screen
+            // }
             // Logout button
             if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 130)
             {
