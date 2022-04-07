@@ -13,21 +13,12 @@ void searchFriendScreen(char *UID, char *friendUID, int background_colour)
     friendUID[MAX_INPUT_CHARS] = '\0';
     // Background set the colour LIGHT_SALMON.
     char out[MAX_INPUT_CHARS];
+    memset(out, '\0', sizeof(out));
     box_filled(0, 0, 800, 480, background_colour);
     GraphicsString("Friend Name:", 150, 100, WHITE, background_colour);
     text_box_filled("", 350, 93, 360, 101, 200, 30, WHITE, GRAY);
     TSKeyboard(out, 10);
-    int j = 0;
-    while (j < 10)
-    {
-        friendUID[j] = out[j];
-        j++;
-        if (out[j] == '\0')
-        {
-            break;
-        }
-    }
-    friendUID[j] = '\0';
+    strcpy(friendUID, out);
     text_box_filled(out, 350, 93, 360, 101, 200, 30, WHITE, GRAY);
     text_box_filled("Search", 600, 80, 630, 103, 130, 60, WHITE, GRAY);
     // Home button
