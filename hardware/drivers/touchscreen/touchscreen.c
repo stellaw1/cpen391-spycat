@@ -115,7 +115,6 @@ Point GetReleaseTimer(void)
     {
         // check timer
         clock_t difference = (clock() - before) / CLOCKS_PER_SEC;
-        printf("difference %d \n", difference);
         if (difference > SLEEP_TIMEOUT)
         {
             p.x = NULL_RETURN_X;

@@ -1,5 +1,6 @@
 #include "UI.h"
 #include "searchFriend.c"
+#include <time.h>
 
 /*
  * Desciption: The main menu session screen.
@@ -63,12 +64,14 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
             GraphicsString(selectedFriendUID, 430, 300, WHITE, background_colour);
         }
         Point p;
+        clock_t before = clock();
         while (1)
         {
-            // p = GetRelease();
-            p = GetReleaseTimer();
-            printf("p return: %d\n", p.x);
-            if (p.x == NULL_RETURN_X)
+            p = GetRelease();
+            // p = GetReleaseTimer();
+            clock_t difference = (clock() - before) / CLOCKS_PER_SEC;
+            printf("difference %d \n", difference);
+            if (difference > SLEEP_TIMEOUT)
             {
                 return 5; // go to sleep screen
             }
