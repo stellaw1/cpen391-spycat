@@ -46,7 +46,7 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
         }
         GraphicsString(tempinCelsius, 430, 220, WHITE, background_colour);
 
-        text_box_filled(UID, 200, 400, 420, 405, 100, 30, WHITE, GRAY);
+        text_box_filled(UID, 150, 400, 220, 405, 100, 30, WHITE, GRAY);
         /* Draw selection button chat playdate delete*/
         text_box_filled("Chat", 400, 400, 420, 405, 100, 30, WHITE, GRAY);
         text_box_filled("Playdate", 505, 400, 515, 405, 130, 30, WHITE, GRAY);
@@ -72,11 +72,13 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
                 return 5; // go to sleep screen
             }
             // Logout button
-            if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 130) {
+            if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 130)
+            {
                 return 0;
             }
             // pets cat, play music
-            if (p.x >= 100 && p.x <= 100 + 300 && p.y >= 50 && p.y <= 50 + 300) {
+            if (p.x >= 100 && p.x <= 100 + 300 && p.y >= 50 && p.y <= 50 + 300)
+            {
                 drawPNGonScreen("data_sing.png", 50, 100, atoi(userPetColour), 300, 300);
                 play();
                 drawPNGonScreen("data.png", 50, 100, atoi(userPetColour), 300, 300);
