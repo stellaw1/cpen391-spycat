@@ -54,4 +54,4 @@ Point GetRelease(void);
 **  This function waits for a touch screen release event and returns X,Y coord
 **  while keeping a timer
 ****************************************************************************/
-Point GetReleaseTimer(void);
+Point GetReleaseTimer(clock_t);

@@ -105,12 +105,11 @@ Point GetRelease(void)
     return p;
 }
 
-Point GetReleaseTimer(void)
+Point GetReleaseTimer(clock_t before)
 {
     // wait for a pen up command then return the X,Y coord of the point
     // calibrated correctly so that it maps to a pixel on screen
     Point p;
-    clock_t before = clock();
     while (!ScreenTouched())
     {
         // check timer
