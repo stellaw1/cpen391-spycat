@@ -46,7 +46,7 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
         }
         GraphicsString(tempinCelsius, 430, 220, WHITE, background_colour);
 
-        text_box_filled(UID, 150, 400, 220, 405, 100, 30, WHITE, GRAY);
+        GraphicsString(UID, 120, 400, WHITE, background_colour);
         /* Draw selection button chat playdate delete*/
         text_box_filled("Chat", 400, 400, 420, 405, 100, 30, WHITE, GRAY);
         text_box_filled("Playdate", 505, 400, 515, 405, 130, 30, WHITE, GRAY);
