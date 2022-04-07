@@ -67,7 +67,8 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
         {
             // p = GetRelease();
             p = GetReleaseTimer();
-            if (p == NULL)
+            printf("p return: %d", p.x);
+            if (p.x == NULL_RETURN_X)
             {
                 return 5; // go to sleep screen
             }

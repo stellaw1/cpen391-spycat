@@ -117,9 +117,9 @@ Point GetReleaseTimer(void)
         clock_t difference = (clock() - before) / CLOCKS_PER_SEC;
         if (difference > SLEEP_TIMEOUT)
         {
-            // p.x = NULL_RETURN_X;
-            // p.y = NULL_RETURN_Y;
-            return NULL;
+            p.x = NULL_RETURN_X;
+            p.y = NULL_RETURN_Y;
+            return p;
         }
     }
     while ((ReceiverFifo() & 0x81) != 0x80) // wait for pen down command
