@@ -2,6 +2,9 @@
 #define SCREEN_X_MAX 479
 #define SCREEN_Y_MAX 799
 
+#define NULL_RETURN_X -100
+#define NULL_RETURN_Y -200
+
 /*
  * TouchScreen_RXD is connected to GPIO_0[11]
  * TouchScreen_RXD is connected to GPIO_0[10]

@@ -67,9 +67,8 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
         {
             // p = GetRelease();
             p = GetReleaseTimer();
-            if (p == NULL)
+            if (p.x == NULL_RETURN_X && p.y == NULL_RETURN_Y)
             {
-                sleepScreen();
                 return 5; // go to sleep screen
             }
             // Logout button
