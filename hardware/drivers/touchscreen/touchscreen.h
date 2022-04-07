@@ -5,7 +5,7 @@
 #define NULL_RETURN_X -100
 #define NULL_RETURN_Y -200
 
-#define SLEEP_TIMEOUT 10
+#define SLEEP_TIMEOUT 4
 
 /*
  * TouchScreen_RXD is connected to GPIO_0[11]
