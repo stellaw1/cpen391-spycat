@@ -130,30 +130,37 @@ int lua_command_check_for_end(char *str, char *res)
 
 	char end = '<';
 
-	while (*str) {
+	while (*str)
+	{
 		put_char_wifi(*str);
 		str++;
 
-		for(i=0; i<1000; i++) {
-			if(wifi_test_for_received_data() == 1) {
+		for (i = 0; i < 1000; i++)
+		{
+			if (wifi_test_for_received_data() == 1)
+			{
 				char c = get_char_wifi();
 
-				if (c == end) { // Start counting * characters
+				if (c == end)
+				{ // Start counting * characters
 					res[bytes_received] = '\0';
 
 					return bytes_received;
 				}
-				
+
 				res[bytes_received++] = c;
 			}
 		}
 	}
 
-	for(i=0; i<30000000; i++) { // start the timeout counter
-		if(wifi_test_for_received_data() == 1) {
+	for (i = 0; i < 30000000; i++)
+	{ // start the timeout counter
+		if (wifi_test_for_received_data() == 1)
+		{
 			char c = get_char_wifi();
 
-			if (c == end) { // Start counting * characters
+			if (c == end)
+			{ // Start counting * characters
 				res[bytes_received] = '\0';
 
 				return bytes_received;
@@ -164,7 +171,7 @@ int lua_command_check_for_end(char *str, char *res)
 			i = 0; // reset the timeout timer if we received data
 		}
 	}
-	
+
 	res[bytes_received] = '\0';
 
 	return bytes_received;
@@ -172,7 +179,7 @@ int lua_command_check_for_end(char *str, char *res)
 
 int send_post_command_to_lua(char *str, char *res)
 {
-	return lua_command(str, res, 200000);
+	return lua_command_check_for_end(str, res);
 }
 
 int send_get_command_to_lua(char *str, char *res)
