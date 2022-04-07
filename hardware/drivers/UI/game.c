@@ -36,6 +36,7 @@ int gameScreen(char *UID, char *friendUID, char *userPetColour, int friendPetCol
         {
             // Home button
             deleteGame(UID, friendUID);
+            return;
         }
         if (p.x >= 420 && p.x <= 420 + 50 && p.y >= 200 && p.y <= 200 + 120)
         {
