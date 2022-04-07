@@ -61,9 +61,14 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
         {
             p = GetRelease();
             // Logout button
-            if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 130)
-            {
+            if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 130) {
                 return 0;
+            }
+            // pets cat, play music
+            if (p.x >= 100 && p.x <= 100 + 300 && p.y >= 50 && p.y <= 50 + 300) {
+                drawPNGonScreen("data_sing.png", 50, 100, atoi(userPetColour), 300, 300);
+                play();
+                drawPNGonScreen("data.png", 50, 100, atoi(userPetColour), 300, 300);
             }
             // Add friend button
             if (p.x >= 400 && p.x <= 400 + 30 && p.y >= 295 && p.y <= 295 + 100)
