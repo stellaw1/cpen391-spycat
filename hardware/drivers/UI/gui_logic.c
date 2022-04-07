@@ -45,7 +45,8 @@ void gui_init()
         nextScreenCode = homeScreen(USER->username, USER->pet_colour, friendUID, background_colour);
         text_box_filled("Loading...", 267, 160, 300, 240, 267, 160, WHITE, GRAY);
         // strcpy(friendUID, "friend"); // For test only
-        if (strlen(friendUID) > 0) {
+        if (strlen(friendUID) > 0)
+        {
             getUser(friendUID, colourString);
         }
         int Friend_Colour = atoi(colourString);
@@ -74,6 +75,10 @@ void gui_init()
         {
             memset(friendUID, '\0', sizeof(friendUID));
             deleteFriendScreen(USER->username, friendUID, background_colour);
+        }
+        else if (nextScreenCode == 5)
+        {
+            sleepScreen();
         }
     }
 }

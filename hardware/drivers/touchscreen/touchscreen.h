@@ -11,17 +11,17 @@
 **  Initialize touch screen controller
 ****************************************************************************/
 int Init_Touch(void);
-    // Program 6850 and baud rate generator to communcate with touchscreen
+// Program 6850 and baud rate generator to communcate with touchscreen
 
-    // send touchscreen controller an "enable touch" command
+// send touchscreen controller an "enable touch" command
 
 /****************************************************************************
 **  test if screen touched
 ****************************************************************************/
 int ScreenTouched(void);
-    // return TRUE if any data received from 6850 connected to touchscreen
-    
-    // or FALSE otherwise
+// return TRUE if any data received from 6850 connected to touchscreen
+
+// or FALSE otherwise
 
 /****************************************************************************
 **  wait for screen to be touched
@@ -30,7 +30,10 @@ void WaitForTouch();
 
 /* a data type to hold a point/coord */
 
-typedef struct { int x, y; } Point;
+typedef struct
+{
+    int x, y;
+} Point;
 
 /****************************************************************************
 **  This function waits for a touch screen press event and returns X,Y coord
@@ -42,4 +45,8 @@ Point GetPress(void);
 ****************************************************************************/
 Point GetRelease(void);
 
-
+/****************************************************************************
+**  This function waits for a touch screen release event and returns X,Y coord
+**  while keeping a timer
+****************************************************************************/
+Point GetReleaseTimer(void);

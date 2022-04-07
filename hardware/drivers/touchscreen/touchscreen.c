@@ -2,11 +2,12 @@
 #include "touchscreen.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 static int ReceiverFifo(void)
 {
     while (!(*TOUCHSCREEN_VADDR_LineStatusReg & 0x1))
-    ;
+        ;
     return *TOUCHSCREEN_VADDR_ReceiverFifo;
 }
 
@@ -23,23 +24,23 @@ int Init_Touch(void)
     *TOUCHSCREEN_VADDR_LineControlReg = 0x3;
     *TOUCHSCREEN_VADDR_FifoControlReg = 0x6;
     *TOUCHSCREEN_VADDR_FifoControlReg = 0;
-	while(!(*TOUCHSCREEN_VADDR_LineStatusReg & 0x20))
-    ;
+    while (!(*TOUCHSCREEN_VADDR_LineStatusReg & 0x20))
+        ;
     *TOUCHSCREEN_VADDR_TransmitterFifo = 0x55;
-    while(!(*TOUCHSCREEN_VADDR_LineStatusReg & 0x20))
-    ;
+    while (!(*TOUCHSCREEN_VADDR_LineStatusReg & 0x20))
+        ;
     *TOUCHSCREEN_VADDR_TransmitterFifo = 0x1;
-    while(!(*TOUCHSCREEN_VADDR_LineStatusReg & 0x20))
-    ;
+    while (!(*TOUCHSCREEN_VADDR_LineStatusReg & 0x20))
+        ;
     *TOUCHSCREEN_VADDR_TransmitterFifo = 0x12;
 
     return 1;
 }
-    
+
 /****************************************************************************
 **  test if screen touched
 ****************************************************************************/
-int ScreenTouched(void) 
+int ScreenTouched(void)
 {
     // return TRUE if any data received from 6850 connected to touchscreen
     // or FALSE otherwise
@@ -49,9 +50,10 @@ int ScreenTouched(void)
 /****************************************************************************
 **  wait for screen to be touched
 ****************************************************************************/
-void WaitForTouch() {
-    while(!ScreenTouched())
-    ;
+void WaitForTouch()
+{
+    while (!ScreenTouched())
+        ;
 }
 
 /* a data type to hold a point/coord */
@@ -63,21 +65,21 @@ Point GetPress(void)
 {
     // wait for a pen down command then return the X,Y coord of the point
     // calibrated correctly so that it maps to a pixel on screen
-	Point p;
-	WaitForTouch();
-	while((ReceiverFifo() & 0x81) != 0x81) //wait for pen down command
-		;
-	
-	p.x = ReceiverFifo();  
-	p.x |= (ReceiverFifo() << 7);
-	p.y = ReceiverFifo();  
-	p.y |= (ReceiverFifo() << 7); 
+    Point p;
+    WaitForTouch();
+    while ((ReceiverFifo() & 0x81) != 0x81) // wait for pen down command
+        ;
 
-    p.x = p.x * SCREEN_X_MAX/3500 - 55;
-    p.y = p.y * SCREEN_Y_MAX/3800 - 25;
-    p.x = p.x<0?0:p.x;
-    p.y = p.y<0?0:p.y;
-	return p;
+    p.x = ReceiverFifo();
+    p.x |= (ReceiverFifo() << 7);
+    p.y = ReceiverFifo();
+    p.y |= (ReceiverFifo() << 7);
+
+    p.x = p.x * SCREEN_X_MAX / 3500 - 55;
+    p.y = p.y * SCREEN_Y_MAX / 3800 - 25;
+    p.x = p.x < 0 ? 0 : p.x;
+    p.y = p.y < 0 ? 0 : p.y;
+    return p;
 }
 
 /****************************************************************************
@@ -87,20 +89,47 @@ Point GetRelease(void)
 {
     // wait for a pen up command then return the X,Y coord of the point
     // calibrated correctly so that it maps to a pixel on screen
-	Point p;
-	WaitForTouch();
-	while((ReceiverFifo() & 0x81) != 0x80) //wait for pen down command
-		;
+    Point p;
+    WaitForTouch();
+    while ((ReceiverFifo() & 0x81) != 0x80) // wait for pen down command
+        ;
 
-	p.x = ReceiverFifo();  
-	p.x |= (ReceiverFifo() << 7);
-	p.y = ReceiverFifo();  
-	p.y |= (ReceiverFifo() << 7); 
-    p.x = p.x * SCREEN_X_MAX/3500 - 55;
-    p.y = p.y * SCREEN_Y_MAX/3800 - 25;
-    p.x = p.x<0?0:p.x;
-    p.y = p.y<0?0:p.y;
-	return p;
+    p.x = ReceiverFifo();
+    p.x |= (ReceiverFifo() << 7);
+    p.y = ReceiverFifo();
+    p.y |= (ReceiverFifo() << 7);
+    p.x = p.x * SCREEN_X_MAX / 3500 - 55;
+    p.y = p.y * SCREEN_Y_MAX / 3800 - 25;
+    p.x = p.x < 0 ? 0 : p.x;
+    p.y = p.y < 0 ? 0 : p.y;
+    return p;
 }
- 
 
+Point GetReleaseTimer(void)
+{
+    // wait for a pen up command then return the X,Y coord of the point
+    // calibrated correctly so that it maps to a pixel on screen
+    Point p;
+    clock_t before = clock();
+    while (!ScreenTouched())
+    {
+        // check timer
+        clock_t difference = (clock() - before) / CLOCKS_PER_SEC;
+        if (difference > 5)
+        {
+            return NULL;
+        }
+    }
+    while ((ReceiverFifo() & 0x81) != 0x80) // wait for pen down command
+        ;
+
+    p.x = ReceiverFifo();
+    p.x |= (ReceiverFifo() << 7);
+    p.y = ReceiverFifo();
+    p.y |= (ReceiverFifo() << 7);
+    p.x = p.x * SCREEN_X_MAX / 3500 - 55;
+    p.y = p.y * SCREEN_Y_MAX / 3800 - 25;
+    p.x = p.x < 0 ? 0 : p.x;
+    p.y = p.y < 0 ? 0 : p.y;
+    return p;
+}
