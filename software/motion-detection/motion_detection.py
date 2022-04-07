@@ -1,3 +1,5 @@
+# Acknoledgement: Referenced from https://pyimagesearch.com/2015/05/25/basic-motion-detection-and-tracking-with-python-and-opencv/ 
+
 import cv2
 import time
 import datetime
