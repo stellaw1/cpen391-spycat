@@ -1,3 +1,8 @@
+/**
+ * @file png.c
+ * @author Yisheng Liu
+ * @brief helper functions for rendering png on VGA screen
+ */
 #include "lodepng/lodepng.c"
 struct rgba
 {
