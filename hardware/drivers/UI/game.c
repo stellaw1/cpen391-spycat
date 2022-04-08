@@ -1,12 +1,12 @@
 #include "UI.h"
 #include <stdio.h>
 
-/*
+/**
  * Desciption: The game session screen.
  *             Gamers can select paper, scissors and stons to play
  *             with their partners.
+ * 
  * @pram:      string: UID, UID is set to less than 10 characters
- * @ret:       void
  */
 void gameScreen(char *UID, char *friendUID, char *userPetColour, int friendPetColour, int background_colour)
 {
@@ -14,9 +14,9 @@ void gameScreen(char *UID, char *friendUID, char *userPetColour, int friendPetCo
     box_filled(0, 0, 800, 480, background_colour);
     /* Draw Pets*/
     // Your pet
-    drawPNGonScreen("data.png", 50, 100, atoi(userPetColour), 300, 300);
+    drawPNGonScreen("/img/cat.png", 50, 100, atoi(userPetColour), 300, 300);
     // Your friend's pet
-    drawPNGonScreen("data.png", 450, 100, friendPetColour, 300, 300);
+    drawPNGonScreen("/img/cat.png", 450, 100, friendPetColour, 300, 300);
     /* Draw return button */
     text_box_filled("< Home", 20, 20, 30, 35, 120, 50, WHITE, GRAY);
     /* Draw game choices buttons */
@@ -27,7 +27,7 @@ void gameScreen(char *UID, char *friendUID, char *userPetColour, int friendPetCo
     GraphicsString(UID, 130, 390, WHITE, background_colour);
     GraphicsString(friendUID, 530, 390, WHITE, background_colour);
     box_filled(610, 420, 50, 50, GRAY);
-    drawPNGonScreen("refresh.png", 620, 430, WHITE, 30, 24);
+    drawPNGonScreen("/img/refresh.png", 620, 430, WHITE, 30, 24);
     Point p;
     while (1)
     {

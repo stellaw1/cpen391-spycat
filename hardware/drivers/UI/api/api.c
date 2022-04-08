@@ -1,3 +1,9 @@
+/**
+ * @file api.c
+ * @author L2B-15
+ * @brief helper functions for building api request strings
+ */
+
 #include "api.h"
 
 /**

@@ -20,7 +20,6 @@
 
 struct User *USER;
 
-// gcc gui_logic.c -o test -lpython3.5m
 void gui_init()
 {
     // initialize global user
@@ -52,7 +51,6 @@ void gui_init()
         int Friend_Colour = atoi(colourString);
         if (nextScreenCode == 0)
         {
-            // TODO 5: Update online status of the user to offline
             return;
         }
         else if (nextScreenCode == 1)

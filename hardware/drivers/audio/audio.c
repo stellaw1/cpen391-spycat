@@ -1,3 +1,6 @@
+/**
+ * Audio synthesis code referenced from https://people.ece.cornell.edu/land/courses/ece5760/DE1_SOC/HPS_peripherials/DSP_index.html
+ */
 #include "audio.h"
 
 #include <stdio.h>

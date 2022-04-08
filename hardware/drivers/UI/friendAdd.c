@@ -1,12 +1,11 @@
 #include "UI.h"
 
-/*
+/**
  * Desciption: The Adding friend screen
  *             User enter the fromd user name.
  *             UID will be sent back to the main function through parameter.
  *
  * @pram:      string: UID, UID is set to less than 10 characters
- * @ret:       void
  */
 void friendAddScreen(char * UID, char *friendUID, int background_colour)
 {

@@ -1,18 +1,13 @@
-/*
- * Types.h
- *
+/**
+ * @file types.h
+ * @author your name (you@domain.com)
+ * @brief define custom types for global User variable
  */
 
 #include "../api/api.h"
 
 #ifndef TYPES_H_
 #define TYPES_H_
-
-// typedef enum {
-//     ROCK,
-//     PAPER,
-//     SCISSORS
-// } Choice;
 
 typedef struct User {
     char username[MAX_INPUT_CHARS];

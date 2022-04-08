@@ -1,12 +1,12 @@
 #include "UI.h"
 
-/*
- * Desciption: The main login screen.
- *             User enter the user name, and select their pet colour.
- *             UID will be sent back to the main function through parameter.
- *
- * @pram:      string: UID, UID is set to less than 10 characters
- * @ret:       Color
+/**
+ * @brief       The main login screen.
+ *              User enter the user name, and select their pet colour.
+ *              UID will be sent back to the main function through parameter.
+ * 
+ * @pram:       string: UID, UID is set to less than 10 characters
+ * @ret:        Color
  */
 void chatScreen(char *UID, char *friendUID, int background_colour)
 {
@@ -24,7 +24,7 @@ void chatScreen(char *UID, char *friendUID, int background_colour)
     // send button
     text_box_filled("Send", 20, 120, 30, 135, 120, 50, WHITE, GRAY);
     /* Chat Box */
-    drawPNGonScreen("chat.png", 200, 20, GRAY, 600, 200);
+    drawPNGonScreen("/img/chat.png", 200, 20, GRAY, 600, 200);
     /* textbox friend*/
     text_box_filled(rcvMsg, 200 + 85, 20 + 25, 200 + 85, 20 + 25, 420, 30, WHITE, GRAY);
     /* textbox user*/
@@ -57,7 +57,7 @@ void chatScreen(char *UID, char *friendUID, int background_colour)
         // refresh button
         if (p.x >= 20 && p.x <= 20 + 30 && p.y >= 750 && p.y <= 750 + 24)
         {
-            drawPNGonScreen("chat.png", 200, 20, GRAY, 600, 200);
+            drawPNGonScreen("/img/chat.png", 200, 20, GRAY, 600, 200);
             getChat(friendUID, UID, rcvMsg);
             text_box_filled(rcvMsg, 200 + 85, 20 + 25, 200 + 85, 20 + 25, 420, 30, WHITE, GRAY);
         }
@@ -66,7 +66,7 @@ void chatScreen(char *UID, char *friendUID, int background_colour)
         if (p.x >= 120 && p.x <= 120 + 50 && p.y >= 20 && p.y <= 20 + 120)
         {
             postChat(UID, friendUID, sentMsg);
-            drawPNGonScreen("chat.png", 200, 20, GRAY, 600, 200);
+            drawPNGonScreen("/img/chat.png", 200, 20, GRAY, 600, 200);
             text_box_filled(rcvMsg, 200 + 85, 20 + 25, 200 + 85, 20 + 25, 420, 30, WHITE, GRAY);
             sentMsg[j] = '\0';
             text_box_filled(sentMsg, 200 + 110, 20 + 110, 200 + 110, 20 + 110, 420, 30, WHITE, GRAY);

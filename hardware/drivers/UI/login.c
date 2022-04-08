@@ -1,6 +1,6 @@
 #include "UI.h"
 
-/*
+/**
  * Desciption: The main login screen.
  *             User enter the user name, and select their pet colour.
  *             UID will be sent back to the main function through parameter.
@@ -16,7 +16,7 @@ int loginScreen(char *UID, char *pet_colour, int background_colour)
     GraphicsString("Pet Colour:", 150, 150, WHITE, background_colour);
     // Pet Colour
     int Colour = ColourPalletteData[WHITE]; // default colour is white, adjust the colour using the buttons on the left and right.
-    int userColour = WHITE;                 // WHITE
+    int userColour = WHITE; 
     text_box_filled("<", 350, 150, 360, 158, 30, 30, WHITE, GRAY);
     text_box_filled(">", 470, 150, 480, 158, 30, 30, WHITE, GRAY);
     box_filled(400, 150, 50, 30, userColour);
@@ -51,13 +51,11 @@ int loginScreen(char *UID, char *pet_colour, int background_colour)
             if (p.x >= 150 && p.x <= 150 + 30 && p.y >= 350 && p.y <= 350 + 30)
             {
                 userColour = (userColour - 1 < 0) ? 0 : userColour - 1;
-                // Colour = ColourPalletteData[userColour];
                 box_filled(400, 150, 50, 30, userColour);
             }
             if (p.x >= 150 && p.x <= 150 + 30 && p.y >= 470 && p.y <= 470 + 30)
             {
                 userColour = (userColour + 1 > 63) ? 63 : userColour + 1;
-                // Colour = ColourPalletteData[userColour];
                 box_filled(400, 150, 50, 30, userColour);
             }
         }

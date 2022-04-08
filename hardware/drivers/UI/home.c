@@ -2,7 +2,7 @@
 #include "searchFriend.c"
 #include <time.h>
 
-/*
+/**
  * Desciption: The main menu session screen.
  *
  * @pram:      string: UID, UID is set to less than 10 characters
@@ -28,22 +28,22 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
     {
         box_filled(0, 0, 800, 480, background_colour);
         /* Draw Pets*/
-        drawPNGonScreen("data.png", 50, 100, atoi(userPetColour), 300, 300);
+        drawPNGonScreen("/img/cat.png", 50, 100, atoi(userPetColour), 300, 300);
         /* Draw return button */
         text_box_filled("< Logout", 20, 20, 30, 35, 135, 50, WHITE, GRAY);
 
         /* Show weather on screen */
         if (!strcmp(weatherString, "Clear"))
         {
-            drawPNGonScreen("clear.png", 430, 80, YELLOW, 120, 120);
+            drawPNGonScreen("/img/clear.png", 430, 80, YELLOW, 120, 120);
         }
         else if (!strcmp(weatherString, "Rain"))
         {
-            drawPNGonScreen("rain.png", 430, 80, GRAY, 120, 120);
+            drawPNGonScreen("/img/rain.png", 430, 80, GRAY, 120, 120);
         }
         else
         {
-            drawPNGonScreen("cloud.png", 430, 80, WHITE, 120, 120);
+            drawPNGonScreen("/img/cloud.png", 430, 80, WHITE, 120, 120);
         }
         GraphicsString(tempinCelsius, 430, 220, WHITE, background_colour);
 
@@ -68,11 +68,6 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
         while (1)
         {
             p = GetRelease();
-            // p = GetReleaseTimer(before);
-            // if (p.x == NULL_RETURN_X)
-            // {
-            //     return 5; // go to sleep screen
-            // }
             // Logout button
             if (p.x >= 20 && p.x <= 20 + 50 && p.y >= 20 && p.y <= 20 + 130)
             {
@@ -82,10 +77,10 @@ int homeScreen(char *UID, char *userPetColour, char *selectedFriendUID, int back
             if (p.x >= 100 && p.x <= 100 + 300 && p.y >= 50 && p.y <= 50 + 300)
             {
                 box_filled(50, 100, 300, 300, background_colour);
-                drawPNGonScreen("data_sing.png", 50, 100, atoi(userPetColour), 300, 300);
+                drawPNGonScreen("/img/cat_sing.png", 50, 100, atoi(userPetColour), 300, 300);
                 play();
                 box_filled(50, 100, 300, 300, background_colour);
-                drawPNGonScreen("data.png", 50, 100, atoi(userPetColour), 300, 300);
+                drawPNGonScreen("/img/cat.png", 50, 100, atoi(userPetColour), 300, 300);
             }
             // Add friend button
             if (p.x >= 400 && p.x <= 400 + 30 && p.y >= 295 && p.y <= 295 + 100)

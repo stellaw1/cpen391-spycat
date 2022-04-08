@@ -1,4 +1,4 @@
-#ifndef API_H_ /* Include Guard */
+#ifndef API_H_
 #define API_H_
 
 #define MAX_TEXT_CHARS (100)

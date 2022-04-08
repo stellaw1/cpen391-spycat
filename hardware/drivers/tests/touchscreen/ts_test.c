@@ -1,13 +1,9 @@
-
-  
-//NOTE: (20, 0) is top left, (799, 479) is bottom right
+// (20, 0) is top left, (799, 479) is bottom right
 #include <stdio.h>
 
 #include "../../io_bridge.c"
 #include "../../touchscreen/Touchscreen.c"
-/**
- * do required initalization before running the app
- */
+
 int sys_init()
 {
     io_bridge_init();
