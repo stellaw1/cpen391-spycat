@@ -1,0 +1,93 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst CPEN391_Computer.SysID -pg 1 -lvl 8 -y 550
+preplace inst CPEN391_Computer.ARM_A9_HPS.dcan1 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.arm_a9_0 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.sdmmc -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.arm_a9_1 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.wd_timer0 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.wd_timer1 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.axi_ocram -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.i2c0 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.i2c1 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.timer -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.i2c2 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.i2c3 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.eosc1 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.hps_io -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.eosc2 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.clkmgr -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.sysmgr -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.hps_io.border -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.gpio0 -pg 1
+preplace inst CPEN391_Computer.fifo_FPGA_to_HPS -pg 1 -lvl 7 -y 160
+preplace inst CPEN391_Computer.MIPI_CLOCK -pg 1 -lvl 2 -y 200
+preplace inst CPEN391_Computer.ARM_A9_HPS.timer0 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.gpio1 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.sdrctl -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.timer1 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.nand0 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.gpio2 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.timer2 -pg 1
+preplace inst CPEN391_Computer.new_sdram_controller_0 -pg 1 -lvl 3 -y 240
+preplace inst CPEN391_Computer.System_PLL.sys_pll -pg 1
+preplace inst CPEN391_Computer.clock_bridge_0 -pg 1 -lvl 1 -y 40
+preplace inst CPEN391_Computer.ARM_A9_HPS.timer3 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.f2s_periph_ref_clk -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.fpgamgr -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.scu -pg 1
+preplace inst CPEN391_Computer.System_PLL.reset_from_locked -pg 1
+preplace inst CPEN391_Computer.parallel_port_0 -pg 1 -lvl 7 -y 40
+preplace inst CPEN391_Computer.MIPI_CLOCK.sys_pll -pg 1
+preplace inst CPEN391_Computer.System_PLL -pg 1 -lvl 1 -y 630
+preplace inst CPEN391_Computer.ARM_A9_HPS.l3regs -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.gmac0 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.fpga_interfaces -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.gmac1 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.usb0 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.f2s_sdram_ref_clk -pg 1
+preplace inst CPEN391_Computer -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst CPEN391_Computer.ARM_A9_HPS.usb1 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.arm_gic_0 -pg 1
+preplace inst CPEN391_Computer.Onchip_SRAM -pg 1 -lvl 7 -y 440
+preplace inst CPEN391_Computer.MIPI_CLOCK.reset_from_locked -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.uart0 -pg 1
+preplace inst CPEN391_Computer.Interval_Timer -pg 1 -lvl 8 -y 120
+preplace inst CPEN391_Computer.ARM_A9_HPS.uart1 -pg 1
+preplace inst CPEN391_Computer.IO_Bridge -pg 1 -lvl 8 -y 230
+preplace inst CPEN391_Computer.ARM_A9_HPS.spim0 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.rstmgr -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.spim1 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.clk_0 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.qspi -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS -pg 1 -lvl 6 -y 50
+preplace inst CPEN391_Computer.ARM_A9_HPS.bridges -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.axi_sdram -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.L2 -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.dma -pg 1
+preplace inst CPEN391_Computer.ARM_A9_HPS.dcan0 -pg 1
+preplace netloc FAN_OUT<net_container>CPEN391_Computer</net_container>(SLAVE)Onchip_SRAM.clk1,(SLAVE)fifo_FPGA_to_HPS.clk_in,(SLAVE)MIPI_CLOCK.ref_clk,(MASTER)clock_bridge_0.out_clk) 1 1 6 430 360 NJ 350 NJ 290 NJ 290 NJ 290 2330
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)MIPI_CLOCK.ref_reset,(SLAVE)CPEN391_Computer.mipi_clock_ref_reset) 1 0 2 NJ 230 NJ
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)System_PLL.ref_clk,(SLAVE)CPEN391_Computer.system_pll_ref_clk) 1 0 1 NJ
+preplace netloc POINT_TO_POINT<net_container>CPEN391_Computer</net_container>(MASTER)MIPI_CLOCK.sys_clk,(SLAVE)new_sdram_controller_0.clk) 1 2 1 N
+preplace netloc FAN_OUT<net_container>CPEN391_Computer</net_container>(MASTER)ARM_A9_HPS.h2f_axi_master,(SLAVE)fifo_FPGA_to_HPS.out,(SLAVE)Onchip_SRAM.s2) 1 6 1 2210
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)CPEN391_Computer.fifo_fpga_to_hps_in,(SLAVE)fifo_FPGA_to_HPS.in) 1 0 7 NJ 160 NJ 160 NJ 180 NJ 210 NJ 210 NJ 210 NJ
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)ARM_A9_HPS.memory,(SLAVE)CPEN391_Computer.memory) 1 0 6 NJ 120 NJ 120 NJ 140 NJ 160 NJ 160 NJ
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)IO_Bridge.external_interface,(SLAVE)CPEN391_Computer.io) 1 0 8 NJ 300 NJ 300 NJ 230 NJ 270 NJ 270 NJ 270 NJ 370 NJ
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)Onchip_SRAM.s1,(SLAVE)CPEN391_Computer.onchip_sram_s1) 1 0 7 NJ 530 NJ 530 NJ 530 NJ 530 NJ 530 NJ 530 NJ
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)CPEN391_Computer.fifo_fpga_to_hps_in_csr,(SLAVE)fifo_FPGA_to_HPS.in_csr) 1 0 7 NJ 140 NJ 140 NJ 160 NJ 250 NJ 250 NJ 250 NJ
+preplace netloc INTERCONNECT<net_container>CPEN391_Computer</net_container>(SLAVE)Onchip_SRAM.reset1,(SLAVE)Onchip_SRAM.reset2,(SLAVE)fifo_FPGA_to_HPS.reset_in,(SLAVE)fifo_FPGA_to_HPS.reset_out,(MASTER)ARM_A9_HPS.h2f_reset,(MASTER)System_PLL.reset_source,(SLAVE)SysID.reset,(SLAVE)parallel_port_0.reset,(SLAVE)IO_Bridge.reset,(SLAVE)Interval_Timer.reset) 1 1 7 NJ 640 NJ 640 NJ 640 NJ 640 NJ 640 2350 610 2650
+preplace netloc FAN_OUT<net_container>CPEN391_Computer</net_container>(SLAVE)fifo_FPGA_to_HPS.out_csr,(SLAVE)Interval_Timer.s1,(SLAVE)IO_Bridge.avalon_slave,(MASTER)ARM_A9_HPS.h2f_lw_axi_master,(SLAVE)parallel_port_0.avalon_parallel_port_slave,(SLAVE)SysID.control_slave) 1 6 2 2310 350 2690
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(MASTER)CPEN391_Computer.sdram_clk,(MASTER)System_PLL.sdram_clk) 1 1 8 NJ 660 NJ 660 NJ 660 NJ 660 NJ 660 NJ 660 NJ 660 NJ
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)CPEN391_Computer.sdram_s1,(SLAVE)new_sdram_controller_0.s1) 1 0 3 NJ 320 NJ 320 NJ
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)CPEN391_Computer.system_pll_ref_reset,(SLAVE)System_PLL.ref_reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)CPEN391_Computer.new_sdram_controller_0_wire,(SLAVE)new_sdram_controller_0.wire) 1 0 3 NJ 340 NJ 340 NJ
+preplace netloc FAN_OUT<net_container>CPEN391_Computer</net_container>(SLAVE)ARM_A9_HPS.f2h_axi_clock,(SLAVE)parallel_port_0.clk,(SLAVE)Interval_Timer.clk,(SLAVE)SysID.clk,(SLAVE)IO_Bridge.clk,(SLAVE)fifo_FPGA_to_HPS.clk_out,(SLAVE)ARM_A9_HPS.h2f_axi_clock,(SLAVE)ARM_A9_HPS.h2f_lw_axi_clock,(SLAVE)Onchip_SRAM.clk2,(MASTER)System_PLL.sys_clk) 1 1 7 NJ 680 NJ 680 NJ 680 NJ 680 1660 470 2290 590 2610
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)parallel_port_0.external_interface,(SLAVE)CPEN391_Computer.vid_pp_out) 1 0 7 NJ 380 NJ 380 NJ 380 NJ 380 NJ 380 NJ 380 NJ
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)CPEN391_Computer.clock_bridge_0_in_clk,(SLAVE)clock_bridge_0.in_clk) 1 0 1 NJ
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(MASTER)CPEN391_Computer.mipi_clock_sdram_clk,(MASTER)MIPI_CLOCK.sdram_clk) 1 2 7 NJ 200 NJ 310 NJ 310 NJ 310 NJ 390 NJ 390 NJ
+preplace netloc EXPORT<net_container>CPEN391_Computer</net_container>(SLAVE)ARM_A9_HPS.hps_io,(SLAVE)CPEN391_Computer.hps_io) 1 0 6 NJ 100 NJ 100 NJ 110 NJ 110 NJ 110 NJ
+preplace netloc FAN_OUT<net_container>CPEN391_Computer</net_container>(SLAVE)IO_Bridge.interrupt,(SLAVE)Interval_Timer.irq,(MASTER)ARM_A9_HPS.f2h_irq0) 1 6 2 NJ 30 2630
+preplace netloc POINT_TO_POINT<net_container>CPEN391_Computer</net_container>(SLAVE)new_sdram_controller_0.reset,(MASTER)MIPI_CLOCK.reset_source) 1 2 1 690
+levelinfo -pg 1 0 180 3040
+levelinfo -hier CPEN391_Computer 190 270 530 860 1200 1620 2000 2420 2730 2880
