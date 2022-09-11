@@ -5,7 +5,7 @@
 
 SPYCAT (Smart Pet You Care About Tons) is a virtual pet system built on a De1-SoC FPGA board. Its aim is to improve the user’s quality of life by providing companionship and virtual interaction with friends. 
 
-### [Demo](https://youtu.be/jjGQYYytCDU)c
+### [Demo](https://youtu.be/jjGQYYytCDU)
 ## Setup
 ### EC2 node server
 URL: [http://3.140.252.116:8000](http://3.140.252.116:8000)
